@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         //람머스
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetAxisRaw("Horizontal") != 0)
         {
             _animator.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
