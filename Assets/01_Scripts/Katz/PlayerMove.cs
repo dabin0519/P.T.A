@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float _moveSpeed;
-    public float _rollSpeed;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _rollSpeed;
 
-    Animator _animator;
-    SpriteRenderer _sprite;
-    Rigidbody2D _rigid;
+    private Animator _animator;
+    private SpriteRenderer _sprite;
+    private Rigidbody2D _rigid;
 
     private void Start()
     {
@@ -38,7 +38,6 @@ public class PlayerMove : MonoBehaviour
             _sprite.flipX = Input.mousePosition.x > _vector.x;
             _animator.SetInteger("move", _sprite.flipX ? 1 : -1);
         }
-        Debug.Log(Input.GetAxisRaw("Roll"));
     }
 
     private void Update()
