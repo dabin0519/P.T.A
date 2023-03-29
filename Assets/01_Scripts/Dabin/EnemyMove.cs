@@ -17,7 +17,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] LayerMask raycastMask;
     [SerializeField] private float rayCastLength;
     [SerializeField] private float attackDistance;
-    [SerializeField] private float timer;
+    [SerializeField] private float coolTimer;
     [HideInInspector] public Transform target;
     [HideInInspector] public bool inRange;
     [SerializeField] public GameObject hotZone;
@@ -30,6 +30,7 @@ public class EnemyMove : MonoBehaviour
     [HideInInspector] public bool isMove = true;
     [HideInInspector] public bool follow = false;
     [HideInInspector] public bool isDie;
+    [HideInInspector] public bool isShooting;
 
     private Animator anim;
     private float distance;
@@ -41,7 +42,7 @@ public class EnemyMove : MonoBehaviour
     private void Awake()
     {
         SelectTarget();
-        intTimer = timer;
+        intTimer = coolTimer;
         anim = GetComponent<Animator>();
         warningLine.SetActive(false);
         hotZone.SetActive(false);
@@ -50,7 +51,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if (isMove == true)
+        if (isMove == true && !isShooting)
         {
             if (!attackMode)
             {
@@ -121,6 +122,8 @@ public class EnemyMove : MonoBehaviour
 
     void EnemyLogic()
     {
+        if (isShooting) return;
+
         distance = Vector2.Distance(transform.position, target.position);
 
         if (distance > attackDistance)
@@ -134,6 +137,7 @@ public class EnemyMove : MonoBehaviour
 
         if (cooling)
         {
+            warningLine.SetActive(false);
             CoolDown();
             anim.SetBool("isAttacking", false);
         }
@@ -153,21 +157,22 @@ public class EnemyMove : MonoBehaviour
     void Attack()
     {
         warningLine.SetActive(true);
-        timer = intTimer;
+        coolTimer = intTimer;
         attackMode = true;
 
+        isShooting = true;
         //anim.SetBool("isWalking", false);
         //anim.SetBool("isAttacking", true);
     }
 
     void CoolDown()
     {
-        timer -= Time.deltaTime;
+        coolTimer -= Time.deltaTime;
 
-        if (timer <= 0 && cooling && attackMode)
+        if (coolTimer <= 0 && cooling && attackMode)
         {
             cooling = false;
-            timer = intTimer;
+            coolTimer = intTimer;
         }
     }
 
@@ -178,7 +183,7 @@ public class EnemyMove : MonoBehaviour
         anim.SetBool("isAttacking", false);
     }
 
-    public void TriggerCooling()
+    public void Cooling()
     {
         cooling = true;
     }

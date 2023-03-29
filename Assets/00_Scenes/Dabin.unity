@@ -529,13 +529,14 @@ GameObject:
   - component: {fileID: 1535756193}
   - component: {fileID: 1535756195}
   - component: {fileID: 1535756194}
+  - component: {fileID: 1535756196}
   m_Layer: 0
   m_Name: WarningEndLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1535756193
 Transform:
   m_ObjectHideFlags: 0
@@ -623,6 +624,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1535756196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535756192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c905356df0825504794fd773527a6209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitBlinkTime: 1.5
+  waitShootTime: 0.4
 --- !u!4 &1657101098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8568718568504711476, guid: bec17a8f4591a404caf413dbcb07e93c, type: 3}
@@ -743,6 +758,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8568718568504711479, guid: bec17a8f4591a404caf413dbcb07e93c, type: 3}
+      propertyPath: coolTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568718568504711479, guid: bec17a8f4591a404caf413dbcb07e93c, type: 3}
       propertyPath: leftLimit
       value: 
       objectReference: {fileID: 1709422539}
@@ -750,6 +769,10 @@ PrefabInstance:
       propertyPath: rightLimit
       value: 
       objectReference: {fileID: 1465112145}
+    - target: {fileID: 8568718568504711479, guid: bec17a8f4591a404caf413dbcb07e93c, type: 3}
+      propertyPath: warningLine
+      value: 
+      objectReference: {fileID: 1535756192}
     - target: {fileID: 8568718568504711479, guid: bec17a8f4591a404caf413dbcb07e93c, type: 3}
       propertyPath: attackDistance
       value: 10
