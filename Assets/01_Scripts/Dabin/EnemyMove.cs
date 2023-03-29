@@ -122,13 +122,12 @@ public class EnemyMove : MonoBehaviour
 
     void EnemyLogic()
     {
-        if (isShooting) return;
 
         distance = Vector2.Distance(transform.position, target.position);
 
-        if (distance > attackDistance)
+        if (distance > attackDistance && isShooting)
         {
-            stopAttack(); //총알 캐스팅 중에는 사거리는 무제한
+            StopAttack(); //총알 캐스팅 중에는 사거리는 무제한
         }
         if (attackDistance >= distance && cooling == false)
         {
@@ -176,9 +175,9 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    void stopAttack()
+    void StopAttack()
     {
-        cooling = false;
+        cooling = false; // <- 이게 문제인데 훔...
         attackMode = false;
         anim.SetBool("isAttacking", false);
     }
