@@ -32,7 +32,7 @@ public class HotzoneCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !enemyParent.follow)
         {
             inRange = false;
             enemyParent.triggerArea.SetActive(true);

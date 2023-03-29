@@ -9,28 +9,33 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] Transform rightLimit;
 
     [Header("----------Move----------")]
-    [SerializeField] float moveSpeed;
-    [SerializeField] float StopTime;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float StopTime;
+    [SerializeField] private float checkPlayerTime;
 
     [Header("--------Collison---------")]
     [SerializeField] LayerMask raycastMask;
-    [SerializeField] float rayCastLength;
-    [SerializeField] float attackDistance;
-    [SerializeField] float timer;
+    [SerializeField] private float rayCastLength;
+    [SerializeField] private float attackDistance;
+    [SerializeField] private float timer;
     [HideInInspector] public Transform target;
     [HideInInspector] public bool inRange;
     [SerializeField] public GameObject hotZone;
     [SerializeField] public GameObject triggerArea;
+    [SerializeField] private GameObject Bcollider;
 
-    [SerializeField] GameObject Bcollider;
+    [Header("--------Attack-------")]
+    [SerializeField] private GameObject warningLine;
 
-    public static bool isMove = true;
-    public static bool isDie;
+    [HideInInspector] public bool isMove = true;
+    [HideInInspector] public bool follow = false;
+    [HideInInspector] public bool isDie;
 
     private Animator anim;
     private float distance;
     private bool attackMode;
     private bool cooling;
+    private bool checkPlayer;
     private float intTimer;
 
     private void Awake()
@@ -38,6 +43,9 @@ public class EnemyMove : MonoBehaviour
         SelectTarget();
         intTimer = timer;
         anim = GetComponent<Animator>();
+        warningLine.SetActive(false);
+        hotZone.SetActive(false);
+        triggerArea.SetActive(true);
     }
 
     private void Update()
@@ -59,9 +67,15 @@ public class EnemyMove : MonoBehaviour
                 EnemyLogic();
             }
         }
-        else if (!isMove)
+        else if (!isMove && !checkPlayer)
         {
-            Invoke("CanMove", 2f);
+            Debug.Log("?");
+            Invoke("CheckPlayer", checkPlayerTime);
+        }
+        else if(!isMove && checkPlayer)
+        {
+            Follow();
+            isMove = true;
         }
 
         if (isDie)
@@ -73,6 +87,27 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    private void CheckPlayer()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, triggerArea.GetComponent<BoxCollider2D>().size.x, raycastMask);
+
+        if(hit.collider != null)
+        {
+            CanMove();
+            Follow();
+        }
+        else
+        {
+            Invoke("CanMove",checkPlayerTime + 1.5f);
+        }
+    }
+
+    private void Follow()
+    {
+        Debug.Log("!!");
+        follow = true;
+    }
+
     void Die()
     {
         gameObject.SetActive(false);
@@ -80,6 +115,7 @@ public class EnemyMove : MonoBehaviour
 
     void CanMove()
     {
+        checkPlayer = true;
         isMove = true;
     }
 
@@ -89,7 +125,7 @@ public class EnemyMove : MonoBehaviour
 
         if (distance > attackDistance)
         {
-            stopAttack();
+            stopAttack(); //총알 캐스팅 중에는 사거리는 무제한
         }
         if (attackDistance >= distance && cooling == false)
         {
@@ -116,11 +152,12 @@ public class EnemyMove : MonoBehaviour
 
     void Attack()
     {
+        warningLine.SetActive(true);
         timer = intTimer;
         attackMode = true;
 
-        anim.SetBool("isWalking", false);
-        anim.SetBool("isAttacking", true);
+        //anim.SetBool("isWalking", false);
+        //anim.SetBool("isAttacking", true);
     }
 
     void CoolDown()
