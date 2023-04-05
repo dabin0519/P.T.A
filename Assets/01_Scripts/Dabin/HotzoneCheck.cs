@@ -10,7 +10,7 @@ public class HotzoneCheck : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponentInParent<Animator>();
+        anim = GameObject.Find("EnemyRenderer").GetComponent<Animator>();
         enemyParent = GetComponentInParent<EnemyMove>();
     }
 

@@ -28,6 +28,8 @@ public class WarningLine : MonoBehaviour
 
     private void Shoot()
     {
+        gameObject.SetActive(false);
+        Debug.Log("shoot »£√‚µ ");
         enemyMove.isShooting = false;
         enemyMove.Cooling();
         isCall = false;

@@ -18,11 +18,11 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float rayCastLength;
     [SerializeField] private float attackDistance;
     [SerializeField] private float coolTimer;
-    [HideInInspector] public Transform target;
-    [HideInInspector] public bool inRange;
+    [SerializeField] private GameObject Bcollider;
     [SerializeField] public GameObject hotZone;
     [SerializeField] public GameObject triggerArea;
-    [SerializeField] private GameObject Bcollider;
+    [HideInInspector] public bool inRange;
+    [HideInInspector] public Transform target;
 
     [Header("--------Attack-------")]
     [SerializeField] private GameObject warningLine;
@@ -31,10 +31,10 @@ public class EnemyMove : MonoBehaviour
     [HideInInspector] public bool follow = false;
     [HideInInspector] public bool isDie;
     [HideInInspector] public bool isShooting;
-
+    
     private Animator anim;
     private float distance;
-    private bool attackMode;
+    public bool attackMode;
     private bool cooling;
     private bool checkPlayer;
     private float intTimer;
@@ -43,7 +43,7 @@ public class EnemyMove : MonoBehaviour
     {
         SelectTarget();
         intTimer = coolTimer;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         warningLine.SetActive(false);
         hotZone.SetActive(false);
         triggerArea.SetActive(true);
@@ -51,7 +51,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if (isMove == true && !isShooting)
+        if (isMove && !isShooting)
         {
             if (!attackMode)
             {
@@ -71,6 +71,7 @@ public class EnemyMove : MonoBehaviour
         else if (!isMove && !checkPlayer)
         {
             Debug.Log("?");
+            checkPlayer = true;
             Invoke("CheckPlayer", checkPlayerTime);
         }
         else if(!isMove && checkPlayer)
@@ -90,6 +91,7 @@ public class EnemyMove : MonoBehaviour
 
     private void CheckPlayer()
     {
+        Debug.Log("CheckPlayer호출됨");
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, triggerArea.GetComponent<BoxCollider2D>().size.x, raycastMask);
 
         if(hit.collider != null)
@@ -116,7 +118,6 @@ public class EnemyMove : MonoBehaviour
 
     void CanMove()
     {
-        checkPlayer = true;
         isMove = true;
     }
 
@@ -125,7 +126,7 @@ public class EnemyMove : MonoBehaviour
 
         distance = Vector2.Distance(transform.position, target.position);
 
-        if (distance > attackDistance && isShooting)
+        if (distance > attackDistance && !isShooting)
         {
             StopAttack(); //총알 캐스팅 중에는 사거리는 무제한
         }
@@ -155,6 +156,7 @@ public class EnemyMove : MonoBehaviour
 
     void Attack()
     {
+        Debug.Log("attack 호출");
         warningLine.SetActive(true);
         coolTimer = intTimer;
         attackMode = true;
@@ -178,6 +180,7 @@ public class EnemyMove : MonoBehaviour
     void StopAttack()
     {
         cooling = false; // <- 이게 문제인데 훔...
+        //isShooting = false;
         attackMode = false;
         anim.SetBool("isAttacking", false);
     }
