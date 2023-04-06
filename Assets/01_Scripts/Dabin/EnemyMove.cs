@@ -71,7 +71,6 @@ public class EnemyMove : MonoBehaviour
         else if (!isMove && !checkPlayer)
         {
             Debug.Log("?");
-            checkPlayer = true;
             Invoke("CheckPlayer", checkPlayerTime);
         }
         else if(!isMove && checkPlayer)
@@ -91,18 +90,9 @@ public class EnemyMove : MonoBehaviour
 
     private void CheckPlayer()
     {
+        checkPlayer = true;
         Debug.Log("CheckPlayer»£√‚µ ");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, triggerArea.GetComponent<BoxCollider2D>().size.x, raycastMask);
-
-        if(hit.collider != null)
-        {
-            CanMove();
-            Follow();
-        }
-        else
-        {
-            Invoke("CanMove",checkPlayerTime + 1.5f);
-        }
+        Invoke("CanMove",checkPlayerTime + 0.5f);
     }
 
     private void Follow()
