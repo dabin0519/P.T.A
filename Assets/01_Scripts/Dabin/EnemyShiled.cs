@@ -13,6 +13,7 @@ public class EnemyShiled : MonoBehaviour
     private void Update()
     {
         ShootRay();
+        Flip();
     }
 
     private void ShootRay()
@@ -23,10 +24,6 @@ public class EnemyShiled : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Player"))
                 Follow();
         }
-        else
-        {
-            Debug.Log("Player?");
-        }
     }
 
     private void Follow()
@@ -34,5 +31,21 @@ public class EnemyShiled : MonoBehaviour
         Vector2 targetPosition = new Vector2(targetPos.position.x, transform.position.y);
 
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+    }
+
+    private void Flip()
+    {
+        Vector3 rotation = transform.eulerAngles;
+
+        if (transform.position.x < targetPos.position.x)
+        {
+            rotation.y = 180f;
+        }
+        else
+        {
+            rotation.y = 0f;
+        }
+
+        transform.eulerAngles = rotation;
     }
 }
