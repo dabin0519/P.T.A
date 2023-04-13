@@ -11,6 +11,9 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
 
+    private bool _isParry;
+    private Vector3 _vector;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -18,8 +21,14 @@ public class PlayerMove : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
+        if (_isParry)
+        {
+            _sprite.flipX = Input.mousePosition.x > _vector.x ? false : false;
+            return;
+        }
+
         //Flip
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
@@ -33,7 +42,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            Vector3 _vector = Camera.main.WorldToScreenPoint(transform.position);
+            _vector = Camera.main.WorldToScreenPoint(transform.position);
 
             _sprite.flipX = Input.mousePosition.x > _vector.x;
             _animator.SetInteger("move", _sprite.flipX ? 1 : -1);
@@ -48,5 +57,16 @@ public class PlayerMove : MonoBehaviour
             _animator.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }
+
+        if (Input.GetMouseButtonDown(1) && !_isParry)
+        {
+            _isParry = true;
+            _animator.SetTrigger("Parry");
+        }
+    }
+
+    public void FinishParry()
+    {
+        _isParry = false;
     }
 }

@@ -6,14 +6,43 @@ using UnityEngine;
 public class EnemyShiled : MonoBehaviour
 {
     [SerializeField] private float checkDistance;
+    [SerializeField] private float attackDistance;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Transform targetPos;
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float backTime;
+
+    private bool isAttack;
+    private Vector3 rotation;
 
     private void Update()
     {
-        ShootRay();
-        Flip();
+        if (isAttack)
+            return;
+
+        if (transform.position.x - targetPos.position.x < attackDistance && !(transform.position.x - targetPos.position.x < 0)) //사거리 안이면 움직임을 멈추고 공격 시작
+        {
+            isAttack = true;
+            Attack();
+        }
+        else
+        {
+            ShootRay();
+            Flip();
+        }
+    }
+
+    private void Attack()
+    {
+        Debug.Log("사거리 안");
+        StartCoroutine(AttackCoroutine());
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("공격");
+        isAttack = false;
     }
 
     private void ShootRay()
@@ -35,7 +64,7 @@ public class EnemyShiled : MonoBehaviour
 
     private void Flip()
     {
-        Vector3 rotation = transform.eulerAngles;
+        rotation = transform.eulerAngles;
 
         if (transform.position.x < targetPos.position.x)
         {
@@ -46,6 +75,5 @@ public class EnemyShiled : MonoBehaviour
             rotation.y = 0f;
         }
 
-        transform.eulerAngles = rotation;
     }
 }
