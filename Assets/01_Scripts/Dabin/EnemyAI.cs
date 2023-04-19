@@ -20,6 +20,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float alertDuration = 1f;
     [SerializeField] private float attackDelay = 2f;
 
+    public bool isAttack = false;
+
     private Transform player;
     private State currentState = State.Patrolling;
     private bool isCheckPlayer;
@@ -28,11 +30,13 @@ public class EnemyAI : MonoBehaviour
 
     private Animator _enemyAnim;
     private LineRenderer _lineRenderer;
+    private PlayerMove _playerMove;
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
+        _playerMove = FindObjectOfType<PlayerMove>();
     }
 
     private void Start()
@@ -132,12 +136,26 @@ public class EnemyAI : MonoBehaviour
         _lineRenderer.SetPosition(0, transform.position);
         target.x = player.position.x;
         _lineRenderer.SetPosition(1, target);
+        isAttack = true;
         _lineRenderer.startColor = Color.red;
         _lineRenderer.endColor = Color.red;
         yield return new WaitForSeconds(0.2f);
         _lineRenderer.startColor = Color.white;
         _lineRenderer.endColor = Color.white;
         yield return new WaitForSeconds(0.2f);
+
+        if (_playerMove.IsParry)
+        {
+            //플레이어 패링 성공
+            Debug.Log("플레이어 패링 성공");
+        }
+        else
+        {
+            //플레이어에 체력 깍기
+            Debug.Log("플레이어 패링 실패");
+        }
+
+        isAttack = false;
         _lineRenderer.enabled = false;
         currentState = State.Chasing;
     }
