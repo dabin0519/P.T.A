@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
+    private BoxCollider2D _collider;
 
     private bool _isParry;
     private Vector3 _vector;
@@ -19,6 +20,7 @@ public class PlayerMove : MonoBehaviour
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate()
