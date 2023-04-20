@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private float alertDuration = 1f;
     [SerializeField] private float attackDelay = 2f;
+    [SerializeField] private Transform shootPos;
 
     public bool isAttack = false;
 
@@ -30,13 +31,14 @@ public class EnemyAI : MonoBehaviour
 
     private Animator _enemyAnim;
     private LineRenderer _lineRenderer;
-    private PlayerMove _playerMove;
+    private PlayerSkill _playerSkill;
+
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
-        _playerMove = FindObjectOfType<PlayerMove>();
+        _playerSkill = FindObjectOfType<PlayerSkill>();
     }
 
     private void Start()
@@ -47,6 +49,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (_playerSkill.IsStop)
+        {
+            Debug.Log("정지 됐어용");
+            return;
+        }
+
         switch (currentState)
         {
             case State.Patrolling:
@@ -60,6 +68,7 @@ public class EnemyAI : MonoBehaviour
                 CheckForAttack();
                 break;
             case State.Attacking:
+                Flip();
                 break;
         }
     }
@@ -102,6 +111,7 @@ public class EnemyAI : MonoBehaviour
     {
         isCheckPlayer = true;
         Debug.Log("? (경계모드 들어감)");
+        _enemyAnim.SetTrigger("isAlert");
         currentState = State.Alert;
         yield return new WaitForSeconds(alertDuration);
         currentState = Physics2D.Raycast(transform.position, player.position - transform.position, viewDistance, playerLayer) ? State.Chasing : State.Patrolling;
@@ -112,7 +122,11 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("! (추적모드 들어감)");
         target = new Vector2(player.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        Flip();
+    }
 
+    private void Flip()
+    {
         Vector2 scale = transform.position.x < target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
         transform.localScale = scale;
     }
@@ -125,6 +139,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
     private IEnumerator Attack()
     {
         currentState = State.Attacking;
@@ -133,8 +148,9 @@ public class EnemyAI : MonoBehaviour
         // Perform attack here (e.g. spawn a projectile or trigger an animation)'
         Debug.Log("Attack");
         _lineRenderer.enabled = true;
-        _lineRenderer.SetPosition(0, transform.position);
+        _lineRenderer.SetPosition(0, shootPos.position);
         target.x = player.position.x;
+        target.y = shootPos.position.y;
         _lineRenderer.SetPosition(1, target);
         isAttack = true;
         _lineRenderer.startColor = Color.red;
@@ -143,8 +159,9 @@ public class EnemyAI : MonoBehaviour
         _lineRenderer.startColor = Color.white;
         _lineRenderer.endColor = Color.white;
         yield return new WaitForSeconds(0.2f);
+        _enemyAnim.SetTrigger("isAttack");
 
-        if (_playerMove.IsParry)
+        if (_playerSkill.IsParry)
         {
             //플레이어 패링 성공
             Debug.Log("플레이어 패링 성공");

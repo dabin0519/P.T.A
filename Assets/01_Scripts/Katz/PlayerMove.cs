@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
+    private PlayerSkill _skill;
 
-    public bool IsParry;
     private Vector3 _vector;
 
     private void Start()
@@ -19,13 +19,14 @@ public class PlayerMove : MonoBehaviour
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
+        _skill = GetComponent<PlayerSkill>();   
     }
 
     private void FixedUpdate()
     {
-        if (IsParry)
+        if (_skill.IsParryAnimation)
         {
-            _sprite.flipX = Input.mousePosition.x > _vector.x ? false : false;
+            _sprite.flipX = false;
             return;
         }
 
@@ -57,16 +58,5 @@ public class PlayerMove : MonoBehaviour
             _animator.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }
-
-        if (Input.GetMouseButtonDown(1) && !IsParry)
-        {
-            IsParry = true;
-            _animator.SetTrigger("Parry");
-        }
-    }
-
-    public void FinishParry()
-    {
-        IsParry = false;
     }
 }

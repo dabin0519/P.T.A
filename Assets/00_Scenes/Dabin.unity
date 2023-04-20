@@ -680,6 +680,7 @@ GameObject:
   - component: {fileID: 898855888}
   - component: {fileID: 898855887}
   - component: {fileID: 898855886}
+  - component: {fileID: 898855891}
   - component: {fileID: 898855885}
   m_Layer: 3
   m_Name: Player
@@ -702,7 +703,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 13
   _rollSpeed: 3
-  IsParry: 0
 --- !u!50 &898855886
 Rigidbody2D:
   serializedVersion: 4
@@ -837,6 +837,22 @@ Transform:
   m_Father: {fileID: 1681734032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &898855891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898855884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5a16b2392c6a743b3fe38f9b4411c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopTime: 2
+  IsStop: 0
+  IsParry: 0
+  IsParryAnimation: 0
 --- !u!1 &918447525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1068,37 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &1498554340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498554341}
+  m_Layer: 0
+  m_Name: ShootPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1498554341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498554340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.806, y: 0.536, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2203568093155262919}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518869242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,9 +1549,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 105649472, guid: 11e5ad69c63ac094c89ab49b6e82f9b7, type: 3}
+  m_Sprite: {fileID: 95379273, guid: 37f4b69be38311a4b9d293638d877444, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2, y: 2}
@@ -1648,6 +1695,7 @@ Transform:
   m_Children:
   - {fileID: 2203568092278825610}
   - {fileID: 1341448928}
+  - {fileID: 1498554341}
   m_Father: {fileID: 3842418460510356451}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1693,6 +1741,7 @@ MonoBehaviour:
   attackDistance: 10
   alertDuration: 0.5
   attackDelay: 1
+  shootPos: {fileID: 1498554341}
   isAttack: 0
 --- !u!1 &2203568093175972092
 GameObject:
