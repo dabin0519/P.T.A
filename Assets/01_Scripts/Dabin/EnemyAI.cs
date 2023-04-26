@@ -25,9 +25,10 @@ public class EnemyAI : MonoBehaviour
 
     private Transform player;
     private State currentState = State.Patrolling;
-    private bool isCheckPlayer;
-    private int currentWaypoint = 0;
     private Vector2 target;
+    private int currentWaypoint = 0;
+    private bool isCheckPlayer;
+    private bool isAttacking;
 
     private Animator _enemyAnim;
     private LineRenderer _lineRenderer;
@@ -133,7 +134,7 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, player.position) < attackDistance)
+        if (Vector2.Distance(transform.position, player.position) < attackDistance && !isAttacking)
         {
             StartCoroutine(Attack());
         }
@@ -142,10 +143,10 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        isAttacking = true;
         currentState = State.Attacking;
         transform.position = transform.position; // Stop moving
         yield return new WaitForSeconds(attackDelay);
-        // Perform attack here (e.g. spawn a projectile or trigger an animation)'
         Debug.Log("Attack");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, shootPos.position);
@@ -165,15 +166,46 @@ public class EnemyAI : MonoBehaviour
         {
             //플레이어 패링 성공
             Debug.Log("플레이어 패링 성공");
+            _playerSkill.ParryCheck(true);
+
+            StartCoroutine(WaitCounter());
         }
         else
         {
             //플레이어에 체력 깍기
             Debug.Log("플레이어 패링 실패");
+            _playerSkill.ParryCheck(false);
         }
 
         isAttack = false;
+        isAttacking = false;
         _lineRenderer.enabled = false;
         currentState = State.Chasing;
+    }
+
+    private IEnumerator WaitCounter()
+    {
+        yield return _playerSkill.IsCounter == true;
+        Vector3 startPos = player.position;
+        startPos.y = shootPos.position.y;
+        Vector3 endPos = new Vector3(15,0,0);
+
+        while (true)
+        {
+            endPos.y = Random.Range(-11f, 5f);
+            if (endPos.y < 0 && endPos.y >= -6.5f)  
+                continue;
+            break;
+        }
+        
+        Debug.Log(endPos.y);
+        _lineRenderer.startColor = Color.white;
+        _lineRenderer.endColor = Color.white;
+        _lineRenderer.enabled = true;
+        _lineRenderer.SetPosition(0, startPos);
+        _lineRenderer.SetPosition(1, endPos);
+        yield return new WaitForSeconds(0.5f);
+        _lineRenderer.enabled = false;
+        Debug.Log("데미지를 받았어용^^");
     }
 }
