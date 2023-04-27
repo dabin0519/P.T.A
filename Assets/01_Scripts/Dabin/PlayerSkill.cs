@@ -9,14 +9,18 @@ public class PlayerSkill : MonoBehaviour
     [SerializeField] private int _attackTime;
 
     [HideInInspector] public bool IsStop;
+    [HideInInspector] public bool IsAttack;
+    [HideInInspector] public bool IsDie;
     [HideInInspector] public bool IsParry;
     [HideInInspector] public bool IsCounter;
     [HideInInspector] public bool IsParryAnimation;
 
     private Animator _anim;
+    private PlayerMove _playerMove;
 
     private void Awake()
     {
+        _playerMove = GetComponent<PlayerMove>();
         _anim = GetComponentInChildren<Animator>();
     }
 
@@ -35,6 +39,8 @@ public class PlayerSkill : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0) && !IsParry && _attackTime > 0)
         {
+            Debug.Log("PressAttack");
+            IsAttack = true;
             _attackTime--;
             _anim.SetTrigger("Attack");
         }
@@ -59,7 +65,12 @@ public class PlayerSkill : MonoBehaviour
     public void ParryCheck(bool isParry) 
     {
         if (!isParry)
+        {
             IsParryAnimation = false;
+            IsDie = true;
+            _anim.SetTrigger("isDie");
+            _playerMove.enabled = false;
+        }
 
         _anim.SetBool("isParry", isParry);
         IsCounter = true;
@@ -70,7 +81,21 @@ public class PlayerSkill : MonoBehaviour
     {
         _anim.SetBool("isParry", false);
         _attackTime++;
+        StopCoroutine(AttackTimer());
+        StartCoroutine(AttackTimer());
         IsCounter = false;
         IsParryAnimation = false;
+    }
+
+    public void FinishAttack()
+    {
+        IsAttack = false;
+    }
+
+    private IEnumerator AttackTimer()
+    {
+        Debug.Log("CallAttackCoroutine");
+        yield return new WaitForSeconds(3f);
+        _attackTime = 0;
     }
 }

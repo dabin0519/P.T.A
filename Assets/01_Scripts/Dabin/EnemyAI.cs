@@ -50,9 +50,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_playerSkill.IsStop)
+        if (_playerSkill.IsStop || _playerSkill.IsDie)
         {
-            Debug.Log("정지 됐어용");
+            StopAllCoroutines();
             return;
         }
 
@@ -111,7 +111,6 @@ public class EnemyAI : MonoBehaviour
     private IEnumerator Alert()
     {
         isCheckPlayer = true;
-        Debug.Log("? (경계모드 들어감)");
         _enemyAnim.SetTrigger("isAlert");
         currentState = State.Alert;
         yield return new WaitForSeconds(alertDuration);
@@ -120,7 +119,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Chase()
     {
-        Debug.Log("! (추적모드 들어감)");
+        _enemyAnim.SetTrigger("isChase");
         target = new Vector2(player.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
         Flip();
@@ -147,7 +146,6 @@ public class EnemyAI : MonoBehaviour
         currentState = State.Attacking;
         transform.position = transform.position; // Stop moving
         yield return new WaitForSeconds(attackDelay);
-        Debug.Log("Attack");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, shootPos.position);
         target.x = player.position.x;
@@ -197,8 +195,7 @@ public class EnemyAI : MonoBehaviour
                 continue;
             break;
         }
-        
-        Debug.Log(endPos.y);
+
         _lineRenderer.startColor = Color.white;
         _lineRenderer.endColor = Color.white;
         _lineRenderer.enabled = true;
@@ -206,6 +203,5 @@ public class EnemyAI : MonoBehaviour
         _lineRenderer.SetPosition(1, endPos);
         yield return new WaitForSeconds(0.5f);
         _lineRenderer.enabled = false;
-        Debug.Log("데미지를 받았어용^^");
     }
 }

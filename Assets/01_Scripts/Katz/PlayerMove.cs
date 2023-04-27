@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_skill.IsParryAnimation)
+        if (_skill.IsParryAnimation || _skill.IsAttack)
         {
             _sprite.flipX = false;
             return;
