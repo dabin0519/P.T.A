@@ -17,7 +17,7 @@ public class FOV : MonoBehaviour
     private float horizontalViewHalfAngle = 0f;
 
     [SerializeField] private Transform player;
-    [SerializeField] private bool isPlayer;
+    public bool isPlayer;
 
     private void Awake()
     {

@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
+    // 범위 설정 X
+    // enemy에 넣어줌
+
     [SerializeField] private Transform _player;
-    [SerializeField][Range(0f,10f)] private float drawRad;
+    [SerializeField] private Color firstColor, secondColor;
+
     private LineRenderer _lineRenderer;
+    private bool waitForShoot = false;
 
     private void Awake()
     {
@@ -19,21 +24,17 @@ public class EnemyShooting : MonoBehaviour
 
     private void Update()
     {
+        if (waitForShoot) return;
         FindPlayer();
     }
 
     private void FindPlayer()
     {
         Vector2 dir = (transform.position - _player.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, drawRad);
-
-        if(hit)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir);
+        if (hit)
         {
-            Play(_player.position, hit.point);
-        }
-        else
-        {
-            Stop();
+            Play(transform.position, _player.position);
         }
     }
 
@@ -42,25 +43,29 @@ public class EnemyShooting : MonoBehaviour
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, from);
         _lineRenderer.SetPosition(1, to);
+
+        StartCoroutine(WaitBeforeShoot(4f));
     }
 
     public void Stop()
     {
         _lineRenderer.enabled = false;
+        StopAllCoroutines();
+        waitForShoot = false;
     }
 
     public IEnumerator WaitBeforeShoot(float time)
     {
-        yield return null;
-    }
+        _lineRenderer.startColor = firstColor;
+        _lineRenderer.endColor = firstColor;
+        yield return new WaitForSeconds(time);
 
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, drawRad);
-        Gizmos.color = Color.green;
+        waitForShoot = true;
+
+        _lineRenderer.startColor = secondColor;
+        _lineRenderer.endColor = secondColor;
+        yield return new WaitForSeconds(1f);
+        Stop();
     }
-#endif
 }
 
