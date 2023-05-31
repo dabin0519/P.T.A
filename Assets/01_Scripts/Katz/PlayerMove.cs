@@ -10,16 +10,26 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
+    private PlayerSkill _skill;
+
+    private Vector3 _vector;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
+        _skill = GetComponent<PlayerSkill>();   
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
+        if (_skill.IsParryAnimation || _skill.IsAttack)
+        {
+            _sprite.flipX = false;
+            return;
+        }
+
         //Flip
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
@@ -33,7 +43,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            Vector3 _vector = Camera.main.WorldToScreenPoint(transform.position);
+            _vector = Camera.main.WorldToScreenPoint(transform.position);
 
             _sprite.flipX = Input.mousePosition.x > _vector.x;
             _animator.SetInteger("move", _sprite.flipX ? 1 : -1);
