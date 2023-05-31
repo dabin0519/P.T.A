@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum State
+{
+    Patrolling,
+    Alert,
+    Chasing,
+    Attacking
+}
+
 public class EnemyAI : MonoBehaviour
 {
-    public enum State
-    {
-        Patrolling,
-        Alert,
-        Chasing,
-        Attacking
-    }
-
     [SerializeField] private float viewDistance = 5f;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Transform[] waypoints;
@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_playerSkill.IsStop || _playerSkill.IsDie)
+        if (_playerSkill.State != StateEnum.Move || _playerSkill.State == StateEnum.Die)
         {
             StopAllCoroutines();
             return;
@@ -160,11 +160,10 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         _enemyAnim.SetTrigger("isAttack");
 
-        if (_playerSkill.IsParry)
+        if (_playerSkill.ParryCheck())
         {
             //플레이어 패링 성공
             Debug.Log("플레이어 패링 성공");
-            _playerSkill.ParryCheck(true);
 
             StartCoroutine(WaitCounter());
         }
@@ -172,7 +171,6 @@ public class EnemyAI : MonoBehaviour
         {
             //플레이어에 체력 깍기
             Debug.Log("플레이어 패링 실패");
-            _playerSkill.ParryCheck(false);
         }
 
         isAttack = false;
@@ -183,7 +181,7 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator WaitCounter()
     {
-        yield return _playerSkill.IsCounter == true;
+        //yield return _playerSkill.ParryCheck == true;
         Vector3 startPos = player.position;
         startPos.y = shootPos.position.y;
         Vector3 endPos = new Vector3(15,0,0);

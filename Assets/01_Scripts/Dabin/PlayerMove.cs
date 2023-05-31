@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : Player
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rollSpeed;
@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
-    private PlayerSkill _skill;
 
     private Vector3 _vector;
 
@@ -19,15 +18,13 @@ public class PlayerMove : MonoBehaviour
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
-        _skill = GetComponent<PlayerSkill>();   
     }
 
     private void FixedUpdate()
     {
-        if (_skill.IsParryAnimation || _skill.IsAttack)
+        if(State != StateEnum.Move)
         {
-            _sprite.flipX = false;
-            return;
+
         }
 
         //Flip
@@ -55,6 +52,7 @@ public class PlayerMove : MonoBehaviour
         //람머스
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetAxisRaw("Horizontal") != 0)
         {
+            State = StateEnum.Roll;
             _animator.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e35b18689aa434ab3de722b1d63ec4, type: 3}
   m_Name: EnemyGunHealthData
   m_EditorClassIdentifier: 
+  Name: 
   Health: 1
   IsDie: 0
   IncreaseGage: 4

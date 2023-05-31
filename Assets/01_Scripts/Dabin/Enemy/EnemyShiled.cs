@@ -12,24 +12,11 @@ public class EnemyShiled : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float backTime;
 
-    private PlayerSkill _playerSkill;
-
     private bool isAttack;
     private Vector3 rotation;
 
-    private void Awake()
-    {
-        _playerSkill = FindObjectOfType<PlayerSkill>();
-    }
-
     private void Update()
     {
-        if (_playerSkill.IsStop)
-        {
-            Debug.Log("Á¤Áö µÆ¾î¿ë");
-            return;
-        }
-
         if (isAttack)
             return;
 
