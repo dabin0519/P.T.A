@@ -4,73 +4,70 @@ using UnityEngine;
 
 public enum State
 {
-    Patrolling,
+    Patroll,
     Alert,
-    Chasing,
-    Attacking
+    Chase,
+    Attack
 }
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private float viewDistance = 5f;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private Transform[] waypoints = null;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float attackDistance = 1f;
-    [SerializeField] private float alertDuration = 1f;
-    [SerializeField] private float attackDelay = 2f;
-    [SerializeField] private Transform shootPos;
+    [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private Transform[] _waypoints = null;
+    [SerializeField] private Transform _shootPos;
 
     [SerializeField] private EnemySO _enemyData;
 
-    public bool isAttack = false;
+    public bool _isAttack = false;
 
-    private Transform player;
-    private State currentState = State.Patrolling;
-    private Vector2 target;
-    private int currentWaypoint = 0;
-    private bool isCheckPlayer;
-    private bool isAttacking;
+    private Transform _playerTrm;
+    private State _currentState = State.Patroll;
+    private Vector2 _target; 
+    private int _currentWaypoint = 0;
+    private bool _isCheckPlayer;
+    private bool _isAttacking;
 
     private Animator _enemyAnim;
     private LineRenderer _lineRenderer;
     private PlayerSkill _playerSkill;
+    private Player _player;
 
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
-        _playerSkill = FindObjectOfType<PlayerSkill>();
+        _playerTrm = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = _playerTrm.Find("Visual").GetComponent<Player>();
+        _playerSkill = _playerTrm.Find("Visual").GetComponent<PlayerSkill>();
     }
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 
     private void Update()
     {
-       /* if (_player.GetState() != PlayerState.Move || _player.GetState() == PlayerState.Die)
+        if (_player.GetState() == PlayerState.Die) // 플레이어가 죽었을땐 멈추기
         {
             StopAllCoroutines();
             return;
-        }*/
+        }
 
-        switch (currentState)
+        switch (_currentState)
         {
-            case State.Patrolling:
+            case State.Patroll:
                 Patrol();
                 CheckForPlayer();
                 break;
             case State.Alert:
                 break;
-            case State.Chasing:
+            case State.Chase:
                 Chase();
                 CheckForAttack();
                 break;
-            case State.Attacking:
+            case State.Attack:
                 Flip();
                 break;
         }
@@ -78,14 +75,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (waypoints.Length == 0) return;
+        if (_waypoints.Length == 0) return;
 
-        target = new Vector2(waypoints[currentWaypoint].position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, target) < 0.1f)
+        if (Vector2.Distance(transform.position, _target) < 0.1f)
         {
-            currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+            _currentWaypoint = (_currentWaypoint + 1) % _waypoints.Length;
 
             Vector3 scale = transform.localScale;
             scale.x *= -1f;
@@ -95,13 +92,13 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckForPlayer()
     {
-        if (isCheckPlayer)
+        if (_isCheckPlayer)
         {
-            currentState = State.Chasing;
+            _currentState = State.Chase;
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, viewDistance, playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _playerTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer);
 
         if (hit && hit.collider.CompareTag("Player"))
         {
@@ -112,53 +109,55 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator Alert()
     {
-        isCheckPlayer = true;
+        _isCheckPlayer = true;
         _enemyAnim.SetTrigger("isAlert");
-        currentState = State.Alert;
-        yield return new WaitForSeconds(alertDuration);
-        currentState = Physics2D.Raycast(transform.position, player.position - transform.position, viewDistance, playerLayer) ? State.Chasing : State.Patrolling;
+        _currentState = State.Alert;
+        yield return new WaitForSeconds(_enemyData.AlretTime);
+        _currentState = Physics2D.Raycast(transform.position, _playerTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer) ? State.Chase : State.Patroll;
     }
 
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
-        target = new Vector2(player.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        _target = new Vector2(_playerTrm.position.x, transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
     }
 
     private void Flip()
     {
-        Vector2 scale = transform.position.x < target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
+        Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
         transform.localScale = scale;
     }
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, player.position) < attackDistance && !isAttacking)
+        if (Vector2.Distance(transform.position, _playerTrm.position) < _enemyData.AttackDistance && !_isAttacking)
         {
-            StartCoroutine(Attack());
+            switch (_enemyData.EnemyMode) //SO로 지정
+            {
+                case EnemyEnum.Gun:
+                    StartCoroutine(GunAttack());
+                    break;
+            }
+            _currentState = State.Attack; // Attack코드를 한번만 실행
         }
     }
 
-
-    private IEnumerator Attack()
+    private IEnumerator GunAttack()
     {
-        isAttacking = true;
-        currentState = State.Attacking;
+        _isAttacking = true;
         transform.position = transform.position; // Stop moving
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(_enemyData.AttackCoolTime);
         _lineRenderer.enabled = true;
-        _lineRenderer.SetPosition(0, shootPos.position);
-        target.x = player.position.x;
-        target.y = shootPos.position.y;
-        _lineRenderer.SetPosition(1, target);
-        isAttack = true;
-        _lineRenderer.startColor = Color.red;
-        _lineRenderer.endColor = Color.red;
+        _lineRenderer.SetPosition(0, _shootPos.position);
+        _target.x = _playerTrm.position.x;
+        _target.y = _shootPos.position.y;
+        _lineRenderer.SetPosition(1, _target);
+        _isAttack = true;
+        ChangeColor(Color.red);
         yield return new WaitForSeconds(0.2f);
-        _lineRenderer.startColor = Color.white;
-        _lineRenderer.endColor = Color.white;
+        ChangeColor(Color.white);
         yield return new WaitForSeconds(0.2f);
         _enemyAnim.SetTrigger("isAttack");
 
@@ -175,17 +174,17 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("플레이어 패링 실패");
         }
 
-        isAttack = false;
-        isAttacking = false;
+        _isAttack = false;
+        _isAttacking = false;
         _lineRenderer.enabled = false;
-        currentState = State.Chasing;
+        _currentState = State.Chase;
     }
 
     private IEnumerator WaitCounter()
     {
         //yield return _playerSkill.ParryCheck == true;
-        Vector3 startPos = player.position;
-        startPos.y = shootPos.position.y;
+        Vector3 startPos = _playerTrm.position;
+        startPos.y = _shootPos.position.y;
         Vector3 endPos = new Vector3(15,0,0);
 
         while (true)
@@ -196,12 +195,17 @@ public class EnemyAI : MonoBehaviour
             break;
         }
 
-        _lineRenderer.startColor = Color.white;
-        _lineRenderer.endColor = Color.white;
+        ChangeColor(Color.white);
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, startPos);
         _lineRenderer.SetPosition(1, endPos);
         yield return new WaitForSeconds(0.5f);
         _lineRenderer.enabled = false;
+    }
+
+    private void ChangeColor(Color lineColor)
+    {
+        _lineRenderer.startColor = lineColor;
+        _lineRenderer.endColor = lineColor;
     }
 }

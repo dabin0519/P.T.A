@@ -13,7 +13,7 @@ public enum PlayerState
 
 public class Player : MonoBehaviour
 {
-    private PlayerState _state;
+    [SerializeField] private PlayerState _state;
 
     private void Awake()
     {

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
-    [SerializeField] private float _stopTime;
-
     private Animator _anim;
     private Player _player;
 

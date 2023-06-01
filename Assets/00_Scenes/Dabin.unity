@@ -992,7 +992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a16b2392c6a743b3fe38f9b4411c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopTime: 2
 --- !u!1 &918447525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb55e64d0ecfd06428f662f279fa6ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
 --- !u!1 &1846857973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1685,7 @@ Animator:
   m_GameObject: {fileID: 2203568092278825609}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77827a3c1c6c3bd449d96ca277314627, type: 2}
+  m_Controller: {fileID: 9100000, guid: d6999d0c29e60e14cba8f161a5442597, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1812,19 +1812,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933be6d87b05cd4187dd9da9baa3599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 6
-  playerLayer:
+  _playerLayer:
     serializedVersion: 2
-    m_Bits: 8
-  waypoints:
-  - {fileID: 2203568092411584871}
-  - {fileID: 2203568093175972093}
-  moveSpeed: 5
-  attackDistance: 10
-  alertDuration: 0.5
-  attackDelay: 1
-  shootPos: {fileID: 1498554341}
-  isAttack: 0
+    m_Bits: 0
+  _waypoints: []
+  _shootPos: {fileID: 1498554341}
+  _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
+  _isAttack: 0
 --- !u!1 &2203568093175972092
 GameObject:
   m_ObjectHideFlags: 0
