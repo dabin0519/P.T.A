@@ -3,39 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSkill : Player
+public class PlayerSkill : MonoBehaviour
 {
     [SerializeField] private float _stopTime;
 
     private Animator _anim;
+    private Player _player;
 
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
+        _player = GetComponentInParent<Player>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && State != StateEnum.Parry)
+        if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)
         {
-            State = StateEnum.Parry;
+            _player.ChangeState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }
-        if(Input.GetMouseButtonDown(0) && State != StateEnum.Parry)
+        if(Input.GetMouseButtonDown(0) && _player.GetState() != PlayerState.Parry)
         {
             Debug.Log("PressAttack");
-            State = StateEnum.Attack;
+            _player.ChangeState(PlayerState.Attack);
             _anim.SetTrigger("Attack");
         }
     }
 
     public bool ParryCheck() 
     {
-        return State == StateEnum.Parry;
+        return _player.GetState() == PlayerState.Parry;
     }
 
     public void EndAnimation()
     {
-        State = StateEnum.Move;
+        _player.ChangeState(PlayerState.Move);
     }
 }

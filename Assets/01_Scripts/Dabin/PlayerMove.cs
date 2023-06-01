@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : Player
+public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rollSpeed;
 
     private Animator _animator;
+    private Player _player;
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
 
@@ -15,6 +16,7 @@ public class PlayerMove : Player
 
     private void Start()
     {
+        _player = GetComponentInParent<Player>();
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
@@ -22,10 +24,8 @@ public class PlayerMove : Player
 
     private void FixedUpdate()
     {
-        if(State != StateEnum.Move)
-        {
-
-        }
+        if (_player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Roll)
+            return;
 
         //Flip
         if(Input.GetAxisRaw("Horizontal") != 0)
@@ -37,6 +37,8 @@ public class PlayerMove : Player
             {
                 _rigid.velocity = new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal"), 0); //움직임
             }
+
+            _player.ChangeState(PlayerState.Move);
         }
         else
         {
@@ -45,6 +47,7 @@ public class PlayerMove : Player
             _sprite.flipX = Input.mousePosition.x > _vector.x;
             _animator.SetInteger("move", _sprite.flipX ? 1 : -1);
         }
+
     }
 
     private void Update()
@@ -52,9 +55,17 @@ public class PlayerMove : Player
         //람머스
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetAxisRaw("Horizontal") != 0)
         {
-            State = StateEnum.Roll;
+            _player.ChangeState(PlayerState.Roll);
             _animator.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
+        }
+
+        if(_player.GetState() != PlayerState.Move)
+        {
+            if(Input.mousePosition.x > _vector.x)
+            {
+                _sprite.flipX = false;
+            }
         }
     }
 }

@@ -14,12 +14,14 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float viewDistance = 5f;
     [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private Transform[] waypoints;
+    [SerializeField] private Transform[] waypoints = null;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private float alertDuration = 1f;
     [SerializeField] private float attackDelay = 2f;
     [SerializeField] private Transform shootPos;
+
+    [SerializeField] private EnemySO _enemyData;
 
     public bool isAttack = false;
 
@@ -50,11 +52,11 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_playerSkill.State != StateEnum.Move || _playerSkill.State == StateEnum.Die)
+       /* if (_player.GetState() != PlayerState.Move || _player.GetState() == PlayerState.Die)
         {
             StopAllCoroutines();
             return;
-        }
+        }*/
 
         switch (currentState)
         {

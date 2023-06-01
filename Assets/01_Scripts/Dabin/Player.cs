@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StateEnum
+public enum PlayerState
 {
     Roll,
     Attack,
@@ -13,5 +13,20 @@ public enum StateEnum
 
 public class Player : MonoBehaviour
 {
-    public StateEnum State;
+    private PlayerState _state;
+
+    private void Awake()
+    {
+        _state = PlayerState.Move;
+    }
+
+    public void ChangeState(PlayerState state)
+    {
+        _state = state;
+    }
+
+    public PlayerState GetState()
+    {
+        return _state;
+    }
 }
