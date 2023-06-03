@@ -1,0 +1,1433 @@
+fileFormatVersion: 2
+guid: a33ec585c9e8c1249abfd9b2c02f60d6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bac58e2bd585d40818a1ce76c06f92
+      internalID: 2008780344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6b2e65a7cb7ca42bbf05d920300728
+      internalID: 1407472080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26b325206ae7f34a97f52ecb1f37b05
+      internalID: 2080771678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bdcef323df4a124781d0a0da5675385
+      internalID: 100918336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64d161a9989a8c49bb27eaf438fb566
+      internalID: -847761926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9790455c1b01d8a42b76f3fa84516d1d
+      internalID: -885291146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1e734d1d78f98499d6d226dfdb63e3
+      internalID: 1903397858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7f66d53bfc1e04284865513381f44e
+      internalID: 967763858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3263afebe94bb54a8990a4a7c1c1f9c
+      internalID: -1010719936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79769c8b228f92b49ab6d665efd52ee8
+      internalID: -1994323374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea721213187f7784ba36c43ad0f0afe5
+      internalID: 2072558157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e253f8ee6e80842bb1bba28f36a443
+      internalID: 338067979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 781ce32e77718ba4e9f5e2358af5ae31
+      internalID: 1326413458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c57e36a1f391d44836ab2696e1077d
+      internalID: 1003666347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e7bd0ac0c57df4b9346043f58dd121
+      internalID: 1359548018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d195f564e15e354a88f927e08d993a8
+      internalID: 1870720255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e81b8b8d3bdce545a4793a7402a8371
+      internalID: 1506766133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d285e7f9da1e72a459c0d76d76e54239
+      internalID: -1308735126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1005ae5e9475da42b424d9637f90ab8
+      internalID: -729591183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953131a8bee5f01479793119fbee40be
+      internalID: 1660326322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8b3b5134d84a24b901e75e6046c671
+      internalID: -757624714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07f2769e182e054d91cc7bd10e5b4aa
+      internalID: -159880363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 4400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f086453b115e00847baa26f93af0e4f5
+      internalID: 1671110106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 4600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8671fa15efe16f4db78bd784108f3e8
+      internalID: -1733019961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2454d0d81761c8b46893b09caadbc809
+      internalID: 1088712767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2384b428431e1e84e9fe2f8e5b4e9c83
+      internalID: 1190605677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88fa99043425a774bb568899e5a090a3
+      internalID: 1459656922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589bef5e3e442a6429b7ce5eb69d7247
+      internalID: -439745309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7625161712c574d49a9fc4b752168e16
+      internalID: 460615066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 5800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0dea9b9ed4f0aa429fdb1e6cbb6e1e3
+      internalID: 1144979348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9781143735004d046a2946dbd31adfc6
+      internalID: 1294859717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 6200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3771b6d80817fe448d75ccff0818adf
+      internalID: -1985673652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddfbda6477b4f1049b9e065d987ccc15
+      internalID: 632075914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 6600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79634bde46cee644c9e662800de1f019
+      internalID: 830254787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 6800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b0d1bee8b4fe7488c782e638f74543
+      internalID: -208632913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85a7a426ed49f74e9026c57406e80d2
+      internalID: -1279469134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263acf0dfebab684cb950ce1690ea411
+      internalID: 1160187231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 7400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f49fdfffb03b94dbca305b2c4f8df7
+      internalID: 1218453662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 7600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f884652301d554eb24bd7d769dd9dc
+      internalID: 804930909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 7800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39fa70cda94803a4ba4ed7563a28e788
+      internalID: 862139545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3169b51e62b07bc429ec97667efa6fe0
+      internalID: 887255460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 8200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0939d80397a52be48916afe0873e64ac
+      internalID: 1243538769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 8400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92e1cf8666d91e4488743f021a18e96
+      internalID: 2138976774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 8600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0100c533437d1bd46b02db48e470e903
+      internalID: -1431719948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 8800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1d3e44d5adfdd49a4db1519c988c53
+      internalID: 64494418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8ded89bf585e54c86c80bd5935012f
+      internalID: -1351806594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 9200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4490095c86917044badac3a46d76da80
+      internalID: 2002633805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 9400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7bf8ff833a619448434c4c252d8741
+      internalID: 1911573573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3848cfc5ed8ef514787e033162a80cc8
+      internalID: -1024968932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 9800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b68c85ac3781064a8e1136893d692a1
+      internalID: 1654839913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9b82a9cccea97499479c7b50beeda4
+      internalID: -524521478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 10200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7ec6da50c0ed0459139f2b50b18e66
+      internalID: 1873947458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2766f851f0a090642b770e4372a23e45
+      internalID: 65389360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 10600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4c1fe1c5e678643b9fe52be160b8a9
+      internalID: 138630253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 10800
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9f22b1704e9ce4bae3c35ac02d0f26
+      internalID: 1460940049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09883a942214b5d4eb0f5f7eee1d6ab7
+      internalID: 2063742986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 11200
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b08618a7bf76d24c8e4bffbe6c1d7ef
+      internalID: 646293248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 11400
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656cafb37e38ee9458829273dd49ce26
+      internalID: -198429123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_GRAB_LEFTperspective-Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 11600
+        y: 0
+        width: 200
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2c1b9c014f8274cab30806ef8986d8
+      internalID: -1384955200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Player_GRAB_LEFTperspective-Sheet_0: 2008780344
+      Player_GRAB_LEFTperspective-Sheet_1: 1407472080
+      Player_GRAB_LEFTperspective-Sheet_10: 2072558157
+      Player_GRAB_LEFTperspective-Sheet_11: 338067979
+      Player_GRAB_LEFTperspective-Sheet_12: 1326413458
+      Player_GRAB_LEFTperspective-Sheet_13: 1003666347
+      Player_GRAB_LEFTperspective-Sheet_14: 1359548018
+      Player_GRAB_LEFTperspective-Sheet_15: 1870720255
+      Player_GRAB_LEFTperspective-Sheet_16: 1506766133
+      Player_GRAB_LEFTperspective-Sheet_17: -1308735126
+      Player_GRAB_LEFTperspective-Sheet_18: -729591183
+      Player_GRAB_LEFTperspective-Sheet_19: 1660326322
+      Player_GRAB_LEFTperspective-Sheet_2: 2080771678
+      Player_GRAB_LEFTperspective-Sheet_20: -757624714
+      Player_GRAB_LEFTperspective-Sheet_21: -159880363
+      Player_GRAB_LEFTperspective-Sheet_22: 1671110106
+      Player_GRAB_LEFTperspective-Sheet_23: -1733019961
+      Player_GRAB_LEFTperspective-Sheet_24: 1088712767
+      Player_GRAB_LEFTperspective-Sheet_25: 1190605677
+      Player_GRAB_LEFTperspective-Sheet_26: 1459656922
+      Player_GRAB_LEFTperspective-Sheet_27: -439745309
+      Player_GRAB_LEFTperspective-Sheet_28: 460615066
+      Player_GRAB_LEFTperspective-Sheet_29: 1144979348
+      Player_GRAB_LEFTperspective-Sheet_3: 100918336
+      Player_GRAB_LEFTperspective-Sheet_30: 1294859717
+      Player_GRAB_LEFTperspective-Sheet_31: -1985673652
+      Player_GRAB_LEFTperspective-Sheet_32: 632075914
+      Player_GRAB_LEFTperspective-Sheet_33: 830254787
+      Player_GRAB_LEFTperspective-Sheet_34: -208632913
+      Player_GRAB_LEFTperspective-Sheet_35: -1279469134
+      Player_GRAB_LEFTperspective-Sheet_36: 1160187231
+      Player_GRAB_LEFTperspective-Sheet_37: 1218453662
+      Player_GRAB_LEFTperspective-Sheet_38: 804930909
+      Player_GRAB_LEFTperspective-Sheet_39: 862139545
+      Player_GRAB_LEFTperspective-Sheet_4: -847761926
+      Player_GRAB_LEFTperspective-Sheet_40: 887255460
+      Player_GRAB_LEFTperspective-Sheet_41: 1243538769
+      Player_GRAB_LEFTperspective-Sheet_42: 2138976774
+      Player_GRAB_LEFTperspective-Sheet_43: -1431719948
+      Player_GRAB_LEFTperspective-Sheet_44: 64494418
+      Player_GRAB_LEFTperspective-Sheet_45: -1351806594
+      Player_GRAB_LEFTperspective-Sheet_46: 2002633805
+      Player_GRAB_LEFTperspective-Sheet_47: 1911573573
+      Player_GRAB_LEFTperspective-Sheet_48: -1024968932
+      Player_GRAB_LEFTperspective-Sheet_49: 1654839913
+      Player_GRAB_LEFTperspective-Sheet_5: -885291146
+      Player_GRAB_LEFTperspective-Sheet_50: -524521478
+      Player_GRAB_LEFTperspective-Sheet_51: 1873947458
+      Player_GRAB_LEFTperspective-Sheet_52: 65389360
+      Player_GRAB_LEFTperspective-Sheet_53: 138630253
+      Player_GRAB_LEFTperspective-Sheet_54: 1460940049
+      Player_GRAB_LEFTperspective-Sheet_55: 2063742986
+      Player_GRAB_LEFTperspective-Sheet_56: 646293248
+      Player_GRAB_LEFTperspective-Sheet_57: -198429123
+      Player_GRAB_LEFTperspective-Sheet_58: -1384955200
+      Player_GRAB_LEFTperspective-Sheet_6: 1903397858
+      Player_GRAB_LEFTperspective-Sheet_7: 967763858
+      Player_GRAB_LEFTperspective-Sheet_8: -1010719936
+      Player_GRAB_LEFTperspective-Sheet_9: -1994323374
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
