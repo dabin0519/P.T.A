@@ -31,7 +31,15 @@ public class PlayerMove : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
             _animator.SetInteger("move", (int)Input.GetAxisRaw("Horizontal") * 2); //MoveAniamtor
-            _sprite.flipX = Input.GetAxisRaw("Horizontal") > 0; //반전
+            //_sprite.flipX = Input.GetAxisRaw("Horizontal") > 0; //반전
+
+            if (Input.GetAxisRaw("Horizontal") > 0) {
+                transform.eulerAngles = new Vector3(0, 180);
+            }
+
+            else if(Input.GetAxisRaw("Horizontal") < 0) {
+                transform.eulerAngles = new Vector3(0, 0);
+            }
 
             if (!_animator.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
             {
@@ -44,8 +52,16 @@ public class PlayerMove : MonoBehaviour
         {
             _vector = Camera.main.WorldToScreenPoint(transform.position);
 
-            _sprite.flipX = Input.mousePosition.x > _vector.x;
-            _animator.SetInteger("move", _sprite.flipX ? 1 : -1);
+            //_sprite.flipX = Input.mousePosition.x > _vector.x;
+            if (Input.mousePosition.x > _vector.x) {
+                transform.eulerAngles = new Vector3(0, 180);
+            }
+
+            else if (Input.mousePosition.x < _vector.x) {
+                transform.eulerAngles = new Vector3(0, 0);
+            }
+            //_animator.SetInteger("move", _sprite.flipX ? 1 : -1);
+            _animator.SetInteger("move", MoveDir() ? 1 : -1);
         }
 
     }
@@ -64,8 +80,20 @@ public class PlayerMove : MonoBehaviour
         {
             if(Input.mousePosition.x > _vector.x)
             {
-                _sprite.flipX = false;
+                //_sprite.flipX = false;
+                transform.eulerAngles = new Vector3(0, 0);
             }
         }
+    }
+
+    private bool MoveDir() {
+        if (Input.mousePosition.x > _vector.x) {
+            return true;
+        }
+
+        else if (Input.mousePosition.x < _vector.x) {
+            return false;
+        }
+        return false;
     }
 }
