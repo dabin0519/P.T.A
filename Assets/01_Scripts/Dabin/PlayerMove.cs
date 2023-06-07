@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour
                 _rigid.velocity = new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal"), 0); //움직임
             }
 
-            _player.ChangeState(PlayerState.Move);
+            _player.SetState(PlayerState.Move);
         }
         else
         {
@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
         //람머스
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetAxisRaw("Horizontal") != 0)
         {
-            _player.ChangeState(PlayerState.Roll);
+            _player.SetState(PlayerState.Roll);
             _animator.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }

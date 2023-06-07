@@ -18,13 +18,13 @@ public class PlayerSkill : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)
         {
-            _player.ChangeState(PlayerState.Parry);
+            _player.SetState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }
         if(Input.GetMouseButtonDown(0) && _player.GetState() != PlayerState.Parry)
         {
             Debug.Log("PressAttack");
-            _player.ChangeState(PlayerState.Attack);
+            _player.SetState(PlayerState.Attack);
             _anim.SetTrigger("Attack");
         }
     }
@@ -36,6 +36,6 @@ public class PlayerSkill : MonoBehaviour
 
     public void EndAnimation()
     {
-        _player.ChangeState(PlayerState.Move);
+        _player.SetState(PlayerState.Move);
     }
 }
