@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c2ad8433916b240b371765241fd5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 13
+  _moveSpeed: 13.69
   _rollSpeed: 5
 --- !u!50 &898855886
 Rigidbody2D:
@@ -1120,9 +1120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fa65690eab63a4790594c1e098596b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyData: {fileID: 0}
-  _shootPos: {fileID: 0}
-  _playerTrm: {fileID: 0}
+  _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
+  _shootPos: {fileID: 1498554341}
+  _playerTrm: {fileID: 1681734032}
 --- !u!1 &1341448927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518869242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.059999943, z: -10}
+  m_LocalPosition: {x: -6.75, y: -0.059999943, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1430,7 +1430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681734031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07, z: 0}
+  m_LocalPosition: {x: -6.75, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1732,7 +1732,7 @@ Animator:
   m_GameObject: {fileID: 2203568092278825609}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6999d0c29e60e14cba8f161a5442597, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77827a3c1c6c3bd449d96ca277314627, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1863,7 +1863,10 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  _waypoints: []
+  _waypoints:
+  - {fileID: 2203568092411584871}
+  - {fileID: 2203568093175972093}
+  _playerTrm: {fileID: 1681734032}
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
   OnAttack:
     m_PersistentCalls:

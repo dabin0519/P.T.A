@@ -15,10 +15,10 @@ MonoBehaviour:
   EnemyMode: 0
   Health: 1
   Controller: {fileID: 9100000, guid: 77827a3c1c6c3bd449d96ca277314627, type: 2}
-  Speed: 0
-  ViewDistance: 0
-  AlretTime: 0
-  AttackDistance: 0
-  AttackCoolTime: 0
+  Speed: 3
+  ViewDistance: 5
+  AlretTime: 0.3
+  AttackDistance: 3
+  AttackCoolTime: 3
   IsDie: 0
-  IsPatrol: 0
+  IsPatrol: 1

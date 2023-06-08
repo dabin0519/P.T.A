@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Transform[] _waypoints = null;
+    [SerializeField] private Transform _playerTrm;
 
     [SerializeField] private EnemySO _enemyData;
 
@@ -22,8 +23,8 @@ public class EnemyAI : MonoBehaviour
     
     [HideInInspector] public bool _isCheckPlayer;
 
-    private Transform _playerTrm;
-    private State _currentState = State.Patroll;
+    private State _currentState;
+    private Transform _playerVisualTrm;
     private Vector2 _target;
     private int _currentWaypoint = 0;
 
@@ -34,13 +35,20 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
-        _playerTrm = GameObject.FindGameObjectWithTag("Player").transform;
-        _player = _playerTrm.Find("Visual").GetComponent<Player>();
+        _player = _playerTrm.GetComponent<Player>();
+        _playerVisualTrm = _playerTrm.Find("Visual").transform;
     }
 
     private void Start()
     {
         transform.localScale = new Vector3(-1f, 1f, 1f);
+        _enemyAnim.runtimeAnimatorController = _enemyData.Controller;
+        _currentState = State.Patroll;
+
+        if (_enemyData.IsPatrol)
+        {
+            _enemyAnim.SetBool("IsMove", true);
+        }
     }
 
     private void Update()
@@ -71,7 +79,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (_waypoints.Length == 0) return;
+        if (_waypoints.Length == 0) Debug.LogWarning("너 값 안넣었다.");
 
         _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -94,7 +102,7 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, _playerTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _playerVisualTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer);
 
         if (hit && hit.collider.CompareTag("Player"))
         {
@@ -109,13 +117,13 @@ public class EnemyAI : MonoBehaviour
         _enemyAnim.SetTrigger("isAlert");
         _currentState = State.Alert;
         yield return new WaitForSeconds(_enemyData.AlretTime);
-        _currentState = Physics2D.Raycast(transform.position, _playerTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer) ? State.Chase : State.Patroll;
+        _currentState = Physics2D.Raycast(transform.position, _playerVisualTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer) ? State.Chase : State.Patroll;
     }
 
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
-        _target = new Vector2(_playerTrm.position.x, transform.position.y);
+        _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
     }
@@ -128,7 +136,7 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, _playerTrm.position) < _enemyData.AttackDistance)
+        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance)
         {
             /*switch (_enemyData.EnemyMode) //SO로 지정 // unity event로 바꾸자
             {
@@ -136,6 +144,7 @@ public class EnemyAI : MonoBehaviour
                     StartCoroutine(GunAttack());
                     break;
             }*/
+            Debug.Log("?");
             OnAttack?.Invoke();
             transform.position = transform.position;
             _currentState = State.Attack;

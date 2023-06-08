@@ -16,9 +16,9 @@ public class GunEnemyAttack : MonoBehaviour
 
     private void Awake()
     {
-        _lineRenderer = transform.Find("LineRenderer").GetComponent<LineRenderer>();
-        _enemyAnim = transform.Find("Visual").GetComponent<Animator>();
-        _player = _playerTrm.parent.GetComponent<Player>();
+        _lineRenderer = transform.parent.Find("LineRenderer").GetComponent<LineRenderer>();
+        _enemyAnim = transform.parent.Find("Visual").GetComponent<Animator>();
+        _player = _playerTrm.GetComponent<Player>();
         _enemyAI = transform.parent.GetComponent<EnemyAI>();
     }
 
@@ -48,7 +48,7 @@ public class GunEnemyAttack : MonoBehaviour
         }
         else
         {
-
+            _player.SetState(PlayerState.Die);
         }
         _lineRenderer.enabled = false;
         _enemyAI.SetState(State.Chase);

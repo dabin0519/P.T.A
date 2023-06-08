@@ -30,14 +30,14 @@ public class Grab : MonoBehaviour
 
     private IEnumerator ThrowGarb() {
         grabCollider.enabled = true;
-        player.ChangeState(PlayerState.Grab);
+        player.SetState(PlayerState.Grab);
         StartCoroutine("GrabObjThrow");
         anim.SetTrigger("GrabThrow");
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         grabCollider.enabled = false;
         anim.SetBool("IsGrab", false);
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 1.5f);
-        player.ChangeState(PlayerState.Move);
+        player.SetState(PlayerState.Move);
         isGrab = false;
         isEnemy = false;
     }
