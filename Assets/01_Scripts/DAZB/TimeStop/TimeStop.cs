@@ -6,7 +6,7 @@ public class TimeStop : MonoBehaviour
 {
     //[SerializeField] GameObject enemyParent;
     public void StopTime() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
         foreach(var stopTimeEnemies in enemies ) {
             Animator anim = stopTimeEnemies.GetComponent<Animator>();
             EnemyAI ai = stopTimeEnemies.GetComponent<EnemyAI>();
