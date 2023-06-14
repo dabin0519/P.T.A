@@ -76,13 +76,15 @@ public class PlayerMove : MonoBehaviour
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }
 
-        if(_player.GetState() != PlayerState.Move)
+        if(_player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Grab)
         {
             if(Input.mousePosition.x > _vector.x)
             {
                 //_sprite.flipX = false;
                 transform.eulerAngles = new Vector3(0, 0);
             }
+
+            
         }
     }
 

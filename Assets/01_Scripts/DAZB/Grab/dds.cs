@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Grab : MonoBehaviour
+public class dds : MonoBehaviour
 {
     [SerializeField,Tooltip("그랩의 범위")] GameObject grabRange;
     [SerializeField, Tooltip("그랩의 사정거리")] GameObject grabRangeEndPos;
@@ -36,7 +36,7 @@ public class Grab : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         grabCollider.enabled = false;
         anim.SetBool("IsGrab", false);
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 1.5f);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         player.ChangeState(PlayerState.Move);
         isGrab = false;
         isEnemy = false;
@@ -47,9 +47,8 @@ public class Grab : MonoBehaviour
         StopCoroutine("GrabObjThrow");
         StartCoroutine("GetGrab", other);
         isEnemy = true;
-        anim.SetBool("IsGrab", true);
         grabRange.transform.position = grabRangeEndPos.transform.position;
-        //grabCollider.enabled = false;
+        grabCollider.enabled = false;
     }
 
     private IEnumerator GrabObjThrow() {
@@ -59,7 +58,23 @@ public class Grab : MonoBehaviour
     }
 
     private IEnumerator GetGrab(Collider2D other) {
-        grabRange.transform.DOMove(startPoint.transform.position, anim.GetCurrentAnimatorStateInfo(0).length);
+        //grabRange.transform.position = grabRangeEndPos.transform.position;
+        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("IsGrab", true);
+        float duration = anim.GetCurrentAnimatorStateInfo(0).length -0.2f; // 이동하는 데 걸리는 시간
+        Vector3 startPosition = grabRangeEndPos.transform.position;
+        Vector3 endPosition = startPoint.transform.position;
+
+        float elapsedTime = 0.0f;
+        while (elapsedTime < duration) {
+            grabRange.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            other.transform.position = grabRange.transform.position;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        grabRange.transform.position = endPosition; // 정확한 위치로 이동
         yield return null;
     }
+
 }
