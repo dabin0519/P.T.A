@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
+    [HideInInspector] public int _attackCount;
+
     private Animator _anim;
     private Player _player;
 
@@ -12,6 +14,7 @@ public class PlayerSkill : MonoBehaviour
     {
         _anim = GetComponentInChildren<Animator>();
         _player = GetComponentInParent<Player>();
+        _attackCount = 0;
     }
 
     private void Update()
@@ -21,11 +24,17 @@ public class PlayerSkill : MonoBehaviour
             _player.SetState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }
-        if(Input.GetMouseButtonDown(0) && _player.GetState() != PlayerState.Parry)
+        if(Input.GetMouseButtonDown(0) && _attackCount != 0 && _player.GetState() != PlayerState.Parry)
         {
-            Debug.Log("PressAttack");
             _player.SetState(PlayerState.Attack);
+            _attackCount--;
             _anim.SetTrigger("Attack");
+        }
+
+        if (_player.GetState() == PlayerState.Counter)
+        {
+            _anim.SetBool("isParry", true);
+            _attackCount++;
         }
     }
 

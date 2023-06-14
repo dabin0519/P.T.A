@@ -16,7 +16,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Transform[] _waypoints = null;
     [SerializeField] private Transform _playerTrm;
-
     [SerializeField] private EnemySO _enemyData;
 
     public UnityEvent OnAttack;
