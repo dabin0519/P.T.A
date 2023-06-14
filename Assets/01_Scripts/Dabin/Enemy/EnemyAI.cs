@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum State
 {
@@ -14,37 +15,40 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Transform[] _waypoints = null;
-    [SerializeField] private Transform _shootPos;
+    [SerializeField] private Transform _playerTrm;
 
     [SerializeField] private EnemySO _enemyData;
 
-    public bool _isAttack = false;
+    public UnityEvent OnAttack;
+    
+    [HideInInspector] public bool _isCheckPlayer;
 
-    private Transform _playerTrm;
-    private State _currentState = State.Patroll;
-    private Vector2 _target; 
+    private State _currentState;
+    private Transform _playerVisualTrm;
+    private Vector2 _target;
     private int _currentWaypoint = 0;
-    private bool _isCheckPlayer;
-    private bool _isAttacking;
 
     private Animator _enemyAnim;
-    private LineRenderer _lineRenderer;
-    private PlayerSkill _playerSkill;
     private Player _player;
 
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
-        _lineRenderer = GetComponentInChildren<LineRenderer>();
-        _playerTrm = GameObject.FindGameObjectWithTag("Player").transform;
-        _player = _playerTrm.Find("Visual").GetComponent<Player>();
-        _playerSkill = _playerTrm.Find("Visual").GetComponent<PlayerSkill>();
+        _player = _playerTrm.GetComponent<Player>();
+        _playerVisualTrm = _playerTrm.Find("Visual").transform;
     }
 
     private void Start()
     {
         transform.localScale = new Vector3(-1f, 1f, 1f);
+        _enemyAnim.runtimeAnimatorController = _enemyData.Controller;
+        _currentState = State.Patroll;
+
+        if (_enemyData.IsPatrol)
+        {
+            _enemyAnim.SetBool("IsMove", true);
+        }
     }
 
     private void Update()
@@ -75,7 +79,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (_waypoints.Length == 0) return;
+        if (_waypoints.Length == 0) Debug.LogWarning("너 값 안넣었다.");
 
         _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -98,7 +102,7 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, _playerTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _playerVisualTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer);
 
         if (hit && hit.collider.CompareTag("Player"))
         {
@@ -113,13 +117,13 @@ public class EnemyAI : MonoBehaviour
         _enemyAnim.SetTrigger("isAlert");
         _currentState = State.Alert;
         yield return new WaitForSeconds(_enemyData.AlretTime);
-        _currentState = Physics2D.Raycast(transform.position, _playerTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer) ? State.Chase : State.Patroll;
+        _currentState = Physics2D.Raycast(transform.position, _playerVisualTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer) ? State.Chase : State.Patroll;
     }
 
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
-        _target = new Vector2(_playerTrm.position.x, transform.position.y);
+        _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
     }
@@ -132,80 +136,23 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, _playerTrm.position) < _enemyData.AttackDistance && !_isAttacking)
+        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance)
         {
-            switch (_enemyData.EnemyMode) //SO로 지정
+            /*switch (_enemyData.EnemyMode) //SO로 지정 // unity event로 바꾸자
             {
                 case EnemyEnum.Gun:
                     StartCoroutine(GunAttack());
                     break;
-            }
-            _currentState = State.Attack; // Attack코드를 한번만 실행
+            }*/
+            Debug.Log("?");
+            OnAttack?.Invoke();
+            transform.position = transform.position;
+            _currentState = State.Attack;
         }
     }
 
-    private IEnumerator GunAttack()
+    public void SetState(State state)
     {
-        _isAttacking = true;
-        transform.position = transform.position; // Stop moving
-        yield return new WaitForSeconds(_enemyData.AttackCoolTime);
-        _lineRenderer.enabled = true;
-        _lineRenderer.SetPosition(0, _shootPos.position);
-        _target.x = _playerTrm.position.x;
-        _target.y = _shootPos.position.y;
-        _lineRenderer.SetPosition(1, _target);
-        _isAttack = true;
-        ChangeColor(Color.red);
-        yield return new WaitForSeconds(0.2f);
-        ChangeColor(Color.white);
-        yield return new WaitForSeconds(0.2f);
-        _enemyAnim.SetTrigger("isAttack");
-
-        if (_playerSkill.ParryCheck())
-        {
-            //플레이어 패링 성공
-            Debug.Log("플레이어 패링 성공");
-
-            StartCoroutine(WaitCounter());
-        }
-        else
-        {
-            //플레이어에 체력 깍기
-            Debug.Log("플레이어 패링 실패");
-        }
-
-        _isAttack = false;
-        _isAttacking = false;
-        _lineRenderer.enabled = false;
-        _currentState = State.Chase;
-    }
-
-    private IEnumerator WaitCounter()
-    {
-        //yield return _playerSkill.ParryCheck == true;
-        Vector3 startPos = _playerTrm.position;
-        startPos.y = _shootPos.position.y;
-        Vector3 endPos = new Vector3(15,0,0);
-
-        while (true)
-        {
-            endPos.y = Random.Range(-11f, 5f);
-            if (endPos.y < 0 && endPos.y >= -6.5f)  
-                continue;
-            break;
-        }
-
-        ChangeColor(Color.white);
-        _lineRenderer.enabled = true;
-        _lineRenderer.SetPosition(0, startPos);
-        _lineRenderer.SetPosition(1, endPos);
-        yield return new WaitForSeconds(0.5f);
-        _lineRenderer.enabled = false;
-    }
-
-    private void ChangeColor(Color lineColor)
-    {
-        _lineRenderer.startColor = lineColor;
-        _lineRenderer.endColor = lineColor;
+        _currentState = state;
     }
 }

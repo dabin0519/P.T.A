@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         _state = PlayerState.Move;
     }
 
-    public void ChangeState(PlayerState state)
+    public void SetState(PlayerState state)
     {
         _state = state;
     }
