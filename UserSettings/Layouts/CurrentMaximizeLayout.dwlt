@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 14599
+  controlID: 15766
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,9 +175,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c2680000
-      m_LastClickedID: 0
-      m_ExpandedIDs: c0b0ffff82b2ffffd6b2ffff16b3ffffe8b4ffff36d6ffff38d6ffff8cd6fffff0d6ffff5ad7ffffd8d7ffffe0faffff24600000866000009e600000a4600000cc600000308200004e820000
+      m_SelectedIDs: 66acffff
+      m_LastClickedID: -21402
+      m_ExpandedIDs: 66acffff68acffffceacffff56adffffc0b0ffff82b2ffffd6b2ffff16b3ffffe8b4ffff36d6ffff38d6ffff8cd6fffff0d6ffff5ad7ffffd8d7ffffe0faffff24600000866000009e600000a4600000cc600000308200004e820000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -193,7 +193,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 7}
+        m_ClientGUIView: {fileID: 3}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 14600
+  controlID: 15767
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 14601
+  controlID: 15768
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -882,9 +882,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c2680000
-    m_LastClickedInstanceID: 26818
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 66acffff
+    m_LastClickedInstanceID: -21402
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000b8680000ae610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -10698
+  m_LastSelectedObjectID: -21402
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 532.4
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

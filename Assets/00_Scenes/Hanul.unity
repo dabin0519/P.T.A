@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 898855886}
   - component: {fileID: 898855891}
   - component: {fileID: 898855885}
+  - component: {fileID: 898855892}
   m_Layer: 3
   m_Name: Visual
   m_TagString: Player
@@ -992,6 +993,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a16b2392c6a743b3fe38f9b4411c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &898855892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898855884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d22bdfece25e164dab7770bc29528c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPos: {fileID: 2203568093155262919}
+  _playerPos: {fileID: 898855890}
 --- !u!1 &918447525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,13 +1886,13 @@ MonoBehaviour:
   OnAttack:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1144976752}
-        m_TargetAssemblyTypeName: GunEnemyAttack, Assembly-CSharp
-        m_MethodName: Attack
+      - m_Target: {fileID: 1144976750}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
