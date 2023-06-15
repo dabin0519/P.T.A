@@ -19,6 +19,9 @@ public class PlayerSkill : MonoBehaviour
 
     private void Update()
     {
+        if (_player.GetState() == PlayerState.Die)
+            return;
+
         if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)
         {
             _player.SetState(PlayerState.Parry);

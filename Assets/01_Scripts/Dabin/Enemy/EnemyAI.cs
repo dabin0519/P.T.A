@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (_player.GetState() == PlayerState.Die) // 플레이어가 죽었을땐 멈추기
         {
-            StopAllCoroutines();
+            StopCoroutine(Alert());
             return;
         }
 
@@ -122,6 +122,7 @@ public class EnemyAI : MonoBehaviour
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
+        Debug.Log("chase");
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
@@ -137,14 +138,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance)
         {
-            /*switch (_enemyData.EnemyMode) //SO로 지정 // unity event로 바꾸자
-            {
-                case EnemyEnum.Gun:
-                    StartCoroutine(GunAttack());
-                    break;
-            }*/
-            Debug.Log("?");
             OnAttack?.Invoke();
+            _enemyAnim.SetTrigger("isShootWait");
             transform.position = transform.position;
             _currentState = State.Attack;
         }

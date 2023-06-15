@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rollSpeed;
 
-    private Animator _animator;
+    private Animator _anim;
     private Player _player;
     private Rigidbody2D _rigid;
 
@@ -16,18 +16,19 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         _player = GetComponentInParent<Player>();
-        _animator = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        if (_player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Roll)
+        if (_player.GetState() == PlayerState.Die || 
+            _player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Roll)
             return;
 
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
-            _animator.SetInteger("move", (int)Input.GetAxisRaw("Horizontal") * 2); //MoveAniamtor
+            _anim.SetInteger("move", (int)Input.GetAxisRaw("Horizontal") * 2); //MoveAniamtor
 
             if (Input.GetAxisRaw("Horizontal") > 0) {
                 transform.eulerAngles = new Vector3(0, 180);
@@ -37,7 +38,7 @@ public class PlayerMove : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0);
             }
 
-            if (!_animator.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
+            if (!_anim.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
             {
                 _rigid.velocity = new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal"), 0); //움직임
             }
@@ -55,17 +56,23 @@ public class PlayerMove : MonoBehaviour
             else if (Input.mousePosition.x < _vector.x) {
                 transform.eulerAngles = new Vector3(0, 0);
             }
-            _animator.SetInteger("move", MoveDir() ? 1 : -1);
+            _anim.SetInteger("move", MoveDir() ? 1 : -1);
         }
 
     }
 
     private void Update()
     {
+        if(_player.GetState() == PlayerState.Die)
+        {
+            _anim.SetTrigger("isDie");
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetAxisRaw("Horizontal") != 0)
         {
             _player.SetState(PlayerState.Roll);
-            _animator.SetTrigger("Roll");
+            _anim.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }
 
