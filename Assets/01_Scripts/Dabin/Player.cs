@@ -9,6 +9,7 @@ public enum PlayerState
     Parry,
     Move,
     Grab,
+    Assassin,
     Die
 }
 
