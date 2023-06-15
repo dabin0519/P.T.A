@@ -35,10 +35,14 @@ public class Grab_su : MonoBehaviour
         player.SetState(PlayerState.Grab);
         anim.SetTrigger("GrabThrow");
         grabRange.transform.DOMove(grabRangeEndPos.transform.position, 0.5f);
-        grabRange.transform.position = startPoint.transform.position;
         if (isEnemy) yield break;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
+        grabRange.transform.position = startPoint.transform.position;
+        grabCollider.enabled = false;
+        //grabRange.transform.position = transform.position;
         player.SetState(PlayerState.Move);
+        yield return new WaitForSeconds(coolTime);
+        isGrab = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
