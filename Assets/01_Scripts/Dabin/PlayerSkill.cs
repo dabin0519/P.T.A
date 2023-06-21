@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
-    [HideInInspector] public int _attackCount;
+    //[HideInInspector] 
+    public int _attackCount;
 
     private Animator _anim;
     private Player _player;
@@ -38,6 +39,7 @@ public class PlayerSkill : MonoBehaviour
         {
             _anim.SetBool("isParry", true);
             _attackCount++;
+            _player.SetState(PlayerState.Move);
         }
     }
 

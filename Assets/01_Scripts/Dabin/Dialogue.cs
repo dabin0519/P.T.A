@@ -1,12 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using DG.Tweening;
+
 public class Dialogue : MonoBehaviour
 {
-    
-    [SerializeField] TMP_Text nickName;
+    [SerializeField] private DialogueSO[] _dialogues;
+
+    public void NextDialogue(Action callback = null)
+    {
+        if(callback == null)
+        {
+            //¥Ÿ¿Ω ¥Ÿ¿Ãæ∆∑Œ±◊ ∂Ÿøˆ;
+        }
+        else
+        {
+            callback?.Invoke();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextDialogue(() =>
+            {
+
+            });
+        }
+    }
+
+    /*[SerializeField] TMP_Text nickName;
     [SerializeField] TMP_Text contents;
     [SerializeField] GameObject dialoguePanel;
     new AudioSource audio;
@@ -16,7 +40,7 @@ public class Dialogue : MonoBehaviour
     private void Start() {
         audio = contents.GetComponent<AudioSource>();
         nickName.text = dialogueSO.Name;
-        contents.text = "ÎÇ¥Í∞Ä Ïôú Ïó¨Í∏∞ÏûàÏßÄ...";
+        contents.text = "≥ª∞° ø÷ ø©±‚¿÷¡ˆ...";
         contents.maxVisibleCharacters = 0;
         DOTween.To(x => contents.maxVisibleCharacters = (int)x, 0f, contents.text.Length, 1f).SetEase(Ease.Linear);
     }
@@ -41,16 +65,16 @@ public class Dialogue : MonoBehaviour
     private void NextText() {
         switch (contentsCnt) {
             case 0:
-                dialogueSO.Contents = "ÏßëÍ∞ÄÍ≥† Ïã∂Îã§";
+                dialogueSO.Contents = "¡˝∞°∞Ì ΩÕ¥Ÿ";
                 break;
             case 1:
-                dialogueSO.Contents = "ÏßÑÏßú ÏßëÍ∞ÄÍ≥† Ïã∂Îã§";
+                dialogueSO.Contents = "¡¯¬• ¡˝∞°∞Ì ΩÕ¥Ÿ";
                 break;
             case 2:
-                dialogueSO.Contents = "ÎÇ† ÎÇ¥Î≥¥ÎÇ¥Ï§ò...";
+                dialogueSO.Contents = "≥Ø ≥ª∫∏≥ª¡‡...";
                 break;
             case 15:
-                dialogueSO.Contents = "ÎÇ† ÎÇ¥Î≥¥ÎÇ¥ Îã¨ÎùºÍ≥†!!!";
+                dialogueSO.Contents = "≥Ø ≥ª∫∏≥ª ¥ﬁ∂Û∞Ì!!!";
                 break;
         }
         contentsCnt++;
@@ -62,5 +86,5 @@ public class Dialogue : MonoBehaviour
 
     public void UndisplayDialogue() {
         gameObject.SetActive(false);
-    }
+    }*/
 }
