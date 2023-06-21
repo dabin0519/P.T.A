@@ -19,6 +19,6 @@ MonoBehaviour:
   ViewDistance: 5
   AlretTime: 0.3
   AttackDistance: 3
-  AttackCoolTime: 3
+  AttackCoolTime: 1
   IsDie: 0
   IsPatrol: 1
