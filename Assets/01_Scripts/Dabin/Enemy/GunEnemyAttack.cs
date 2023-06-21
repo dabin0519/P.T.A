@@ -32,7 +32,7 @@ public class GunEnemyAttack : MonoBehaviour
         Debug.Log("코루틴 호출");
         yield return new WaitForSeconds(_enemyData.AttackCoolTime);
         Debug.Log("이제 시작");
-        _enemyAnim.SetTrigger("");
+        //_enemyAnim.SetTrigger("");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _shootPos.position);
         _target.x = _playerTrm.position.x;
