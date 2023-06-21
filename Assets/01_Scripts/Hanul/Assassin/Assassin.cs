@@ -37,16 +37,14 @@ public class Assassin : MonoBehaviour
         if(_enemyPos != null)
         {
             _enemy_x = new Vector2(_enemyPos.position.x, 0);
-        }
-
-        if (Vector2.Distance(_player_x, _enemy_x) < 3f)
-        {
-            _isSkill = true;
-
-            if (!_enemyAI._isCheckPlayer)
+            if (Vector2.Distance(_player_x, _enemy_x) < 3f)
             {
+                _isSkill = true;
                 ButtonB.SetActive(true);
-                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
+                if (!_enemyAI._isCheckPlayer)
+                {
+                    ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
+                }
             }
         }
         else
@@ -54,6 +52,7 @@ public class Assassin : MonoBehaviour
             _isSkill = false;
             ButtonB.SetActive(false);
         }
+
 
         if (!_enemyAI._isCheckPlayer)
         {
@@ -68,6 +67,7 @@ public class Assassin : MonoBehaviour
     {
         _player.SetState(PlayerState.Attack);
         _anim.SetTrigger("Attack");
+        ButtonB.SetActive(false);
         yield return new WaitForSeconds(10f);
     }
 
