@@ -9,6 +9,7 @@
 2. 전역변수는 _(변수이름) 즉 언더바를 붙이자.
 3. 지역변수나 매개변수는 그냥 소문자로
 4. public 변수는 대문자
+5. public 변수는 debug가 끝나면 앞에 [HideInInspector]를 붙여주자
 
 ---------------Animation----------------
 1. parameter 변수는 (숫자변수는 소문자/ 논리변수는 Is앞에 붙이고 ~/ Trigger변수는 걍 대문자) ex) float speed, bool IsDie, trigger Jump

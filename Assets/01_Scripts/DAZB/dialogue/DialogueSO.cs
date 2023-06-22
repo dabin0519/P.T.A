@@ -13,7 +13,7 @@ public enum DialogueAction
 public class DialogueSO : ScriptableObject
 {
     public string Name;
-    public DialogueAction Action;
-    [TextArea]
-    public string Contents;
+    public float TextWritingTime = 1f;
+    public bool IsEnd;
+    [TextArea] public string Contents;
 }
