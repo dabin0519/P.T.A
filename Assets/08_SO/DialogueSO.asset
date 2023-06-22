@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: DAZB
   TextWritingTime: 1
-  IsEnd: 1
+  IsEnd: 0
   Contents: contents is null

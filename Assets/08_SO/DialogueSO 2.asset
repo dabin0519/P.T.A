@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: DAZB
   TextWritingTime: 1
-  IsEnd: 1
-  Contents: contents is null
+  IsEnd: 0
+  Contents: "\uC801\uC5B4\uBCF4\uB294 \uC911"

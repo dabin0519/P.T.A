@@ -23,12 +23,12 @@ public class DialogueManger : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void OnText()
     {
-        StartCoroutine(Test());
+        StartCoroutine(OnDialogue());
     }
 
-    private IEnumerator Test()
+    private IEnumerator OnDialogue()
     {
         foreach(DialogueSO d in _dialogues)
         {

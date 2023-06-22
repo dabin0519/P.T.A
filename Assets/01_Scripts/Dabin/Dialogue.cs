@@ -21,14 +21,14 @@ public class Dialogue : MonoBehaviour
         _panel = GetComponent<Image>();
         _audio = _contents.GetComponent<AudioSource>();
         _contents.maxVisibleCharacters = 0;
-        DOTween.To(x => _contents.maxVisibleCharacters = (int)x, 0f, _contents.text.Length, 1f).SetEase(Ease.Linear);
+        _nickName.color = new Color(255,255,255, 0);
+        _panel.DOFade(0f, 0f);
     }
 
     public void ShowText(DialogueSO dialogueSO)
     {
         _dialogueSO = dialogueSO;
         DisplayDialogue(true);
-        StartCoroutine(WriteContents(dialogueSO));
     }
 
     private void Update()
@@ -63,9 +63,9 @@ public class Dialogue : MonoBehaviour
         _contents.text = dialogueSO.Contents;
         _contents.maxVisibleCharacters = 0;
         DOTween.To(x => _contents.maxVisibleCharacters = (int)x, 0f, _contents.text.Length, dialogueSO.TextWritingTime).SetEase(Ease.Linear);
-        _audio.Play();
+        //_audio.Play();
         yield return new WaitForSeconds(1f);
-        _audio.Stop();
+        //_audio.Stop();
 
         DialogueManger.Instance.IsEnd = true;
     }
@@ -75,10 +75,7 @@ public class Dialogue : MonoBehaviour
     {
         if (value) //켜질때
         {
-            gameObject.SetActive(true);
-            _panel.DOFade(0.7f, 1f);
-            _nickName.DOFade(0.7f, 1f);
-            _contents.DOFade(0.7f, 1f);
+            StartCoroutine(OnDialogue());
         }
         else //꺼질때
         {
@@ -86,5 +83,14 @@ public class Dialogue : MonoBehaviour
             _nickName.DOFade(0, 1f);
             _contents.DOFade(0, 1f);
         }
+    }
+
+    private IEnumerator OnDialogue()
+    {
+        gameObject.SetActive(true);
+        _panel.DOFade(0.7f, 1f);
+        yield return new WaitForSeconds(1f);
+        _nickName.color = new Color(255,255,255, 255);
+        StartCoroutine(WriteContents(_dialogueSO));
     }
 }
