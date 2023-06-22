@@ -46,6 +46,8 @@ public class Grab_su : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        EnemyAI enemyAI = other.gameObject.GetComponent<EnemyAI>();
+        enemyAI.SetState(State.Grab);
         StartCoroutine("GetGrab", other);
         isEnemy = true;
         grabRange.transform.position = grabRangeEndPos.transform.position;

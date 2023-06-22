@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 71470962}
   - component: {fileID: 71470965}
   - component: {fileID: 71470966}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95537118}
   - component: {fileID: 95537117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,6 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a16b2392c6a743b3fe38f9b4411c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackCount: 0
 --- !u!1 &918447525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1681734032}
   - component: {fileID: 1681734033}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

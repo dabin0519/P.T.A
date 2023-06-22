@@ -29,9 +29,9 @@ public class GunEnemyAttack : MonoBehaviour
 
     private IEnumerator GunAttack()
     {
-        Debug.Log("ÄÚ·çÆ¾ È£Ãâ");
+        Debug.Log("ï¿½Ú·ï¿½Æ¾ È£ï¿½ï¿½");
         yield return new WaitForSeconds(_enemyData.AttackCoolTime);
-        Debug.Log("ÀÌÁ¦ ½ÃÀÛ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         _enemyAnim.SetTrigger("");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _shootPos.position);

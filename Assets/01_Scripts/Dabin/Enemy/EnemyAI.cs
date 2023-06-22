@@ -8,6 +8,8 @@ public enum State
     Patroll,
     Alert,
     Chase,
+    Grab,
+    TimeStop,
     Attack
 }
 
@@ -53,7 +55,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die) // ÇÃ·¹ÀÌ¾î°¡ Á×¾úÀ»¶© ¸ØÃß±â
+        if (_player.GetState() == PlayerState.Die) // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
         {
             StopCoroutine(Alert());
             return;
@@ -61,6 +63,8 @@ public class EnemyAI : MonoBehaviour
 
         switch (_currentState)
         {
+            case State.Grab:
+                break;
             case State.Patroll:
                 Patrol();
                 CheckForPlayer();
@@ -79,7 +83,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (_waypoints.Length == 0) Debug.LogWarning("³Ê °ª ¾È³Ö¾ú´Ù.");
+        if (_waypoints.Length == 0) Debug.LogWarning("ï¿½ï¿½ ï¿½ï¿½ ï¿½È³Ö¾ï¿½ï¿½ï¿½.");
 
         _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -127,7 +131,7 @@ public class EnemyAI : MonoBehaviour
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
-        Debug.Log("chase");
+            Debug.Log("chase");
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
@@ -154,6 +158,7 @@ public class EnemyAI : MonoBehaviour
     public void SetState(State state)
     {
         _currentState = state;
+        Debug.Log(state);
     }
 
     bool CaculateForward()
