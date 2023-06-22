@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class TimeStop : MonoBehaviour
 {
+    [SerializeField] GameObject _EnemyTrm;
+    EnemyAI _enemy;
     bool isTimeStop;
+
+    private void Start() {
+        _enemy = _EnemyTrm.GetComponentInChildren<EnemyAI>();
+    }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E) && isTimeStop == false) {
             StopTime();
@@ -19,6 +25,7 @@ public class TimeStop : MonoBehaviour
         isTimeStop = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(var stopTimeEnemies in enemies ) {
+            _enemy.SetState(State.TimeStop);
             Animator anim = stopTimeEnemies.GetComponentInChildren<Animator>();
             Rigidbody2D rigid = stopTimeEnemies.GetComponent<Rigidbody2D>();
             EnemyAI ai = stopTimeEnemies.GetComponent<EnemyAI>();
@@ -31,6 +38,7 @@ public class TimeStop : MonoBehaviour
     public void StartTime() {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(var stopTimeEnemies in enemies ) {
+            _enemy.StartCor();
             Animator anim = stopTimeEnemies.GetComponentInChildren<Animator>();
             Rigidbody2D rigid = stopTimeEnemies.GetComponent<Rigidbody2D>();
             EnemyAI ai = stopTimeEnemies.GetComponent<EnemyAI>();

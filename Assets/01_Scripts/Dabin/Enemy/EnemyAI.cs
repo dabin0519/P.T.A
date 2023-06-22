@@ -8,8 +8,8 @@ public enum State
     Patroll,
     Alert,
     Chase,
-    Grab,
     TimeStop,
+    Grab,
     Attack
 }
 
@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private EnemySO _enemyData;
 
+    public UnityEvent OnStop;
     public UnityEvent OnAttack;
     
     [HideInInspector] public bool _isCheckPlayer;
@@ -31,12 +32,16 @@ public class EnemyAI : MonoBehaviour
     private Vector2 x = Vector2.left.normalized;
 
     private Animator _enemyAnim;
+    private GunEnemyAttack _gunEnemyAttack;
     private Player _player;
+    private State _saveState;
+    private bool _isAtkWaitCool;
 
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
+        _gunEnemyAttack = GetComponentInChildren<GunEnemyAttack>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
     }
@@ -55,15 +60,18 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die) // �÷��̾ �׾����� ���߱�
+        if (_player.GetState() == PlayerState.Die && _player.GetState() == PlayerState.Grab) // �÷��̾ �׾����� ���߱�
         {
-            StopCoroutine(Alert());
+            StopEnemyCor();
             return;
         }
 
         switch (_currentState)
         {
             case State.Grab:
+                break;
+            case State.TimeStop:
+                StopEnemyCor();
                 break;
             case State.Patroll:
                 Patrol();
@@ -81,6 +89,18 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void StartCor() {
+        _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
+        _currentState = _saveState;
+    }
+
+    private void StopEnemyCor() {
+        OnStop?.Invoke();
+        StopCoroutine(Alert());
+        _gunEnemyAttack.StopAtkCor();
+        _target = transform.position;
+        _saveState = _currentState;
+    }
     private void Patrol()
     {
         if (_waypoints.Length == 0) Debug.LogWarning("�� �� �ȳ־���.");
@@ -131,7 +151,6 @@ public class EnemyAI : MonoBehaviour
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
-            Debug.Log("chase");
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
@@ -140,14 +159,15 @@ public class EnemyAI : MonoBehaviour
     private void Flip()
     {
         Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
-
         transform.localScale = scale;
     }
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForward())
+        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForward() && _isAtkWaitCool == false)
         {
+            _isAtkWaitCool = true;
+            print("D");
             OnAttack?.Invoke();
             _enemyAnim.SetTrigger("isShootWait");
             transform.position = transform.position;
@@ -158,15 +178,12 @@ public class EnemyAI : MonoBehaviour
     public void SetState(State state)
     {
         _currentState = state;
-        Debug.Log(state);
     }
 
     bool CaculateForward()
     {
         Vector2 a = (transform.position - _playerTrm.position).normalized;
         Vector2 dir = Vector2.right.normalized;
-
-        Debug.Log(Vector2.Dot(a, dir) > 0);
         return Vector2.Dot(a, dir) > 0;
 
     }

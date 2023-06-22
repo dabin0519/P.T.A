@@ -38,7 +38,6 @@ public class Test : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && !IsParry && _attackTime > 0)
         {
-            Debug.Log("PressAttack");
             IsAttack = true;
             _attackTime--;
             _anim.SetTrigger("Attack");
@@ -93,7 +92,6 @@ public class Test : MonoBehaviour
 
     private IEnumerator AttackTimer()
     {
-        Debug.Log("CallAttackCoroutine");
         yield return new WaitForSeconds(3f);
         _attackTime = 0;
     }

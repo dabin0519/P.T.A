@@ -26,12 +26,14 @@ public class GunEnemyAttack : MonoBehaviour
     {
         StartCoroutine(GunAttack());
     }
+    
+    public void StopAtkCor() {
+        StopCoroutine(GunAttack());
+    }
 
     private IEnumerator GunAttack()
     {
-        Debug.Log("�ڷ�ƾ ȣ��");
         yield return new WaitForSeconds(_enemyData.AttackCoolTime);
-        Debug.Log("���� ����");
         _enemyAnim.SetTrigger("");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _shootPos.position);
