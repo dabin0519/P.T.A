@@ -25,10 +25,12 @@ public class TimeStop : MonoBehaviour
         isTimeStop = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(var stopTimeEnemies in enemies ) {
+            _enemy.SaveState();
             _enemy.SetState(State.TimeStop);
             Animator anim = stopTimeEnemies.GetComponentInChildren<Animator>();
             Rigidbody2D rigid = stopTimeEnemies.GetComponent<Rigidbody2D>();
             EnemyAI ai = stopTimeEnemies.GetComponent<EnemyAI>();
+            ai._isTimeStop = true;
             rigid.constraints = RigidbodyConstraints2D.FreezeAll;
             //EnemyAI에 있는 moveSpeed 접근해서 속도를 0으로
             anim.speed = 0;
@@ -42,6 +44,7 @@ public class TimeStop : MonoBehaviour
             Animator anim = stopTimeEnemies.GetComponentInChildren<Animator>();
             Rigidbody2D rigid = stopTimeEnemies.GetComponent<Rigidbody2D>();
             EnemyAI ai = stopTimeEnemies.GetComponent<EnemyAI>();
+            ai._isTimeStop = false;
             rigid.constraints = RigidbodyConstraints2D.None;
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             //EnemyAI에 있는 moveSpeed 접근해서 원래 속도로

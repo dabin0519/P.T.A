@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     public UnityEvent OnAttack;
     
     [HideInInspector] public bool _isCheckPlayer;
+    [HideInInspector] public bool _isTimeStop;
 
     private State _currentState;
     private Transform _playerVisualTrm;
@@ -70,7 +71,7 @@ public class EnemyAI : MonoBehaviour
         {
             case State.Grab:
                 break;
-            case State.TimeStop:
+            case State.TimeStop:;
                 StopEnemyCor();
                 break;
             case State.Patroll:
@@ -93,13 +94,18 @@ public class EnemyAI : MonoBehaviour
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         _currentState = _saveState;
     }
+    
+    public void SaveState() {
+        _saveState = _currentState;
+        print(_saveState);
+    }
 
     private void StopEnemyCor() {
         OnStop?.Invoke();
         StopCoroutine(Alert());
         _gunEnemyAttack.StopAtkCor();
         _target = transform.position;
-        _saveState = _currentState;
+        //_saveState = _currentState;
     }
     private void Patrol()
     {
@@ -158,8 +164,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Flip()
     {
-        Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
-        transform.localScale = scale;
+        // Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
+        // transform.localScale = scale;
+        if (transform.position.x < _target.x) {
+            transform.eulerAngles= new Vector3(0, 0, 0);
+        } 
+        else if (transform.position.x > _target.x) {
+            transform.eulerAngles= new Vector3(0, 180, 0);
+        }
     }
 
     private void CheckForAttack()
