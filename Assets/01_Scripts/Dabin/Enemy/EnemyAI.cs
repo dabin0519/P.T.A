@@ -167,10 +167,10 @@ public class EnemyAI : MonoBehaviour
         // Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
         // transform.localScale = scale;
         if (transform.position.x < _target.x) {
-            transform.eulerAngles= new Vector3(0, 0, 0);
+            transform.eulerAngles= new Vector3(0, 180, 0);
         } 
         else if (transform.position.x > _target.x) {
-            transform.eulerAngles= new Vector3(0, 180, 0);
+            transform.eulerAngles= new Vector3(0, 0, 0);
         }
     }
 

@@ -38,6 +38,7 @@ public class PlayerSkill : MonoBehaviour
         {
             _anim.SetBool("isParry", true);
             _attackCount++;
+            _player.SetState(PlayerState.Move);
         }
     }
 
