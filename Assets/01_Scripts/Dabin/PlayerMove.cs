@@ -6,12 +6,17 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rollSpeed;
+    [HideInInspector] public SpriteRenderer SpriteRend;
 
     private Animator _anim;
     private Player _player;
     private Rigidbody2D _rigid;
 
     private Vector3 _vector;
+
+    private void Awake() {
+        SpriteRend = GetComponent<SpriteRenderer>();
+    }
 
     private void Start()
     {
