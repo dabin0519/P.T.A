@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
-    [HideInInspector] public int _attackCount;
+    //[HideInInspector] 
+    public int _attackCount;
 
     private Animator _anim;
     private Player _player;
