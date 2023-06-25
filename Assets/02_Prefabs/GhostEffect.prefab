@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a95dad2c901d849998313dce9e16fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyTime: 0.2
-  color: {r: 0.348487, g: 0.3679245, b: 0.35820577, a: 0.6313726}
+  _destroyTime: 0.3
+  color: {r: 0, g: 1, b: 0.4000001, a: 0.6313726}

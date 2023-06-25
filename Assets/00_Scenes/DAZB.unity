@@ -1708,7 +1708,7 @@ MonoBehaviour:
   grabRangeEndPos: {fileID: 721483954}
   startPoint: {fileID: 577362153}
   playerObj: {fileID: 1639332856}
-  coolTime: 3
+  coolTime: 0
 --- !u!1 &1306495508
 GameObject:
   m_ObjectHideFlags: 3
@@ -2361,7 +2361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ghostEffectPrf: {fileID: 867790092510269986, guid: 19a164d264b8cbb458c47c79a5c3b919, type: 3}
-  _spawnDelay: 0.7
+  _spawnDelay: 0.07
 --- !u!1 &1898789573
 GameObject:
   m_ObjectHideFlags: 0

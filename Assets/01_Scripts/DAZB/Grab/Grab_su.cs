@@ -33,7 +33,7 @@ public class Grab_su : MonoBehaviour
     private IEnumerator ThrowGrab() {
         grabCollider.enabled = true;
         player.SetState(PlayerState.Grab);
-        anim.SetTrigger("GrabThrow");
+        anim.SetTrigger("Grab");
         grabRange.transform.DOMove(grabRangeEndPos.transform.position, 0.5f);
         if (isEnemy) yield break;
         yield return new WaitForSeconds(0.8f);

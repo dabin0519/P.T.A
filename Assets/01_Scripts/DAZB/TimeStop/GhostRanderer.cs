@@ -27,5 +27,4 @@ public class GhostRanderer : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
