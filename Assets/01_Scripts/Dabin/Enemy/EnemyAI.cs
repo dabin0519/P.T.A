@@ -92,6 +92,7 @@ public class EnemyAI : MonoBehaviour
 
     public void StartCor() {
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
+        _isTimeStop = true;
         _currentState = _saveState;
     }
     

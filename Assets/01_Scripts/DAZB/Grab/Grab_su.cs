@@ -11,11 +11,11 @@ public class Grab_su : MonoBehaviour
     [SerializeField] GameObject startPoint;
     [SerializeField] GameObject playerObj;
     [SerializeField] float coolTime;
-    BoxCollider2D grabCollider;
-    Player player;
-    bool isGrab = false;
-    bool isEnemy = false;
-    Animator anim; // 플레이어 애니메이션
+    private BoxCollider2D grabCollider;
+    private Player player;
+    private bool isGrab = false;
+    private bool isEnemy = false;
+    private Animator anim; // 플레이어 애니메이션
 
     private void Start() {
         anim = playerObj.GetComponent<Animator>();

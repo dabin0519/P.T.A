@@ -33,6 +33,7 @@ public class GunEnemyAttack : MonoBehaviour
 
     private IEnumerator GunAttack()
     {
+        if (_enemyAI._isTimeStop) yield break;
         yield return new WaitForSeconds(_enemyData.AttackCoolTime);
         _enemyAnim.SetTrigger("");
         _lineRenderer.enabled = true;
@@ -42,8 +43,10 @@ public class GunEnemyAttack : MonoBehaviour
         _lineRenderer.SetPosition(1, _target);
         ChangeColor(Color.red);
         yield return new WaitForSeconds(0.2f);
+        if (_enemyAI._isTimeStop) yield break;
         ChangeColor(Color.white);
         yield return new WaitForSeconds(0.2f);
+        if (_enemyAI._isTimeStop) yield break;
         _enemyAnim.SetTrigger("isAttack");
 
         if (_player.GetState() == PlayerState.Parry)
