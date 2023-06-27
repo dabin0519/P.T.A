@@ -33,8 +33,8 @@ public class GunEnemyAttack : MonoBehaviour
 
     private IEnumerator GunAttack()
     {
-        if (_enemyAI._isTimeStop) yield break;
         yield return new WaitForSeconds(_enemyData.AttackCoolTime);
+        if (_enemyAI._isTimeStop)   yield break;
         _enemyAnim.SetTrigger("");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _shootPos.position);
@@ -59,6 +59,8 @@ public class GunEnemyAttack : MonoBehaviour
         }
         _lineRenderer.enabled = false;
         _enemyAI.SetState(State.Chase);
+        yield return new WaitForSeconds(2);
+        _enemyAI._isAtkWaitCool = false;
     }
 
     private void ChangeColor(Color lineColor)

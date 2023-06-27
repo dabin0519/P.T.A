@@ -9,12 +9,14 @@ public class PlayerSkill : MonoBehaviour
     public int _attackCount;
 
     private Animator _anim;
+    private TimeStop _timeStop;
     private Player _player;
 
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
         _player = GetComponentInParent<Player>();
+        _timeStop = GetComponent<TimeStop>();
         _attackCount = 0;
     }
 
@@ -28,11 +30,14 @@ public class PlayerSkill : MonoBehaviour
             _player.SetState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }
-        if(Input.GetMouseButtonDown(0) && _attackCount != 0 && _player.GetState() != PlayerState.Parry)
+        
+        if(Input.GetMouseButtonDown(0))
         {
-            _player.SetState(PlayerState.Attack);
-            _attackCount--;
-            _anim.SetTrigger("Attack");
+            if (_attackCount != 0 && _player.GetState() != PlayerState.Parry || _timeStop.isTimeStop == true) {
+                _player.SetState(PlayerState.Attack);
+                _attackCount--;
+                _anim.SetTrigger("Attack");
+            }
         }
 
         if (_player.GetState() == PlayerState.Counter)

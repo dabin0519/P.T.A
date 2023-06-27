@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
     
     [HideInInspector] public bool _isCheckPlayer;
     [HideInInspector] public bool _isTimeStop;
+    [HideInInspector] public  bool _isAtkWaitCool;
+    public bool IsAttacked;
 
     private State _currentState;
     private Transform _playerVisualTrm;
@@ -36,7 +38,6 @@ public class EnemyAI : MonoBehaviour
     private GunEnemyAttack _gunEnemyAttack;
     private Player _player;
     private State _saveState;
-    private bool _isAtkWaitCool;
 
 
     private void Awake()
@@ -61,6 +62,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (_currentState != State.TimeStop && IsAttacked == true) {
+            Destroy(gameObject);
+        }
+
         if (_player.GetState() == PlayerState.Die && _player.GetState() == PlayerState.Grab) // �÷��̾ �׾����� ���߱�
         {
             StopEnemyCor();

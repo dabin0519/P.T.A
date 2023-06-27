@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 225711153}
   m_Layer: 3
   m_Name: AttackCollider
-  m_TagString: Untagged
+  m_TagString: AtkRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,6 +433,7 @@ MonoBehaviour:
         m_CallState: 2
   _isCheckPlayer: 0
   _isTimeStop: 0
+  IsAttacked: 0
 --- !u!1 &356883664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1465,7 @@ MonoBehaviour:
         m_CallState: 2
   _isCheckPlayer: 0
   _isTimeStop: 0
+  IsAttacked: 0
 --- !u!1 &1034598556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ghostEffectPrf: {fileID: 867790092510269986, guid: 19a164d264b8cbb458c47c79a5c3b919, type: 3}
   _spawnDelay: 0.05
+  isTimeStop: 0
 --- !u!1 &1898789573
 GameObject:
   m_ObjectHideFlags: 0

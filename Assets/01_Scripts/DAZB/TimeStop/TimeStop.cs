@@ -6,9 +6,9 @@ public class TimeStop : MonoBehaviour
 {
     //[SerializeField] GameObject _EnemyTrm;
     //EnemyAI _enemy;
-    [SerializeField] GameObject _ghostEffectPrf;
-    [SerializeField] float _spawnDelay;
-    private bool isTimeStop;
+    [SerializeField] private GameObject _ghostEffectPrf;
+    [SerializeField] private float _spawnDelay;
+    [HideInInspector] public bool isTimeStop;
 
     private void Start() {
         //_enemy = _EnemyTrm.GetComponentInChildren<EnemyAI>();
