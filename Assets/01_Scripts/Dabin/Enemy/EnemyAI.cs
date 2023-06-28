@@ -11,6 +11,9 @@ public enum State
     TimeStop,
     Grab,
     Attack
+    Attack,
+    Die,
+    End
 }
 
 public class EnemyAI : MonoBehaviour
@@ -39,6 +42,8 @@ public class EnemyAI : MonoBehaviour
     private Player _player;
     private State _saveState;
 
+    private CapsuleCollider2D _collider;
+    private EnemyAI _enemyAI;
 
     private void Awake()
     {
@@ -46,6 +51,8 @@ public class EnemyAI : MonoBehaviour
         _gunEnemyAttack = GetComponentInChildren<GunEnemyAttack>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
+        _collider = GetComponent<CapsuleCollider2D>();
+        _enemyAI = GetComponent<EnemyAI>();
     }
 
     private void Start()
@@ -69,6 +76,16 @@ public class EnemyAI : MonoBehaviour
         if (_player.GetState() == PlayerState.Die && _player.GetState() == PlayerState.Grab) // �÷��̾ �׾����� ���߱�
         {
             StopEnemyCor();
+        if(_currentState == State.Die)
+        {
+            _collider.enabled = false;
+            _enemyAnim.SetTrigger("IsDie");
+            _currentState = State.End;
+        }
+
+        if (_player.GetState() == PlayerState.End || _currentState == State.End) // �÷��̾ �׾����� ���߱�
+        {
+            _enemyAI.enabled = false;
             return;
         }
 
@@ -198,11 +215,10 @@ public class EnemyAI : MonoBehaviour
         _currentState = state;
     }
 
-    bool CaculateForward()
+    private bool CaculateForward()
     {
-        Vector2 a = (transform.position - _playerTrm.position).normalized;
+        Vector2 a = (transform.position - _playerVisualTrm.position).normalized;
         Vector2 dir = Vector2.right.normalized;
         return Vector2.Dot(a, dir) > 0;
-
     }
 }

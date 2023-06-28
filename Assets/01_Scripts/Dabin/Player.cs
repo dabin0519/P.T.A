@@ -11,7 +11,8 @@ public enum PlayerState
     Grab,
     Assassin,
     Counter,
-    Die
+    Die,
+    End
 }
 
 public class Player : MonoBehaviour

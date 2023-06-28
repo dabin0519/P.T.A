@@ -7,12 +7,14 @@ public class GunEnemyAttack : MonoBehaviour
     [SerializeField] private EnemySO _enemyData;
     [SerializeField] private Transform _shootPos;
     [SerializeField] private Transform _playerTrm;
+    [SerializeField] private LayerMask _playerLayer;
 
     private LineRenderer _lineRenderer;
     private Animator _enemyAnim;
     private EnemyAI _enemyAI;
     private Player _player;
     private Vector2 _target;
+    private Transform _playerVisualTrm;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class GunEnemyAttack : MonoBehaviour
         _enemyAnim = transform.parent.Find("Visual").GetComponent<Animator>();
         _player = _playerTrm.GetComponent<Player>();
         _enemyAI = transform.parent.GetComponent<EnemyAI>();
+        _playerVisualTrm = _playerTrm.Find("Visual").transform;
     }
 
     public void Attack()
@@ -38,7 +41,7 @@ public class GunEnemyAttack : MonoBehaviour
         _enemyAnim.SetTrigger("");
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _shootPos.position);
-        _target.x = _playerTrm.position.x;
+        _target.x = _playerVisualTrm.position.x;
         _target.y = _shootPos.position.y;
         _lineRenderer.SetPosition(1, _target);
         ChangeColor(Color.red);
@@ -49,14 +52,22 @@ public class GunEnemyAttack : MonoBehaviour
         if (_enemyAI._isTimeStop) yield break;
         _enemyAnim.SetTrigger("isAttack");
 
-        if (_player.GetState() == PlayerState.Parry)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _target - (Vector2)transform.position );
+        Debug.DrawRay(transform.position, _target - (Vector2)transform.position, Color.blue, 1f);
+
+        if (hit)
         {
-            _player.SetState(PlayerState.Counter);
+            if (_player.GetState() == PlayerState.Parry)
+            {
+                _player.SetState(PlayerState.Counter);
+            }
+            else
+            {
+                _player.SetState(PlayerState.Die);
+            }
         }
-        else
-        {
-            _player.SetState(PlayerState.Die);
-        }
+
+        Debug.Log("실행 안되지?");
         _lineRenderer.enabled = false;
         _enemyAI.SetState(State.Chase);
         yield return new WaitForSeconds(2);

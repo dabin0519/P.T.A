@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Enemy
   - GrabRange
   - Enemy
   - AtkRange
@@ -43,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2096105939
+    locked: 0
+  - name: Top
+    uniqueID: 3067223473
     locked: 0

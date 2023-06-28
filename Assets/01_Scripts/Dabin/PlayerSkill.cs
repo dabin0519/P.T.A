@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
-    //[HideInInspector] 
     public int _attackCount;
     private Animator _anim;
     private TimeStop _timeStop;
     private Player _player;
+
+    private bool _isParry;
+    private bool _isCounter;
 
     private void Awake()
     {
@@ -21,7 +23,7 @@ public class PlayerSkill : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die)
+        if (_player.GetState() == PlayerState.End)
             return;
 
         if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)
@@ -29,8 +31,8 @@ public class PlayerSkill : MonoBehaviour
             _player.SetState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }
-        
-        if(Input.GetMouseButtonDown(0))
+
+        if(Input.GetMouseButtonDown(0) && _attackCount != 0 && _player.GetState() != PlayerState.Parry)
         {
             if (_attackCount != 0 && _player.GetState() != PlayerState.Parry || _timeStop.isTimeStop == true) {
                 if ( _timeStop.isTimeStop != true) {
