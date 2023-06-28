@@ -9,7 +9,10 @@ public enum PlayerState
     Parry,
     Move,
     Grab,
-    Die
+    Assassin,
+    Counter,
+    Die,
+    End
 }
 
 public class Player : MonoBehaviour

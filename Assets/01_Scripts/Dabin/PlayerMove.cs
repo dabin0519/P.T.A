@@ -7,9 +7,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rollSpeed;
 
-    private Animator _animator;
+    private Animator _anim;
     private Player _player;
-    private SpriteRenderer _sprite;
     private Rigidbody2D _rigid;
 
     private Vector3 _vector;
@@ -17,21 +16,19 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         _player = GetComponentInParent<Player>();
-        _animator = GetComponent<Animator>();
-        _sprite = GetComponent<SpriteRenderer>();
+        _anim = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        if (_player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Roll)
+        if (_player.GetState() == PlayerState.Die || 
+            _player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Roll)
             return;
 
-        //Flip
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
-            _animator.SetInteger("move", (int)Input.GetAxisRaw("Horizontal") * 2); //MoveAniamtor
-            //_sprite.flipX = Input.GetAxisRaw("Horizontal") > 0; //반전
+            _anim.SetInteger("move", (int)Input.GetAxisRaw("Horizontal") * 2); //MoveAniamtor
 
             if (Input.GetAxisRaw("Horizontal") > 0) {
                 transform.eulerAngles = new Vector3(0, 180);
@@ -41,7 +38,7 @@ public class PlayerMove : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0);
             }
 
-            if (!_animator.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
+            if (!_anim.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
             {
                 _rigid.velocity = new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal"), 0); //움직임
             }
@@ -52,7 +49,6 @@ public class PlayerMove : MonoBehaviour
         {
             _vector = Camera.main.WorldToScreenPoint(transform.position);
 
-            //_sprite.flipX = Input.mousePosition.x > _vector.x;
             if (Input.mousePosition.x > _vector.x) {
                 transform.eulerAngles = new Vector3(0, 180);
             }
@@ -60,19 +56,27 @@ public class PlayerMove : MonoBehaviour
             else if (Input.mousePosition.x < _vector.x) {
                 transform.eulerAngles = new Vector3(0, 0);
             }
-            //_animator.SetInteger("move", _sprite.flipX ? 1 : -1);
-            _animator.SetInteger("move", MoveDir() ? 1 : -1);
+            _anim.SetInteger("move", MoveDir() ? 1 : -1);
         }
 
     }
 
     private void Update()
     {
-        //람머스
+        if (_player.GetState() == PlayerState.End)
+            return;
+
+        if(_player.GetState() == PlayerState.Die)
+        {
+            _anim.SetTrigger("isDie");
+            _player.SetState(PlayerState.End);
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetAxisRaw("Horizontal") != 0)
         {
             _player.SetState(PlayerState.Roll);
-            _animator.SetTrigger("Roll");
+            _anim.SetTrigger("Roll");
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }
 
@@ -80,7 +84,6 @@ public class PlayerMove : MonoBehaviour
         {
             if(Input.mousePosition.x > _vector.x)
             {
-                //_sprite.flipX = false;
                 transform.eulerAngles = new Vector3(0, 0);
             }
         }

@@ -8,7 +8,9 @@ public enum State
     Patroll,
     Alert,
     Chase,
-    Attack
+    Attack,
+    Die,
+    End
 }
 
 public class EnemyAI : MonoBehaviour
@@ -16,7 +18,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Transform[] _waypoints = null;
     [SerializeField] private Transform _playerTrm;
-
     [SerializeField] private EnemySO _enemyData;
 
     public UnityEvent OnAttack;
@@ -27,9 +28,12 @@ public class EnemyAI : MonoBehaviour
     private Transform _playerVisualTrm;
     private Vector2 _target;
     private int _currentWaypoint = 0;
+    private Vector2 x = Vector2.left.normalized;
 
     private Animator _enemyAnim;
     private Player _player;
+    private CapsuleCollider2D _collider;
+    private EnemyAI _enemyAI;
     public int hp = 1;
 
 
@@ -68,6 +72,8 @@ public class EnemyAI : MonoBehaviour
         }
         
         
+        _collider = GetComponent<CapsuleCollider2D>();
+        _enemyAI = GetComponent<EnemyAI>();
     }
 
     private void Start()
@@ -84,9 +90,16 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die) // �÷��̾ �׾����� ���߱�
+        if(_currentState == State.Die)
         {
-            StopAllCoroutines();
+            _collider.enabled = false;
+            _enemyAnim.SetTrigger("IsDie");
+            _currentState = State.End;
+        }
+
+        if (_player.GetState() == PlayerState.End || _currentState == State.End) // �÷��̾ �׾����� ���߱�
+        {
+            _enemyAI.enabled = false;
             return;
         }
 
@@ -122,6 +135,7 @@ public class EnemyAI : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x *= -1f;
             transform.localScale = scale;
+            x *= -1;
         }
     }
 
@@ -133,7 +147,10 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, _playerVisualTrm.position - transform.position, _enemyData.ViewDistance, _playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, x, _enemyData.ViewDistance, _playerLayer);
+
+        Debug.DrawRay(transform.position, _enemyData.ViewDistance * x, Color.red);
+
 
         if (hit && hit.collider.CompareTag("Player"))
         {
@@ -154,6 +171,7 @@ public class EnemyAI : MonoBehaviour
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
+        Debug.Log("chase");
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
@@ -169,22 +187,17 @@ public class EnemyAI : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
+
         transform.localScale = scale;
         yield return null;
     }
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance)
+        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForward())
         {
-            /*switch (_enemyData.EnemyMode) //SO�� ���� // unity event�� �ٲ���
-            {
-                case EnemyEnum.Gun:
-                    StartCoroutine(GunAttack());
-                    break;
-            }*/
-            Debug.Log("?");
             OnAttack?.Invoke();
+            _enemyAnim.SetTrigger("isShootWait");
             transform.position = transform.position;
             _currentState = State.Attack;
         }
@@ -193,5 +206,14 @@ public class EnemyAI : MonoBehaviour
     public void SetState(State state)
     {
         _currentState = state;
+    }
+
+    private bool CaculateForward()
+    {
+        Vector2 a = (transform.position - _playerVisualTrm.position).normalized;
+        Vector2 dir = Vector2.right.normalized;
+
+        Debug.Log(Vector2.Dot(a, dir) > 0);
+        return Vector2.Dot(a, dir) > 0;
     }
 }
