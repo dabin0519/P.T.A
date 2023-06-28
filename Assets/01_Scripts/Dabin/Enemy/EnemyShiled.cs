@@ -20,7 +20,7 @@ public class EnemyShiled : MonoBehaviour
         if (isAttack)
             return;
 
-        if (transform.position.x - targetPos.position.x < attackDistance && !(transform.position.x - targetPos.position.x < 0)) //»ç°Å¸® ¾ÈÀÌ¸é ¿òÁ÷ÀÓÀ» ¸ØÃß°í °ø°Ý ½ÃÀÛ
+        if (transform.position.x - targetPos.position.x < attackDistance && !(transform.position.x - targetPos.position.x < 0)) //ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             isAttack = true;
             Attack();
@@ -34,14 +34,14 @@ public class EnemyShiled : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("»ç°Å¸® ¾È");
-        StartCoroutine(AttackCoroutine());
+        Debug.Log("ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½");
+        //StartCoroutine(AttackCoroutine());
     }
 
     private IEnumerator AttackCoroutine()
     {
         yield return new WaitForSeconds(1f);
-        Debug.Log("°ø°Ý");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         isAttack = false;
     }
 

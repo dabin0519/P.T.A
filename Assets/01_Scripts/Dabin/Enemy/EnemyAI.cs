@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
 
     private Animator _enemyAnim;
     private Player _player;
+    public int hp = 1;
 
 
     private void Awake()
@@ -37,6 +38,36 @@ public class EnemyAI : MonoBehaviour
         _enemyAnim = GetComponentInChildren<Animator>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
+        //hp = _enemyData.Health;
+    }
+
+    public void OnDamage() {
+        if(_enemyData.EnemyMode == EnemyEnum.Shiled) {
+            if(transform.localScale.x == 1) {
+                if(transform.position.x > _playerVisualTrm.position.x) {
+                    Destroy(gameObject);
+                return;
+                }
+            }
+            
+            if (transform.localScale.x == -1 ) {
+                 if(transform.position.x < _playerVisualTrm.position.x) {
+                    Destroy(gameObject);
+                return;
+                }
+            }
+        _enemyAnim.SetTrigger("isAttack");
+
+
+        } else {
+            hp--;
+
+            if(hp<=0) {
+            Destroy(gameObject);
+        }
+        }
+        
+        
     }
 
     private void Start()
@@ -53,7 +84,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die) // ÇÃ·¹ÀÌ¾î°¡ Á×¾úÀ»¶© ¸ØÃß±â
+        if (_player.GetState() == PlayerState.Die) // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
         {
             StopAllCoroutines();
             return;
@@ -79,7 +110,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (_waypoints.Length == 0) Debug.LogWarning("³Ê °ª ¾È³Ö¾ú´Ù.");
+        if (_waypoints.Length == 0) Debug.LogWarning("ï¿½ï¿½ ï¿½ï¿½ ï¿½È³Ö¾ï¿½ï¿½ï¿½.");
 
         _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -130,15 +161,23 @@ public class EnemyAI : MonoBehaviour
 
     private void Flip()
     {
+        StartCoroutine(FlipCoroutine());
+    }
+
+    IEnumerator FlipCoroutine() {
+        if(_enemyData.EnemyMode == EnemyEnum.Shiled) {
+            yield return new WaitForSeconds(0.2f);
+        }
         Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
         transform.localScale = scale;
+        yield return null;
     }
 
     private void CheckForAttack()
     {
         if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance)
         {
-            /*switch (_enemyData.EnemyMode) //SO·Î ÁöÁ¤ // unity event·Î ¹Ù²ÙÀÚ
+            /*switch (_enemyData.EnemyMode) //SOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ // unity eventï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½
             {
                 case EnemyEnum.Gun:
                     StartCoroutine(GunAttack());

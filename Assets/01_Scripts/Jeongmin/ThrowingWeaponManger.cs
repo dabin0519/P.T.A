@@ -15,7 +15,7 @@ public class ThrowingWeaponManger : MonoBehaviour
 
     public void Throw(GameObject weaponPrefab, float power = 5f, float destoryTime = 3f)
     {
-        // À§·Î ´øÁú ¶§¿¡
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (GetScreenMouseIsUpOrDown() == 1)
         {
             Vector2 dir = GetMouseDirPosition();
@@ -38,7 +38,7 @@ public class ThrowingWeaponManger : MonoBehaviour
     }
 
 
-    // 1 = À§ -1 = ¾Æ·¡
+    // 1 = ï¿½ï¿½ -1 = ï¿½Æ·ï¿½
     private int GetScreenMouseIsUpOrDown()
     {
         Vector2 mousePosition = Input.mousePosition;
@@ -71,10 +71,10 @@ public class ThrowingWeaponManger : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-            Throw(weaponGameObject, 5f);
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     if (Input.GetMouseButtonDown(0))
+    //         Throw(weaponGameObject, 5f);
+    // }
 }

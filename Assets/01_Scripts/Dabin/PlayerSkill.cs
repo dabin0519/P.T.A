@@ -8,6 +8,14 @@ public class PlayerSkill : MonoBehaviour
     private Animator _anim;
     private Player _player;
 
+    private bool canUseSkill
+    {
+        get
+        {
+            return _player.GetState() != PlayerState.Parry && _player.GetState() != PlayerState.Die;
+        }
+    }
+
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
@@ -16,16 +24,23 @@ public class PlayerSkill : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)
+        if (Input.GetMouseButtonDown(1) && canUseSkill)
         {
             _player.SetState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }
-        if(Input.GetMouseButtonDown(0) && _player.GetState() != PlayerState.Parry)
+        if(Input.GetMouseButtonDown(0) && canUseSkill)
         {
             Debug.Log("PressAttack");
             _player.SetState(PlayerState.Attack);
             _anim.SetTrigger("Attack");
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z) && canUseSkill)
+        {
+            //_player.SetState(PlayerState.Attack);
+            _anim.SetTrigger("Throw");
+            GetComponentInChildren<ThrowingWeaponManger>().Throw(GetComponentInChildren<ThrowingWeaponManger>().weaponGameObject, 5f);
         }
     }
 

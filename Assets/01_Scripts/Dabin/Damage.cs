@@ -6,6 +6,8 @@ public class Damage : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        if(collision.tag == "Enemy") {
+            collision.GetComponent<EnemyAI>().OnDamage();
+        } 
     }
 }
