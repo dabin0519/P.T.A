@@ -8,7 +8,9 @@ public enum State
     Patroll,
     Alert,
     Chase,
-    Attack
+    Attack,
+    Die,
+    End
 }
 
 public class EnemyAI : MonoBehaviour
@@ -30,13 +32,16 @@ public class EnemyAI : MonoBehaviour
 
     private Animator _enemyAnim;
     private Player _player;
-
+    private CapsuleCollider2D _collider;
+    private EnemyAI _enemyAI;
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
+        _collider = GetComponent<CapsuleCollider2D>();
+        _enemyAI = GetComponent<EnemyAI>();
     }
 
     private void Start()
@@ -53,9 +58,16 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die) // ÇÃ·¹ÀÌ¾î°¡ Á×¾úÀ»¶© ¸ØÃß±â
+        if(_currentState == State.Die)
         {
-            StopCoroutine(Alert());
+            _collider.enabled = false;
+            _enemyAnim.SetTrigger("IsDie");
+            _currentState = State.End;
+        }
+
+        if (_player.GetState() == PlayerState.End || _currentState == State.End) // ÇÃ·¹ÀÌ¾î°¡ Á×¾úÀ»¶© ¸ØÃß±â
+        {
+            _enemyAI.enabled = false;
             return;
         }
 
@@ -156,13 +168,12 @@ public class EnemyAI : MonoBehaviour
         _currentState = state;
     }
 
-    bool CaculateForward()
+    private bool CaculateForward()
     {
-        Vector2 a = (transform.position - _playerTrm.position).normalized;
+        Vector2 a = (transform.position - _playerVisualTrm.position).normalized;
         Vector2 dir = Vector2.right.normalized;
 
         Debug.Log(Vector2.Dot(a, dir) > 0);
         return Vector2.Dot(a, dir) > 0;
-
     }
 }

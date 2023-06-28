@@ -63,9 +63,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (_player.GetState() == PlayerState.End)
+            return;
+
         if(_player.GetState() == PlayerState.Die)
         {
             _anim.SetTrigger("isDie");
+            _player.SetState(PlayerState.End);
             return;
         }
 

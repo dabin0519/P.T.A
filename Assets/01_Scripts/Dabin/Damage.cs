@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    private EnemyAI _enemyAI;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            _enemyAI = collision.gameObject.GetComponent<EnemyAI>();
+            _enemyAI.SetState(State.Die);
+        }
     }
 }
