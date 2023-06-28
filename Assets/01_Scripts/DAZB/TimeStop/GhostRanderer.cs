@@ -6,6 +6,7 @@ public class GhostRanderer : MonoBehaviour
 {
     [SerializeField] private float _destroyTime;
     [SerializeField] private Color color;
+    [SerializeField] private 
     SpriteRenderer _spriteRenderer;
     PlayerMove _player;
 

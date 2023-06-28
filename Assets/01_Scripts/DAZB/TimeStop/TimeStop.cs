@@ -8,7 +8,7 @@ public class TimeStop : MonoBehaviour
     //EnemyAI _enemy;
     [SerializeField] private GameObject _ghostEffectPrf;
     [SerializeField] private float _spawnDelay;
-    [HideInInspector] public bool isTimeStop;
+    public bool isTimeStop;
 
     private void Start() {
         //_enemy = _EnemyTrm.GetComponentInChildren<EnemyAI>();
@@ -52,8 +52,8 @@ public class TimeStop : MonoBehaviour
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             //EnemyAI에 있는 moveSpeed 접근해서 원래 속도로
             anim.speed = 1;
-            isTimeStop = false;
         }
+        isTimeStop = false;
     }
 
     private IEnumerator GhostEftSpawn() {

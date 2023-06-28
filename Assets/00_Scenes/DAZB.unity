@@ -433,6 +433,7 @@ MonoBehaviour:
         m_CallState: 2
   _isCheckPlayer: 0
   _isTimeStop: 0
+  _isAtkWaitCool: 0
   IsAttacked: 0
 --- !u!1 &356883664
 GameObject:
@@ -1465,6 +1466,7 @@ MonoBehaviour:
         m_CallState: 2
   _isCheckPlayer: 0
   _isTimeStop: 0
+  _isAtkWaitCool: 0
   IsAttacked: 0
 --- !u!1 &1034598556
 GameObject:
@@ -2230,6 +2232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a16b2392c6a743b3fe38f9b4411c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _atkEffect: {fileID: 1700269285167806104, guid: 704847997e5e9e444914b3a8a5e57560, type: 3}
   _attackCount: 0
 --- !u!50 &1639332861
 Rigidbody2D:

@@ -7,7 +7,6 @@ public class PlayerSkill : MonoBehaviour
 {
     //[HideInInspector] 
     public int _attackCount;
-
     private Animator _anim;
     private TimeStop _timeStop;
     private Player _player;
@@ -34,8 +33,10 @@ public class PlayerSkill : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             if (_attackCount != 0 && _player.GetState() != PlayerState.Parry || _timeStop.isTimeStop == true) {
+                if ( _timeStop.isTimeStop != true) {
+                    _attackCount--;
+                }
                 _player.SetState(PlayerState.Attack);
-                _attackCount--;
                 _anim.SetTrigger("Attack");
             }
         }
