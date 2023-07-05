@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy1_GunDrow_3: -64190205
       Enemy1_GunDrow_0: -1414699342
       Enemy1_GunDrow_1: -395560579
-      Enemy1_GunDrow_4: -392461987
       Enemy1_GunDrow_2: 1237682427
+      Enemy1_GunDrow_3: -64190205
+      Enemy1_GunDrow_4: -392461987
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
