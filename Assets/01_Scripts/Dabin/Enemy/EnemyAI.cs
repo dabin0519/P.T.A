@@ -9,7 +9,7 @@ public enum State
     Alert,
     Chase,
     Die,
-    End
+    End,
     TimeStop,
     Grab,
     Attack
@@ -68,6 +68,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+
+        if (_currentState != State.TimeStop && IsAttacked == true) {
+            Destroy(gameObject);
+        }
+
+        
         if(_currentState == State.Die)
         {
             _collider.enabled = false;
@@ -75,11 +81,20 @@ public class EnemyAI : MonoBehaviour
             _currentState = State.End;
         }
 
-        if (_player.GetState() == PlayerState.End || _currentState == State.End) // �÷��̾ �׾����� ���߱�
+        // if (_player.GetState() == PlayerState.End || _currentState == State.End) // �÷��̾ �׾����� ���߱�
+        // {
+        //     _enemyAI.enabled = false;
+        //     return;
+        // }
+
+        
+        if (_player.GetState() == PlayerState.End && _player.GetState() == PlayerState.Grab || _currentState == State.End) // �÷��̾ �׾����� ���߱�
         {
+            StopEnemyCor();
             _enemyAI.enabled = false;
             return;
         }
+
 
         switch (_currentState)
         {

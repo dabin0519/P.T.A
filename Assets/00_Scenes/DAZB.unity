@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414f9a0d41101f0458520d7e59a2220e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _atkEffect: {fileID: 3980039110940423647, guid: e69b7ddf347db12499e2b118f0672dbc, type: 3}
 --- !u!61 &225711154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -272,6 +273,9 @@ MonoBehaviour:
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
   _shootPos: {fileID: 1623189743}
   _playerTrm: {fileID: 1575178974}
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &316090387
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,19 +407,7 @@ MonoBehaviour:
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
   OnStop:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1403239574}
-        m_TargetAssemblyTypeName: GunEnemyAttack, Assembly-CSharp
-        m_MethodName: StopAtkCor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAttack:
     m_PersistentCalls:
       m_Calls:
@@ -1436,19 +1428,7 @@ MonoBehaviour:
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
   OnStop:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 278326704}
-        m_TargetAssemblyTypeName: GunEnemyAttack, Assembly-CSharp
-        m_MethodName: StopAtkCor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAttack:
     m_PersistentCalls:
       m_Calls:
@@ -1949,6 +1929,9 @@ MonoBehaviour:
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
   _shootPos: {fileID: 79121663}
   _playerTrm: {fileID: 1575178974}
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1506336280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,7 +2215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a16b2392c6a743b3fe38f9b4411c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _atkEffect: {fileID: 1700269285167806104, guid: 704847997e5e9e444914b3a8a5e57560, type: 3}
   _attackCount: 0
 --- !u!50 &1639332861
 Rigidbody2D:
@@ -2366,7 +2348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ghostEffectPrf: {fileID: 867790092510269986, guid: 19a164d264b8cbb458c47c79a5c3b919, type: 3}
-  _spawnDelay: 0.05
+  _spawnDelay: 0
   isTimeStop: 0
 --- !u!1 &1898789573
 GameObject:
