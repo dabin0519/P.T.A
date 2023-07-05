@@ -10,7 +10,6 @@ public enum State
     Chase,
     TimeStop,
     Grab,
-    Attack
     Attack,
     Die,
     End
@@ -76,6 +75,7 @@ public class EnemyAI : MonoBehaviour
         if (_player.GetState() == PlayerState.Die && _player.GetState() == PlayerState.Grab) // �÷��̾ �׾����� ���߱�
         {
             StopEnemyCor();
+        }
         if(_currentState == State.Die)
         {
             _collider.enabled = false;
