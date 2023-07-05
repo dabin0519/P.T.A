@@ -274,13 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy.-Sheet-Sheet-Sheet_2: -29096622
       Enemy.-Sheet-Sheet-Sheet_0: 105649472
+      Enemy.-Sheet-Sheet-Sheet_1: -1539529112
+      Enemy.-Sheet-Sheet-Sheet_2: -29096622
+      Enemy.-Sheet-Sheet-Sheet_3: -1380902955
+      Enemy.-Sheet-Sheet-Sheet_4: 1410499480
       Enemy.-Sheet-Sheet-Sheet_5: 2001730066
       Enemy.-Sheet-Sheet-Sheet_6: -1602814571
-      Enemy.-Sheet-Sheet-Sheet_3: -1380902955
-      Enemy.-Sheet-Sheet-Sheet_1: -1539529112
-      Enemy.-Sheet-Sheet-Sheet_4: 1410499480
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

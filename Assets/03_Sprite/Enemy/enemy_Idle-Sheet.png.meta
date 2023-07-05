@@ -442,21 +442,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_Idle-Sheet_6: 1958405507
-      enemy_Idle-Sheet_10: -1442140298
-      enemy_Idle-Sheet_14: 866899908
-      enemy_Idle-Sheet_4: 543015881
-      enemy_Idle-Sheet_9: -1242250178
-      enemy_Idle-Sheet_1: -1126574004
-      enemy_Idle-Sheet_13: -1555141733
-      enemy_Idle-Sheet_5: 792986610
-      enemy_Idle-Sheet_12: 1692132556
-      enemy_Idle-Sheet_8: -211977748
-      enemy_Idle-Sheet_2: 1839801848
-      enemy_Idle-Sheet_11: 215469444
       enemy_Idle-Sheet_0: 1841717904
-      enemy_Idle-Sheet_7: -1707419331
+      enemy_Idle-Sheet_1: -1126574004
+      enemy_Idle-Sheet_10: -1442140298
+      enemy_Idle-Sheet_11: 215469444
+      enemy_Idle-Sheet_12: 1692132556
+      enemy_Idle-Sheet_13: -1555141733
+      enemy_Idle-Sheet_14: 866899908
+      enemy_Idle-Sheet_2: 1839801848
       enemy_Idle-Sheet_3: -4234947
+      enemy_Idle-Sheet_4: 543015881
+      enemy_Idle-Sheet_5: 792986610
+      enemy_Idle-Sheet_6: 1958405507
+      enemy_Idle-Sheet_7: -1707419331
+      enemy_Idle-Sheet_8: -211977748
+      enemy_Idle-Sheet_9: -1242250178
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
