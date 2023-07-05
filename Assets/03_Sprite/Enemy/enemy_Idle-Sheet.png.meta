@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4ba931ff1dae364bb156c55005f0a60
+guid: fdee01dcd00c3d84983627495582cab1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_walk-Sheet_0
+      name: enemy_Idle-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a498d3281433f45afc27a4679555b4
-      internalID: -1613517267
+      spriteID: cd898da4d5bc7eb43966779c64ec083c
+      internalID: 1841717904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_1
+      name: enemy_Idle-Sheet_1
       rect:
         serializedVersion: 2
         x: 40
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c24252bfb48098a458b43e1c828dc2c1
-      internalID: -1952668514
+      spriteID: 8739e7f5e35f38246b18d263433b9beb
+      internalID: -1126574004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_2
+      name: enemy_Idle-Sheet_2
       rect:
         serializedVersion: 2
         x: 80
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6549ed488791bca4cb64190b0e2cb2f3
-      internalID: 299669962
+      spriteID: d83e2c88f90fa9f4ab0e5200cc33624e
+      internalID: 1839801848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_3
+      name: enemy_Idle-Sheet_3
       rect:
         serializedVersion: 2
         x: 120
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 624a769499911ce4398dbae62c77f348
-      internalID: 1850725370
+      spriteID: f8feb70b2a5882540b49150748cd1881
+      internalID: -4234947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_4
+      name: enemy_Idle-Sheet_4
       rect:
         serializedVersion: 2
         x: 160
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3340c6a3b6a7aef429525a654264d8f1
-      internalID: -1799135646
+      spriteID: 6dbc4520c78df2b4392a6f98cd25ab97
+      internalID: 543015881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_5
+      name: enemy_Idle-Sheet_5
       rect:
         serializedVersion: 2
         x: 200
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d69ebd9d375872d47bd589c8d0f15e1e
-      internalID: 331408460
+      spriteID: 104e164f04296854bbb6b2878d5d10f2
+      internalID: 792986610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_6
+      name: enemy_Idle-Sheet_6
       rect:
         serializedVersion: 2
         x: 240
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c086f3deb3b0074f870b989274ac5f0
-      internalID: -1187656831
+      spriteID: 02de9dc6826d5a5488fd747d3649144f
+      internalID: 1958405507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk-Sheet_7
+      name: enemy_Idle-Sheet_7
       rect:
         serializedVersion: 2
         x: 280
@@ -278,8 +278,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa41b9a5889b28c4bab854971787bb3d
-      internalID: -561386492
+      spriteID: e534f410c5cbbcc4e8ea671c193bedbd
+      internalID: -1707419331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c192118c81f961499a5043ec10bec41
+      internalID: -211977748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a037339c4d24e4db3708e85472df34
+      internalID: -1242250178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350397beaf1981d4eae4e24fde971cef
+      internalID: -1442140298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d19d950e2158e645a06467c0dd0a236
+      internalID: 215469444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574da24c745a584419fa19aef2c3f260
+      internalID: 1692132556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca3d0a6875ca1c44acb698ed9889df9
+      internalID: -1555141733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_Idle-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96765979b0e8804999b1c1eb3a37210
+      internalID: 866899908
       vertices: []
       indices: 
       edges: []
@@ -295,14 +442,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_walk-Sheet_0: -1613517267
-      enemy_walk-Sheet_1: -1952668514
-      enemy_walk-Sheet_2: 299669962
-      enemy_walk-Sheet_3: 1850725370
-      enemy_walk-Sheet_4: -1799135646
-      enemy_walk-Sheet_5: 331408460
-      enemy_walk-Sheet_6: -1187656831
-      enemy_walk-Sheet_7: -561386492
+      enemy_Idle-Sheet_6: 1958405507
+      enemy_Idle-Sheet_10: -1442140298
+      enemy_Idle-Sheet_14: 866899908
+      enemy_Idle-Sheet_4: 543015881
+      enemy_Idle-Sheet_9: -1242250178
+      enemy_Idle-Sheet_1: -1126574004
+      enemy_Idle-Sheet_13: -1555141733
+      enemy_Idle-Sheet_5: 792986610
+      enemy_Idle-Sheet_12: 1692132556
+      enemy_Idle-Sheet_8: -211977748
+      enemy_Idle-Sheet_2: 1839801848
+      enemy_Idle-Sheet_11: 215469444
+      enemy_Idle-Sheet_0: 1841717904
+      enemy_Idle-Sheet_7: -1707419331
+      enemy_Idle-Sheet_3: -4234947
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

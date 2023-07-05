@@ -12,13 +12,6 @@ public class PlayerSkill : MonoBehaviour
 
     private bool _isParry;
     private bool _isCounter;
-    private bool canUseSkill
-    {
-        get
-        {
-            return _player.GetState() != PlayerState.Parry && _player.GetState() != PlayerState.Die;
-        }
-    }
 
     private void Awake()
     {
@@ -50,11 +43,6 @@ public class PlayerSkill : MonoBehaviour
             _anim.SetBool("isParry", true);
             _attackCount++;
             _player.SetState(PlayerState.Move);
-        if(Input.GetKeyDown(KeyCode.Z) && canUseSkill)
-        {
-            //_player.SetState(PlayerState.Attack);
-            _anim.SetTrigger("Throw");
-            GetComponentInChildren<ThrowingWeaponManger>().Throw(GetComponentInChildren<ThrowingWeaponManger>().weaponGameObject, 5f);
         }
     }
 

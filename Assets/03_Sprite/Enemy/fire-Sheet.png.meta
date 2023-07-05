@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 318853d9dd672c64bac339707c3e5a07
+guid: c9d7218b37621c1448d275f875c238e6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -68,9 +68,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy.-WalkingMant_0
+      name: fire-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aad04c691e687540b0728ae344135c8
-      internalID: -476253877
+      spriteID: 465ebce9ada75bc48b9dc3a9e04b8890
+      internalID: 167081848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy.-WalkingMant_1
+      name: fire-Sheet_1
       rect:
         serializedVersion: 2
         x: 40
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6bc1611e951d9440abc32a1be059f61
-      internalID: -213643630
+      spriteID: 3c42326960cad2f4fa1c82cc6904f2e6
+      internalID: -2010172084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy.-WalkingMant_2
+      name: fire-Sheet_2
       rect:
         serializedVersion: 2
         x: 80
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88915e9aa99528645bef12c29ab24efd
-      internalID: 99784538
+      spriteID: 8b089cd493c1a2b44a979a92b0d46125
+      internalID: -33553218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy.-WalkingMant_3
+      name: fire-Sheet_3
       rect:
         serializedVersion: 2
         x: 120
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d20441261ffd68a42ad46d9ac9de3fdb
-      internalID: -1708821586
+      spriteID: 06e1051437924e247a61a37592397f93
+      internalID: 1120267065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy.-WalkingMant_4
+      name: fire-Sheet_4
       rect:
         serializedVersion: 2
         x: 160
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df13cffc6777fe047843b2d83bf6534f
-      internalID: 914187943
+      spriteID: 80162f39735b1054c95850f4db8174dc
+      internalID: 1403435966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy.-WalkingMant_5
+      name: fire-Sheet_5
       rect:
         serializedVersion: 2
         x: 200
@@ -236,50 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3aeee68b50236b41a58b18188367475
-      internalID: -1025374727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy.-WalkingMant_6
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2a7a3bce1a62504e811c7a669ce839e
-      internalID: 973054647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy.-WalkingMant_7
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ecb9bb7840d308a48b598499769d497d
-      internalID: -1827343443
+      spriteID: eb8fde2f280b0d04b89777bc71bcc08d
+      internalID: -688202684
       vertices: []
       indices: 
       edges: []
@@ -295,14 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy.-WalkingMant_0: -476253877
-      Enemy.-WalkingMant_1: -213643630
-      Enemy.-WalkingMant_2: 99784538
-      Enemy.-WalkingMant_3: -1708821586
-      Enemy.-WalkingMant_4: 914187943
-      Enemy.-WalkingMant_5: -1025374727
-      Enemy.-WalkingMant_6: 973054647
-      Enemy.-WalkingMant_7: -1827343443
+      fire-Sheet_2: -33553218
+      fire-Sheet_3: 1120267065
+      fire-Sheet_1: -2010172084
+      fire-Sheet_4: 1403435966
+      fire-Sheet_0: 167081848
+      fire-Sheet_5: -688202684
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

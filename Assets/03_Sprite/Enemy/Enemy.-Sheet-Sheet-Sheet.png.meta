@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b682758d8a82bcf4588916c6782d4c3b
+guid: 11e5ad69c63ac094c89ab49b6e82f9b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShieldEnemy_NOTFIGHTINGWALK_Sheet_0
+      name: Enemy.-Sheet-Sheet-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fcf2af99b62e444d9ba46dcc2d33a81
-      internalID: -346676207
+      spriteID: 3f5a803e264b6544ab8be1b2f43c3f0d
+      internalID: 105649472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShieldEnemy_NOTFIGHTINGWALK_Sheet_1
+      name: Enemy.-Sheet-Sheet-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287c9f7e84b2efe4c884868d68c1df52
+      internalID: -1539529112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-Sheet-Sheet-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52db053a96e6e4e449dd3e2ce9202ed4
+      internalID: -29096622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-Sheet-Sheet-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f191545946158848b1dded53785193b
+      internalID: -1380902955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-Sheet-Sheet-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4669f636a97b1164ebe4543607df49c3
+      internalID: 1410499480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-Sheet-Sheet-Sheet_5
       rect:
         serializedVersion: 2
         x: 200
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918b3a83ff8d8634089b4860ec249589
-      internalID: -867150844
+      spriteID: 5b485ba16db8f984e95af419376bb772
+      internalID: 2001730066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShieldEnemy_NOTFIGHTINGWALK_Sheet_2
+      name: Enemy.-Sheet-Sheet-Sheet_6
       rect:
         serializedVersion: 2
-        x: 400
+        x: 240
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,71 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee11844c0efae742aabc9d5313a843f
-      internalID: 1794952227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_NOTFIGHTINGWALK_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0a47fd2c0740ab43b63cc83587b5319
-      internalID: 526742145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_NOTFIGHTINGWALK_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b9a7c8bc21274840a01292b226c28d3
-      internalID: 1784542577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_NOTFIGHTINGWALK_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a81f94a79b587844186dbd839daca945
-      internalID: -293285185
+      spriteID: 285fd1b0c457ccb4fb2616078ff24a2a
+      internalID: -1602814571
       vertices: []
       indices: 
       edges: []
@@ -253,12 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShieldEnemy_NOTFIGHTINGWALK_Sheet_0: -346676207
-      ShieldEnemy_NOTFIGHTINGWALK_Sheet_1: -867150844
-      ShieldEnemy_NOTFIGHTINGWALK_Sheet_2: 1794952227
-      ShieldEnemy_NOTFIGHTINGWALK_Sheet_3: 526742145
-      ShieldEnemy_NOTFIGHTINGWALK_Sheet_4: 1784542577
-      ShieldEnemy_NOTFIGHTINGWALK_Sheet_5: -293285185
+      Enemy.-Sheet-Sheet-Sheet_2: -29096622
+      Enemy.-Sheet-Sheet-Sheet_0: 105649472
+      Enemy.-Sheet-Sheet-Sheet_5: 2001730066
+      Enemy.-Sheet-Sheet-Sheet_6: -1602814571
+      Enemy.-Sheet-Sheet-Sheet_3: -1380902955
+      Enemy.-Sheet-Sheet-Sheet_1: -1539529112
+      Enemy.-Sheet-Sheet-Sheet_4: 1410499480
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

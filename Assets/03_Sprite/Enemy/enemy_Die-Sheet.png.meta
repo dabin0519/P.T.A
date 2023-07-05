@@ -988,47 +988,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_Die-Sheet_0: -1208846763
-      enemy_Die-Sheet_1: 2134414308
-      enemy_Die-Sheet_10: -551486383
-      enemy_Die-Sheet_11: -1965061564
-      enemy_Die-Sheet_12: -187673153
-      enemy_Die-Sheet_13: -484132033
-      enemy_Die-Sheet_14: -609393673
-      enemy_Die-Sheet_15: -1211958554
-      enemy_Die-Sheet_16: -1556438573
-      enemy_Die-Sheet_17: 1131095462
       enemy_Die-Sheet_18: 1143748454
-      enemy_Die-Sheet_19: -2014869049
-      enemy_Die-Sheet_2: 1197787739
-      enemy_Die-Sheet_20: -1245520064
-      enemy_Die-Sheet_21: -225083182
-      enemy_Die-Sheet_22: 1849142044
-      enemy_Die-Sheet_23: 566377679
-      enemy_Die-Sheet_24: -492900668
-      enemy_Die-Sheet_25: 746573537
-      enemy_Die-Sheet_26: -2097006512
       enemy_Die-Sheet_27: -84104855
-      enemy_Die-Sheet_28: 851345828
-      enemy_Die-Sheet_29: 1833085610
-      enemy_Die-Sheet_3: 1301035334
+      enemy_Die-Sheet_14: -609393673
       enemy_Die-Sheet_30: 1194910819
       enemy_Die-Sheet_31: -337936425
-      enemy_Die-Sheet_32: 719452787
-      enemy_Die-Sheet_33: -1324180283
-      enemy_Die-Sheet_34: -1001626941
-      enemy_Die-Sheet_35: 1130664515
-      enemy_Die-Sheet_36: -84533765
-      enemy_Die-Sheet_37: 1743129749
-      enemy_Die-Sheet_38: 1526482857
-      enemy_Die-Sheet_39: -273676954
-      enemy_Die-Sheet_4: 1364614325
-      enemy_Die-Sheet_40: 384435580
       enemy_Die-Sheet_5: -563619716
-      enemy_Die-Sheet_6: -1313145271
-      enemy_Die-Sheet_7: 906127945
-      enemy_Die-Sheet_8: -562319263
+      enemy_Die-Sheet_23: 566377679
+      enemy_Die-Sheet_36: -84533765
+      enemy_Die-Sheet_15: -1211958554
+      enemy_Die-Sheet_35: 1130664515
+      enemy_Die-Sheet_11: -1965061564
+      enemy_Die-Sheet_13: -484132033
+      enemy_Die-Sheet_1: 2134414308
       enemy_Die-Sheet_9: 1488722592
+      enemy_Die-Sheet_21: -225083182
+      enemy_Die-Sheet_12: -187673153
+      enemy_Die-Sheet_34: -1001626941
+      enemy_Die-Sheet_29: 1833085610
+      enemy_Die-Sheet_17: 1131095462
+      enemy_Die-Sheet_25: 746573537
+      enemy_Die-Sheet_37: 1743129749
+      enemy_Die-Sheet_28: 851345828
+      enemy_Die-Sheet_7: 906127945
+      enemy_Die-Sheet_4: 1364614325
+      enemy_Die-Sheet_8: -562319263
+      enemy_Die-Sheet_22: 1849142044
+      enemy_Die-Sheet_26: -2097006512
+      enemy_Die-Sheet_10: -551486383
+      enemy_Die-Sheet_39: -273676954
+      enemy_Die-Sheet_2: 1197787739
+      enemy_Die-Sheet_0: -1208846763
+      enemy_Die-Sheet_33: -1324180283
+      enemy_Die-Sheet_19: -2014869049
+      enemy_Die-Sheet_3: 1301035334
+      enemy_Die-Sheet_20: -1245520064
+      enemy_Die-Sheet_16: -1556438573
+      enemy_Die-Sheet_6: -1313145271
+      enemy_Die-Sheet_32: 719452787
+      enemy_Die-Sheet_24: -492900668
+      enemy_Die-Sheet_40: 384435580
+      enemy_Die-Sheet_38: 1526482857
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

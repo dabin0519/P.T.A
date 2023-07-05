@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9d7218b37621c1448d275f875c238e6
+guid: 2629ecdab58783c4092c1ef0d2a10275
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,8 +67,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 1
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fire-Sheet_0
+      name: Enemy1_GunDrow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 465ebce9ada75bc48b9dc3a9e04b8890
-      internalID: 167081848
+      spriteID: a2f54eeb434050a4db1db246575aaaf2
+      internalID: -1414699342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-Sheet_1
+      name: Enemy1_GunDrow_1
       rect:
         serializedVersion: 2
         x: 40
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c42326960cad2f4fa1c82cc6904f2e6
-      internalID: -2010172084
+      spriteID: 20537862bb4be2f4baefcd6833d573fc
+      internalID: -395560579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-Sheet_2
+      name: Enemy1_GunDrow_2
       rect:
         serializedVersion: 2
         x: 80
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b089cd493c1a2b44a979a92b0d46125
-      internalID: -33553218
+      spriteID: ae7cab74909ff6d45bc9e8d99ee2d8a6
+      internalID: 1237682427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-Sheet_3
+      name: Enemy1_GunDrow_3
       rect:
         serializedVersion: 2
         x: 120
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06e1051437924e247a61a37592397f93
-      internalID: 1120267065
+      spriteID: 404c30687fe6d824298c0ec32f423f2b
+      internalID: -64190205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-Sheet_4
+      name: Enemy1_GunDrow_4
       rect:
         serializedVersion: 2
         x: 160
@@ -215,29 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80162f39735b1054c95850f4db8174dc
-      internalID: 1403435966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb8fde2f280b0d04b89777bc71bcc08d
-      internalID: -688202684
+      spriteID: 7866bc06346512342be2a701f5b5c493
+      internalID: -392461987
       vertices: []
       indices: 
       edges: []
@@ -253,12 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fire-Sheet_0: 167081848
-      fire-Sheet_1: -2010172084
-      fire-Sheet_2: -33553218
-      fire-Sheet_3: 1120267065
-      fire-Sheet_4: 1403435966
-      fire-Sheet_5: -688202684
+      Enemy1_GunDrow_3: -64190205
+      Enemy1_GunDrow_0: -1414699342
+      Enemy1_GunDrow_1: -395560579
+      Enemy1_GunDrow_4: -392461987
+      Enemy1_GunDrow_2: 1237682427
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

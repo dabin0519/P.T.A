@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97782dfe1252dfb4a8a85ca959567ea9
+guid: 318853d9dd672c64bac339707c3e5a07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,8 +67,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_0
+      name: Enemy.-WalkingMant_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93be0d2f83ae7bc4d852e1845d7f8118
-      internalID: -867658511
+      spriteID: 5aad04c691e687540b0728ae344135c8
+      internalID: -476253877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_1
+      name: Enemy.-WalkingMant_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6bc1611e951d9440abc32a1be059f61
+      internalID: -213643630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-WalkingMant_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88915e9aa99528645bef12c29ab24efd
+      internalID: 99784538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-WalkingMant_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20441261ffd68a42ad46d9ac9de3fdb
+      internalID: -1708821586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-WalkingMant_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df13cffc6777fe047843b2d83bf6534f
+      internalID: 914187943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy.-WalkingMant_5
       rect:
         serializedVersion: 2
         x: 200
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23c12ccc0d4d55a4d8037bbe4474754e
-      internalID: -1696349353
+      spriteID: b3aeee68b50236b41a58b18188367475
+      internalID: -1025374727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_2
+      name: Enemy.-WalkingMant_6
       rect:
         serializedVersion: 2
-        x: 400
+        x: 240
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b62c3195819d3443bff7ef069faa74e
-      internalID: -1502911199
+      spriteID: d2a7a3bce1a62504e811c7a669ce839e
+      internalID: 973054647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_3
+      name: Enemy.-WalkingMant_7
       rect:
         serializedVersion: 2
-        x: 600
+        x: 280
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,197 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bbea5e37bf95ac4dace85739c417e48
-      internalID: -1660829449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 251ff892ebb948241b4dde4461918a54
-      internalID: -744100057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f6502eea2ff45341bd219ebdd5bd724
-      internalID: 313489035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edb6a0ceb7464bb439fee545c9d84a67
-      internalID: 2123062302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 606027337750c2a4bb3e7cda7b90f637
-      internalID: -458765071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45a8b0b57694a4b4e9a7e84647c46bcf
-      internalID: -2076787215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5748265e6190544db03f158edf983f9
-      internalID: 1396966371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc5363fdbc74f9e4d94bdb27e07783be
-      internalID: 1993499253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 2200
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f0a13ad4209e304b824bce18110d826
-      internalID: -1574749586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShieldEnemy_ATTACK_Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54dd4f20b138f5649bdfddb5780d4f30
-      internalID: 1307534056
+      spriteID: ecb9bb7840d308a48b598499769d497d
+      internalID: -1827343443
       vertices: []
       indices: 
       edges: []
@@ -400,19 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShieldEnemy_ATTACK_Sheet_0: -867658511
-      ShieldEnemy_ATTACK_Sheet_1: -1696349353
-      ShieldEnemy_ATTACK_Sheet_10: 1993499253
-      ShieldEnemy_ATTACK_Sheet_11: -1574749586
-      ShieldEnemy_ATTACK_Sheet_12: 1307534056
-      ShieldEnemy_ATTACK_Sheet_2: -1502911199
-      ShieldEnemy_ATTACK_Sheet_3: -1660829449
-      ShieldEnemy_ATTACK_Sheet_4: -744100057
-      ShieldEnemy_ATTACK_Sheet_5: 313489035
-      ShieldEnemy_ATTACK_Sheet_6: 2123062302
-      ShieldEnemy_ATTACK_Sheet_7: -458765071
-      ShieldEnemy_ATTACK_Sheet_8: -2076787215
-      ShieldEnemy_ATTACK_Sheet_9: 1396966371
+      Enemy.-WalkingMant_2: 99784538
+      Enemy.-WalkingMant_0: -476253877
+      Enemy.-WalkingMant_3: -1708821586
+      Enemy.-WalkingMant_4: 914187943
+      Enemy.-WalkingMant_7: -1827343443
+      Enemy.-WalkingMant_1: -213643630
+      Enemy.-WalkingMant_5: -1025374727
+      Enemy.-WalkingMant_6: 973054647
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

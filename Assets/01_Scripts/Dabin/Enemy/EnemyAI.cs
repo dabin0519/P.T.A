@@ -34,44 +34,12 @@ public class EnemyAI : MonoBehaviour
     private Player _player;
     private CapsuleCollider2D _collider;
     private EnemyAI _enemyAI;
-    public int hp = 1;
-
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
-        //hp = _enemyData.Health;
-    }
-
-    public void OnDamage() {
-        if(_enemyData.EnemyMode == EnemyEnum.Shiled) {
-            if(transform.localScale.x == 1) {
-                if(transform.position.x > _playerVisualTrm.position.x) {
-                    Destroy(gameObject);
-                return;
-                }
-            }
-            
-            if (transform.localScale.x == -1 ) {
-                 if(transform.position.x < _playerVisualTrm.position.x) {
-                    Destroy(gameObject);
-                return;
-                }
-            }
-        _enemyAnim.SetTrigger("isAttack");
-
-
-        } else {
-            hp--;
-
-            if(hp<=0) {
-            Destroy(gameObject);
-        }
-        }
-        
-        
         _collider = GetComponent<CapsuleCollider2D>();
         _enemyAI = GetComponent<EnemyAI>();
     }
@@ -97,7 +65,7 @@ public class EnemyAI : MonoBehaviour
             _currentState = State.End;
         }
 
-        if (_player.GetState() == PlayerState.End || _currentState == State.End) // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
+        if (_player.GetState() == PlayerState.End || _currentState == State.End) // ÇÃ·¹ÀÌ¾î°¡ Á×¾úÀ»¶© ¸ØÃß±â
         {
             _enemyAI.enabled = false;
             return;
@@ -123,7 +91,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (_waypoints.Length == 0) Debug.LogWarning("ï¿½ï¿½ ï¿½ï¿½ ï¿½È³Ö¾ï¿½ï¿½ï¿½.");
+        if (_waypoints.Length == 0) Debug.LogWarning("³Ê °ª ¾È³Ö¾ú´Ù.");
 
         _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -179,17 +147,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Flip()
     {
-        StartCoroutine(FlipCoroutine());
-    }
-
-    IEnumerator FlipCoroutine() {
-        if(_enemyData.EnemyMode == EnemyEnum.Shiled) {
-            yield return new WaitForSeconds(0.2f);
-        }
         Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
 
         transform.localScale = scale;
-        yield return null;
     }
 
     private void CheckForAttack()

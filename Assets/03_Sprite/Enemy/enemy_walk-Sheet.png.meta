@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3578069296bf6ac47abe21682d1171bf
+guid: a4ba931ff1dae364bb156c55005f0a60
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_0
+      name: enemy_walk-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e8ef7e814ec0b145bb542d835670548
-      internalID: 99166472
+      spriteID: 84a498d3281433f45afc27a4679555b4
+      internalID: -1613517267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_1
+      name: enemy_walk-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24252bfb48098a458b43e1c828dc2c1
+      internalID: -1952668514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_walk-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6549ed488791bca4cb64190b0e2cb2f3
+      internalID: 299669962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_walk-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624a769499911ce4398dbae62c77f348
+      internalID: 1850725370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_walk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3340c6a3b6a7aef429525a654264d8f1
+      internalID: -1799135646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_walk-Sheet_5
       rect:
         serializedVersion: 2
         x: 200
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2548cd951771c9c4fb8ac19f2b22bb34
-      internalID: 1510117266
+      spriteID: d69ebd9d375872d47bd589c8d0f15e1e
+      internalID: 331408460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_2
+      name: enemy_walk-Sheet_6
       rect:
         serializedVersion: 2
-        x: 400
+        x: 240
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000d76a410f4f1b4abee526965a8b8b7
-      internalID: 206818589
+      spriteID: 6c086f3deb3b0074f870b989274ac5f0
+      internalID: -1187656831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_3
+      name: enemy_walk-Sheet_7
       rect:
         serializedVersion: 2
-        x: 600
+        x: 280
         y: 0
-        width: 200
-        height: 70
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,155 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a959c8df24cce0b40b522c747c1c7d5f
-      internalID: -445819993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: effc61d9009664a4c9c8ba971b6db8b2
-      internalID: 582521915
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1839a84c3d8aec46b44ae1d17ddbff0
-      internalID: -901105908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 284e34b2c4f07674183e2d15eb3816b9
-      internalID: 1300017901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 505bb881272dafa43b8d7eff91842963
-      internalID: 619107021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ead3ec4fc517d8742a3687b817f50ea3
-      internalID: -29627055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8275697e0005d574c8d782d34af2eea3
-      internalID: -393047504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_ThrowThingsRIGHTperspective-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 200
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f96911bba821184995fc6fb81d1ae23
-      internalID: 1009682173
+      spriteID: aa41b9a5889b28c4bab854971787bb3d
+      internalID: -561386492
       vertices: []
       indices: 
       edges: []
@@ -358,17 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_ThrowThingsRIGHTperspective-Sheet_0: 99166472
-      Player_ThrowThingsRIGHTperspective-Sheet_1: 1510117266
-      Player_ThrowThingsRIGHTperspective-Sheet_10: 1009682173
-      Player_ThrowThingsRIGHTperspective-Sheet_2: 206818589
-      Player_ThrowThingsRIGHTperspective-Sheet_3: -445819993
-      Player_ThrowThingsRIGHTperspective-Sheet_4: 582521915
-      Player_ThrowThingsRIGHTperspective-Sheet_5: -901105908
-      Player_ThrowThingsRIGHTperspective-Sheet_6: 1300017901
-      Player_ThrowThingsRIGHTperspective-Sheet_7: 619107021
-      Player_ThrowThingsRIGHTperspective-Sheet_8: -29627055
-      Player_ThrowThingsRIGHTperspective-Sheet_9: -393047504
+      enemy_walk-Sheet_1: -1952668514
+      enemy_walk-Sheet_5: 331408460
+      enemy_walk-Sheet_4: -1799135646
+      enemy_walk-Sheet_3: 1850725370
+      enemy_walk-Sheet_6: -1187656831
+      enemy_walk-Sheet_0: -1613517267
+      enemy_walk-Sheet_2: 299669962
+      enemy_walk-Sheet_7: -561386492
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
