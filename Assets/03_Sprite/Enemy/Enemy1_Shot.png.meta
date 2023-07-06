@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fire-Sheet_1: -2036733728
       fire-Sheet_0: -772574846
+      fire-Sheet_1: -2036733728
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

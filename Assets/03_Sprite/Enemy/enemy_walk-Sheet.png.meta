@@ -295,13 +295,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_walk-Sheet_1: -1952668514
-      enemy_walk-Sheet_5: 331408460
-      enemy_walk-Sheet_4: -1799135646
-      enemy_walk-Sheet_3: 1850725370
-      enemy_walk-Sheet_6: -1187656831
       enemy_walk-Sheet_0: -1613517267
+      enemy_walk-Sheet_1: -1952668514
       enemy_walk-Sheet_2: 299669962
+      enemy_walk-Sheet_3: 1850725370
+      enemy_walk-Sheet_4: -1799135646
+      enemy_walk-Sheet_5: 331408460
+      enemy_walk-Sheet_6: -1187656831
       enemy_walk-Sheet_7: -561386492
   spritePackingTag: 
   pSDRemoveMatte: 0

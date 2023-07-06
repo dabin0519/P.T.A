@@ -295,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy.-WalkingMant_2: 99784538
       Enemy.-WalkingMant_0: -476253877
+      Enemy.-WalkingMant_1: -213643630
+      Enemy.-WalkingMant_2: 99784538
       Enemy.-WalkingMant_3: -1708821586
       Enemy.-WalkingMant_4: 914187943
-      Enemy.-WalkingMant_7: -1827343443
-      Enemy.-WalkingMant_1: -213643630
       Enemy.-WalkingMant_5: -1025374727
       Enemy.-WalkingMant_6: 973054647
+      Enemy.-WalkingMant_7: -1827343443
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -6,12 +6,17 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rollSpeed;
+    [HideInInspector] public SpriteRenderer SpriteRend;
 
     private Animator _anim;
     private Player _player;
     private Rigidbody2D _rigid;
 
     private Vector3 _vector;
+
+    private void Awake() {
+        SpriteRend = GetComponent<SpriteRenderer>();
+    }
 
     private void Start()
     {
@@ -63,9 +68,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (_player.GetState() == PlayerState.End)
+            return;
+
         if(_player.GetState() == PlayerState.Die)
         {
             _anim.SetTrigger("isDie");
+            _player.SetState(PlayerState.End);
             return;
         }
 
@@ -76,12 +85,14 @@ public class PlayerMove : MonoBehaviour
             _rigid.AddForce(new Vector2(_moveSpeed * Input.GetAxisRaw("Horizontal") * _rollSpeed, 0), ForceMode2D.Impulse);
         }
 
-        if(_player.GetState() != PlayerState.Move)
+        if(_player.GetState() != PlayerState.Move && _player.GetState() != PlayerState.Grab)
         {
             if(Input.mousePosition.x > _vector.x)
             {
                 transform.eulerAngles = new Vector3(0, 0);
             }
+
+            
         }
     }
 

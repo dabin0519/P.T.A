@@ -8,6 +8,10 @@ public enum State
     Patroll,
     Alert,
     Chase,
+    Die,
+    End,
+    TimeStop,
+    Grab,
     Attack
 }
 
@@ -18,9 +22,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private EnemySO _enemyData;
 
+    public UnityEvent OnStop;
     public UnityEvent OnAttack;
     
     [HideInInspector] public bool _isCheckPlayer;
+    [HideInInspector] public bool _isTimeStop;
+    [HideInInspector] public  bool _isAtkWaitCool;
+    public bool IsAttacked;
 
     private State _currentState;
     private Transform _playerVisualTrm;
@@ -29,14 +37,21 @@ public class EnemyAI : MonoBehaviour
     private Vector2 x = Vector2.left.normalized;
 
     private Animator _enemyAnim;
+    private GunEnemyAttack _gunEnemyAttack;
     private Player _player;
+    private CapsuleCollider2D _collider;
+    private EnemyAI _enemyAI;
+    private State _saveState;
 
 
     private void Awake()
     {
         _enemyAnim = GetComponentInChildren<Animator>();
+        _gunEnemyAttack = GetComponentInChildren<GunEnemyAttack>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
+        _collider = GetComponent<CapsuleCollider2D>();
+        _enemyAI = GetComponent<EnemyAI>();
     }
 
     private void Start()
@@ -53,14 +68,41 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.Die) // ÇÃ·¹ÀÌ¾î°¡ Á×¾úÀ»¶© ¸ØÃß±â
+
+        if (_currentState != State.TimeStop && IsAttacked == true) {
+            Destroy(gameObject);
+        }
+
+        
+        if(_currentState == State.Die)
         {
-            StopCoroutine(Alert());
+            _collider.enabled = false;
+            _enemyAnim.SetTrigger("IsDie");
+            _currentState = State.End;
+        }
+
+        // if (_player.GetState() == PlayerState.End || _currentState == State.End) // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
+        // {
+        //     _enemyAI.enabled = false;
+        //     return;
+        // }
+
+        
+        if (_player.GetState() == PlayerState.End && _player.GetState() == PlayerState.Grab || _currentState == State.End) // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
+        {
+            StopEnemyCor();
+            _enemyAI.enabled = false;
             return;
         }
 
+
         switch (_currentState)
         {
+            case State.Grab:
+                break;
+            case State.TimeStop:;
+                StopEnemyCor();
+                break;
             case State.Patroll:
                 Patrol();
                 CheckForPlayer();
@@ -77,9 +119,27 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void StartCor() {
+        _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
+        _isTimeStop = true;
+        _currentState = _saveState;
+    }
+    
+    public void SaveState() {
+        _saveState = _currentState;
+        print(_saveState);
+    }
+
+    private void StopEnemyCor() {
+        OnStop?.Invoke();
+        StopCoroutine(Alert());
+        _gunEnemyAttack.StopAtkCor();
+        _target = transform.position;
+        //_saveState = _currentState;
+    }
     private void Patrol()
     {
-        if (_waypoints.Length == 0) Debug.LogWarning("³Ê °ª ¾È³Ö¾ú´Ù.");
+        if (_waypoints.Length == 0) Debug.LogWarning("ï¿½ï¿½ ï¿½ï¿½ ï¿½È³Ö¾ï¿½ï¿½ï¿½.");
 
         _target = new Vector2(_waypoints[_currentWaypoint].position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -127,7 +187,6 @@ public class EnemyAI : MonoBehaviour
     private void Chase()
     {
         _enemyAnim.SetTrigger("isChase");
-        Debug.Log("chase");
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
         Flip();
@@ -135,15 +194,22 @@ public class EnemyAI : MonoBehaviour
 
     private void Flip()
     {
-        Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
-
-        transform.localScale = scale;
+        // Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
+        // transform.localScale = scale;
+        if (transform.position.x < _target.x) {
+            transform.eulerAngles= new Vector3(0, 180, 0);
+        } 
+        else if (transform.position.x > _target.x) {
+            transform.eulerAngles= new Vector3(0, 0, 0);
+        }
     }
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForward())
+        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForward() && _isAtkWaitCool == false)
         {
+            _isAtkWaitCool = true;
+            print("D");
             OnAttack?.Invoke();
             _enemyAnim.SetTrigger("isShootWait");
             transform.position = transform.position;
@@ -156,13 +222,10 @@ public class EnemyAI : MonoBehaviour
         _currentState = state;
     }
 
-    bool CaculateForward()
+    private bool CaculateForward()
     {
-        Vector2 a = (transform.position - _playerTrm.position).normalized;
+        Vector2 a = (transform.position - _playerVisualTrm.position).normalized;
         Vector2 dir = Vector2.right.normalized;
-
-        Debug.Log(Vector2.Dot(a, dir) > 0);
         return Vector2.Dot(a, dir) > 0;
-
     }
 }
