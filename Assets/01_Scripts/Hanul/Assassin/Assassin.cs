@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class Assassin : MonoBehaviour
 {
-    [SerializeField] Transform _enemyPos;
-    [SerializeField] Transform _playerPos;
-    [SerializeField] GameObject ButtonB;
+    [SerializeField] private Transform _enemyPos;
+    [SerializeField] private GameObject _skillTxt;
 
     private Animator _anim;
     private EnemyAI _enemyAI;
     private Player _player;
+    private Transform _playerPos;
 
-    Vector2 _player_x;
-    Vector2 _enemy_x;
-    bool _isSkill;
-    int _delayTime = 15;
+    private Vector2 _player_x;
+    private Vector2 _enemy_x;
+    private bool _isSkill;
+    private int _delayTime = 15;
 
     private void Awake()
     {
         _isSkill = false;
-        ButtonB.SetActive(false);
+        _skillTxt.SetActive(false);
         _player = GetComponentInParent<Player>();
         _anim = GetComponentInChildren<Animator>();
+        _playerPos = _player.transform.Find("Visual").transform;
         _enemyAI = _enemyPos.GetComponent<EnemyAI>();
     }
 
@@ -33,7 +34,6 @@ public class Assassin : MonoBehaviour
         ButtonSetActive();
     }
 
-
     void GetPos()
     {
         if (_playerPos != null)
@@ -42,11 +42,11 @@ public class Assassin : MonoBehaviour
         if (_enemyPos != null)
         {
             _enemy_x = new Vector2(_enemyPos.position.x, 0);
-            ButtonB.SetActive(true);
+            _skillTxt.SetActive(true);
         }
         else
         {
-            ButtonB.SetActive(false);
+            _skillTxt.SetActive(false);
             _isSkill = false;
         }
     }
@@ -59,7 +59,7 @@ public class Assassin : MonoBehaviour
                 StartCoroutine("SkillAssas");
         }
         else
-            ButtonB.SetActive(false);
+            _skillTxt.SetActive(false);
     }
 
     void ButtonSetActive()
@@ -68,13 +68,13 @@ public class Assassin : MonoBehaviour
         {
             _isSkill = true;
             if (!_enemyAI._isCheckPlayer)
-                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
+                _skillTxt.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
             else
-                ButtonB.SetActive(false);
+                _skillTxt.SetActive(false);
         }
         else
         {
-            ButtonB.SetActive(false);
+            _skillTxt.SetActive(false);
             _isSkill = false;
         }
     }
