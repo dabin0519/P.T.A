@@ -11,21 +11,27 @@ public class UIManager : MonoBehaviour
 
     TextMeshProUGUI _settings;
     Image _panel;
+    Image _backpanel;
     Button _xButton;
     Button _retryButton;
+    Button _exitButton;
     bool _Input = false;
 
     public void Init(Transform canvasTrm)
     {
+        _exitButton = canvasTrm.Find("Panel/ExitButton").GetComponent<Button>();
         _xButton = canvasTrm.Find("Panel/XButton").GetComponent<Button>();
         _retryButton = canvasTrm.Find("Panel/RetryButton").GetComponent<Button>();
         _panel = canvasTrm.Find("Panel").GetComponent<Image>();
+        _backpanel = canvasTrm.Find("BackPanel").GetComponent<Image>();
 
         _panel.gameObject.SetActive(false);
+        _backpanel.gameObject.SetActive(false);
     }
 
     void Start()
     {
+        _exitButton.onClick.AddListener(ExitGameButton);
         _xButton.onClick.AddListener(ExitSettingButton);
         _retryButton.onClick.AddListener(RetryButton);
     }
@@ -55,5 +61,10 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Hanul");
         Time.timeScale = 1;
+    }
+
+    void ExitGameButton()
+    {
+        Application.Quit();
     }
 }
