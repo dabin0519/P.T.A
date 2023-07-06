@@ -10,9 +10,6 @@ public class PlayerSkill : MonoBehaviour
     private TimeStop _timeStop;
     private Player _player;
 
-    private bool _isParry;
-    private bool _isCounter;
-
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
@@ -28,6 +25,7 @@ public class PlayerSkill : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)
         {
+            _anim.SetBool("isParry", false);
             _player.SetState(PlayerState.Parry);
             _anim.SetTrigger("Parry");
         }

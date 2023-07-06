@@ -68,33 +68,24 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-
-        if (_currentState != State.TimeStop && IsAttacked == true) {
+        if (_currentState != State.TimeStop && IsAttacked == true)
+        {
             Destroy(gameObject);
         }
 
-        
-        if(_currentState == State.Die)
+        if (_currentState == State.Die)
         {
             _collider.enabled = false;
             _enemyAnim.SetTrigger("IsDie");
             _currentState = State.End;
         }
-
-        // if (_player.GetState() == PlayerState.End || _currentState == State.End) // �÷��̾ �׾����� ���߱�
-        // {
-        //     _enemyAI.enabled = false;
-        //     return;
-        // }
-
         
-        if (_player.GetState() == PlayerState.End && _player.GetState() == PlayerState.Grab || _currentState == State.End) // �÷��̾ �׾����� ���߱�
+        if (_player.GetState() == PlayerState.End || _player.GetState() == PlayerState.Grab || _currentState == State.End)
         {
             StopEnemyCor();
             _enemyAI.enabled = false;
             return;
         }
-
 
         switch (_currentState)
         {
