@@ -8,19 +8,23 @@ public class TimeStop : MonoBehaviour
     //EnemyAI _enemy;
     [SerializeField] private GameObject _ghostEffectPrf;
     [SerializeField] private float _spawnDelay;
+    private Player _player;
     public bool isTimeStop;
 
     private void Start() {
         //_enemy = _EnemyTrm.GetComponentInChildren<EnemyAI>();
+        _player = GetComponentInParent<Player>();
         StartCoroutine(GhostEftSpawn());
     }
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && isTimeStop == false) {
-            StopTime();
-        }
+        if(_player.GetState() != PlayerState.End && _player.GetState() != PlayerState.Die) {
+            if (Input.GetKeyDown(KeyCode.E) && isTimeStop == false) {
+                StopTime();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.E) && isTimeStop == true) {
-            StartTime();
+            else if (Input.GetKeyDown(KeyCode.E) && isTimeStop == true) {
+                StartTime();
+            }
         }
     }
     //[SerializeField] GameObject enemyParent;
