@@ -750,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414f9a0d41101f0458520d7e59a2220e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _atkEffect: {fileID: 0}
 --- !u!1 &627152201
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 13.69
   _rollSpeed: 5
+  SpriteRend: {fileID: 0}
 --- !u!50 &898855886
 Rigidbody2D:
   serializedVersion: 4
@@ -1026,7 +1028,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1227743823
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 1361767985, guid: d42b9c69e2f642c4083aabe66abad424, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1139,7 +1141,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2096105939
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c9400f3b9020fd64283e6708094f8a98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1724,7 +1726,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1227743823
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -2232,7 +2234,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1227743823
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1841717904, guid: fdee01dcd00c3d84983627495582cab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2424,6 +2426,9 @@ MonoBehaviour:
   - {fileID: 2203568093175972093}
   _playerTrm: {fileID: 1681734032}
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
+  OnStop:
+    m_PersistentCalls:
+      m_Calls: []
   OnAttack:
     m_PersistentCalls:
       m_Calls:
@@ -2440,6 +2445,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _isCheckPlayer: 0
+  _isTimeStop: 0
+  _isAtkWaitCool: 0
+  IsAttacked: 0
 --- !u!1 &2203568093175972092
 GameObject:
   m_ObjectHideFlags: 0
