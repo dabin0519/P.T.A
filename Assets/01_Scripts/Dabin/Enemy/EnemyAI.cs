@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform[] _waypoints = null;
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private EnemySO _enemyData;
+    [SerializeField] private Sprite[] _playerCheckSprites;
 
     public UnityEvent OnStop;
     public UnityEvent OnAttack;
@@ -37,6 +38,7 @@ public class EnemyAI : MonoBehaviour
     private Vector2 x = Vector2.left.normalized;
 
     private Animator _enemyAnim;
+    private SpriteRenderer _playerCheckRender;
     private GunEnemyAttack _gunEnemyAttack;
     private Player _player;
     private CapsuleCollider2D _collider;
@@ -52,6 +54,8 @@ public class EnemyAI : MonoBehaviour
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
         _collider = GetComponent<CapsuleCollider2D>();
         _enemyAI = GetComponent<EnemyAI>();
+        _playerCheckRender = transform.Find("PlayerCheck").GetComponent<SpriteRenderer>();
+        _playerCheckRender.enabled = false;
     }
 
     private void Start()
@@ -95,7 +99,10 @@ public class EnemyAI : MonoBehaviour
                 StopEnemyCor();
                 break;
             case State.Patroll:
-                Patrol();
+                if (_enemyData.IsPatrol)
+                {
+                    Patrol();
+                }
                 CheckForPlayer();
                 break;
             case State.Alert:
@@ -154,13 +161,14 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, x, _enemyData.ViewDistance, _playerLayer);
-
         Debug.DrawRay(transform.position, _enemyData.ViewDistance * x, Color.red);
-
 
         if (hit && hit.collider.CompareTag("Player"))
         {
+            _playerCheckRender.enabled = true;
+            _playerCheckRender.sprite = _playerCheckSprites[0];
             _enemyAnim.SetTrigger("isAlert");
             StartCoroutine(Alert());
         }
@@ -169,6 +177,10 @@ public class EnemyAI : MonoBehaviour
     private IEnumerator Alert()
     {
         _isCheckPlayer = true;
+
+        _playerCheckRender.enabled = true;
+        _playerCheckRender.sprite = _playerCheckSprites[1];
+
         _enemyAnim.SetTrigger("isAlert");
         _currentState = State.Alert;
         yield return new WaitForSeconds(_enemyData.AlretTime);
