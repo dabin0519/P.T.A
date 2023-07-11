@@ -63,6 +63,8 @@ public class Dialogue : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //_audio.Stop();
 
+        //Debug.Log();
+
         DialogueManger.Instance.IsEnd = true;
     }
 
