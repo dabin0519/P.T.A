@@ -6,7 +6,6 @@ public class DialogueManger : MonoBehaviour
 {
     public static DialogueManger Instance;
 
-    [SerializeField] private DialogueSO[] _dialogues;
     [SerializeField] private Dialogue _dialogue;
 
     public bool IsEnd;
@@ -23,18 +22,20 @@ public class DialogueManger : MonoBehaviour
         }
     }
 
-    public void OnText()
+    public void OnText(DialogueSO[] dialogueSOs)
     {
-        StartCoroutine(OnDialogue());
+        StartCoroutine(OnDialogue(dialogueSOs));
     }
 
-    private IEnumerator OnDialogue()
+    private IEnumerator OnDialogue(DialogueSO[] dialogueSOs)
     {
-        foreach(DialogueSO d in _dialogues)
+        _dialogue.gameObject.SetActive(true);
+        foreach(DialogueSO d in dialogueSOs)
         {
             _dialogue.ShowText(d);
             yield return new WaitUntil(() => IsEnd);
             IsEnd = false;
         }
+        _dialogue.gameObject.SetActive(false);
     }
 }

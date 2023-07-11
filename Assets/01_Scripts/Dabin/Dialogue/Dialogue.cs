@@ -14,15 +14,12 @@ public class Dialogue : MonoBehaviour
     private AudioSource _audio;
     private DialogueSO _dialogueSO;
 
-    private bool _isFade;
-
     private void Start() 
     {
         _panel = GetComponent<Image>();
         _audio = _contents.GetComponent<AudioSource>();
         _contents.maxVisibleCharacters = 0;
         _nickName.color = new Color(255,255,255, 0);
-        _panel.DOFade(0f, 0f);
     }
 
     public void ShowText(DialogueSO dialogueSO)
@@ -45,7 +42,6 @@ public class Dialogue : MonoBehaviour
     {
         if (_dialogueSO.IsEnd)
         {
-            _isFade = false;
             DisplayDialogue(false);
 
             yield return new WaitForSeconds(1.2f);
@@ -88,7 +84,7 @@ public class Dialogue : MonoBehaviour
     private IEnumerator OnDialogue()
     {
         gameObject.SetActive(true);
-        _panel.DOFade(0.7f, 1f);
+        //_panel.DOFade(0.7f, 1f);
         yield return new WaitForSeconds(1f);
         _nickName.color = new Color(255,255,255, 255);
         StartCoroutine(WriteContents(_dialogueSO));
