@@ -11,7 +11,8 @@ public class UIManager : MonoBehaviour
 
     TextMeshProUGUI _settings;
     Image _panel;
-    Image _backpanel;
+    Image _backPanel;
+    Image _exitPanel;
     Button _xButton;
     Button _retryButton;
     Button _exitButton;
@@ -23,10 +24,12 @@ public class UIManager : MonoBehaviour
         _xButton = canvasTrm.Find("Panel/XButton").GetComponent<Button>();
         _retryButton = canvasTrm.Find("Panel/RetryButton").GetComponent<Button>();
         _panel = canvasTrm.Find("Panel").GetComponent<Image>();
-        _backpanel = canvasTrm.Find("BackPanel").GetComponent<Image>();
+        _backPanel = canvasTrm.Find("BackPanel").GetComponent<Image>();
+        _exitPanel = canvasTrm.Find("ExitPanel").GetComponent<Image>();
 
         _panel.gameObject.SetActive(false);
-        _backpanel.gameObject.SetActive(false);
+        _exitPanel.gameObject.SetActive(false);
+        _backPanel.gameObject.SetActive(false);
     }
 
     void Start()
@@ -48,11 +51,13 @@ public class UIManager : MonoBehaviour
         {
             ExitSettingButton();
         }
+
     }
 
     void ExitSettingButton()
     {
         _panel.gameObject.SetActive(false);
+        _exitPanel.gameObject.SetActive(false);
         _Input = false;
         Time.timeScale = 1;
     }
@@ -65,6 +70,7 @@ public class UIManager : MonoBehaviour
 
     void ExitGameButton()
     {
-        Application.Quit();
+        _panel.gameObject.SetActive(false);
+        _exitPanel.gameObject.SetActive(true);
     }
 }

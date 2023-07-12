@@ -167,6 +167,8 @@ public class EnemyAI : MonoBehaviour
 
         Debug.DrawRay(transform.position, _enemyData.ViewDistance * x, Color.red);
 
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, x, _enemyData.ViewDistance, _playerLayer);
+
 
         if (hit && hit.collider.CompareTag("Player"))
         {
