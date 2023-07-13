@@ -2207,6 +2207,9 @@ MonoBehaviour:
   _enemyPos: {fileID: 2203568093155262919}
   _playerPos: {fileID: 898855890}
   ButtonB: {fileID: 1861622831}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &916540719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518869242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22, y: -0.059999943, z: -10}
+  m_LocalPosition: {x: 0.24, y: -0.059999943, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3664,13 +3667,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681734031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22, y: -0.07, z: 0}
+  m_LocalPosition: {x: 0.24, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 95537118}
   - {fileID: 898855890}
-  - {fileID: 1861622832}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4042,12 +4044,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861622831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.75, y: 0.07, z: 0}
+  m_LocalPosition: {x: 0.24, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1681734032}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1861622833
 SpriteRenderer:

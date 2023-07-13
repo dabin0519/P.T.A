@@ -7,6 +7,7 @@ public class Assassin : MonoBehaviour
     [SerializeField] Transform _enemyPos;
     [SerializeField] Transform _playerPos;
     [SerializeField] GameObject ButtonB;
+    [SerializeField] LayerMask _layer;
 
     private Animator _anim;
     private EnemyAI _enemyAI;
@@ -14,6 +15,7 @@ public class Assassin : MonoBehaviour
 
     Vector2 _player_x;
     Vector2 _enemy_x;
+
     bool _isSkill;
     int _delayTime = 15;
 
@@ -32,42 +34,52 @@ public class Assassin : MonoBehaviour
         //ButtonSetActive();
         UseSkill();
 
-        RaycastHit2D _hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.6f), new Vector3(1, 0, 0), 2f, LayerMask.GetMask("Enemy"));
+        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y -0.7f),Vector2.right, 4f, _layer);
+
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f),Vector2.right * 4, Color.red);
+
+        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.7f), Vector2.left, 4f, _layer);
+
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.left * 4, Color.red);
 
 
-        RaycastHit2D _hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.6f), new Vector3(-1, 0, 0), 2f, LayerMask.GetMask("Enemy"));
-
-
-        if (_hitLeft.collider != null)
+        if (hitLeft)
         {
-            Debug.Log("왼쪽 정상입니다");
-            _isSkill = true;
+            Debug.Log("Left");
             if (!_enemyAI._isCheckPlayer)
             {
-                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
+                _isSkill = true;
                 ButtonB.SetActive(true);
+                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
             }
             else
+            {
+                _isSkill = false;
                 ButtonB.SetActive(false);
+            }
         }
         else
         {
-            ButtonB.SetActive(false);
             _isSkill = false;
+            ButtonB.SetActive(false);
         }
 
-        if(_hitRight.collider != null)
+        if(hitRight)
         {
-
-            Debug.Log("오른쪽 정상입니다");
-            _isSkill = true;
+            Debug.Log("Right");
             if (!_enemyAI._isCheckPlayer)
             {
-                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
+                Debug.Log("감지 못함");
+                _isSkill = true;
                 ButtonB.SetActive(true);
+                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
             }
             else
+            {
+                _isSkill = false;
                 ButtonB.SetActive(false);
+            }
+
         }
         else
         {
@@ -79,19 +91,19 @@ public class Assassin : MonoBehaviour
 
     void GetPos()
     {
-        if (_playerPos != null)
-            _player_x = new Vector2(_playerPos.position.x, 0);
+        //if (_playerPos != null)
+        //    _player_x = new Vector2(_playerPos.position.x, 0);
 
-        if (_enemyPos != null)
-        {
-            _enemy_x = new Vector2(_enemyPos.position.x, 0);
-            ButtonB.SetActive(true);
-        }
-        else
-        {
-            ButtonB.SetActive(false);
-            _isSkill = false;
-        }
+        //if (_enemyPos != null)
+        //{
+        //    _enemy_x = new Vector2(_enemyPos.position.x, 0);
+        //    ButtonB.SetActive(true);
+        //}
+        //else
+        //{
+        //    ButtonB.SetActive(false);
+        //    _isSkill = false;
+        //}
     }
 
     void UseSkill()
@@ -105,28 +117,28 @@ public class Assassin : MonoBehaviour
 
     void ButtonSetActive()
     {
-        if (Vector2.Distance(_player_x, _enemy_x) < 3f)
-        {
+        //if (Vector2.Distance(_player_x, _enemy_x) < 3f)
+        //{
             
-            _isSkill = true;
-            if (!_enemyAI._isCheckPlayer)
-                ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
-            else
-                ButtonB.SetActive(false);
-        }
-        else
-        {
-            ButtonB.SetActive(false);
-            _isSkill = false;
-        }
+        //    _isSkill = true;
+        //    if (!_enemyAI._isCheckPlayer)
+        //        ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
+        //    else
+        //        ButtonB.SetActive(false);
+        //}
+        //else
+        //{
+        //    ButtonB.SetActive(false);
+        //    _isSkill = false;
+        //}
     }
 
     IEnumerator SkillAssas()
     {
-        ButtonB.SetActive(false);
+        //ButtonB.SetActive(false);
         _player.SetState(PlayerState.Attack);
         _anim.SetTrigger("Attack");
-        _isSkill = false;
+        //_isSkill = false;
         yield return new WaitForSeconds(_delayTime);
     }
 }
