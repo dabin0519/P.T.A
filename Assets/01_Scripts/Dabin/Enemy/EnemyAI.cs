@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour
 
     private State _currentState;
     private Transform _playerVisualTrm;
+    private Transform _enemyVisualTrm;
     private Vector2 _target;
     private int _currentWaypoint = 0;
     private Vector2 x = Vector2.left.normalized;
@@ -52,6 +53,7 @@ public class EnemyAI : MonoBehaviour
         _gunEnemyAttack = GetComponentInChildren<GunEnemyAttack>();
         _player = _playerTrm.GetComponent<Player>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
+        _enemyVisualTrm = transform.Find("Visual").transform;
         _collider = GetComponent<CapsuleCollider2D>();
         _enemyAI = GetComponent<EnemyAI>();
         _playerCheckRender = transform.Find("PlayerCheck").GetComponent<SpriteRenderer>();
@@ -60,7 +62,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        transform.localScale = new Vector3(-1f, 1f, 1f);
+        _enemyVisualTrm.transform.localScale = new Vector3(-1f, 1f, 1f);
         _enemyAnim.runtimeAnimatorController = _enemyData.Controller;
         _currentState = State.Patroll;
 
@@ -146,9 +148,9 @@ public class EnemyAI : MonoBehaviour
         {
             _currentWaypoint = (_currentWaypoint + 1) % _waypoints.Length;
 
-            Vector3 scale = transform.localScale;
+            Vector3 scale = _enemyVisualTrm.transform.localScale;
             scale.x *= -1f;
-            transform.localScale = scale;
+            _enemyVisualTrm.transform.localScale = scale;
             x *= -1;
         }
     }
@@ -178,9 +180,6 @@ public class EnemyAI : MonoBehaviour
     {
         _isCheckPlayer = true;
 
-        _playerCheckRender.enabled = true;
-        _playerCheckRender.sprite = _playerCheckSprites[1];
-
         _enemyAnim.SetTrigger("isAlert");
         _currentState = State.Alert;
         yield return new WaitForSeconds(_enemyData.AlretTime);
@@ -189,6 +188,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Chase()
     {
+        _playerCheckRender.enabled = true;
+        _playerCheckRender.sprite = _playerCheckSprites[1];
         _enemyAnim.SetTrigger("isChase");
         _target = new Vector2(_playerVisualTrm.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, _target, _enemyData.Speed * Time.deltaTime);
@@ -200,10 +201,10 @@ public class EnemyAI : MonoBehaviour
         // Vector2 scale = transform.position.x < _target.x ? new Vector2(1, 1) : new Vector2(-1, 1);
         // transform.localScale = scale;
         if (transform.position.x < _target.x) {
-            transform.eulerAngles= new Vector3(0, 180, 0);
+            _enemyVisualTrm.transform.eulerAngles= new Vector3(0, 0, 0);
         } 
         else if (transform.position.x > _target.x) {
-            transform.eulerAngles= new Vector3(0, 0, 0);
+            _enemyVisualTrm.transform.eulerAngles= new Vector3(0, 180, 0);
         }
     }
 

@@ -22,12 +22,12 @@ public class DialogueManger : MonoBehaviour
         }
     }
 
-    public void OnText(DialogueSO[] dialogueSOs)
+    public void OnText(DialogueSO[] dialogueSOs, CallDialogue callObject)
     {
-        StartCoroutine(OnDialogue(dialogueSOs));
+        StartCoroutine(OnDialogue(dialogueSOs, callObject));
     }
 
-    private IEnumerator OnDialogue(DialogueSO[] dialogueSOs)
+    private IEnumerator OnDialogue(DialogueSO[] dialogueSOs, CallDialogue callObject)
     {
         _dialogue.gameObject.SetActive(true);
         foreach(DialogueSO d in dialogueSOs)
@@ -36,6 +36,7 @@ public class DialogueManger : MonoBehaviour
             yield return new WaitUntil(() => IsEnd);
             IsEnd = false;
         }
+        callObject.IsEnd = true;
         _dialogue.gameObject.SetActive(false);
     }
 }

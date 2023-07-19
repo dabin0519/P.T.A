@@ -7,7 +7,9 @@ public class InteractableObject : MonoBehaviour
 {
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private float _checkDistance = 1f;
-    [SerializeField] private DialogueSO[] _dialogueSOs;
+    //[SerializeField] private DialogueSO[] _dialogueSOs;
+
+    public UnityEvent OnInteractable;
     
     private SpriteRenderer _interactableSprite;
 
@@ -24,8 +26,12 @@ public class InteractableObject : MonoBehaviour
             _interactableSprite.enabled = true;
             if (Input.GetKeyDown(KeyCode.F))
             {
-                DialogueManger.Instance.OnText(_dialogueSOs);
+                OnInteractable?.Invoke();
             }
+        }
+        else
+        {
+            _interactableSprite.enabled = false;
         }
     }
 }
