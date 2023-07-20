@@ -46,6 +46,8 @@ public class Dialogue : MonoBehaviour
 
             yield return new WaitForSeconds(1.2f);
             gameObject.SetActive(false);
+            _nickName.text = "";
+            _contents.text = "";
         }
         else
         {
@@ -66,6 +68,11 @@ public class Dialogue : MonoBehaviour
         //Debug.Log();
 
         DialogueManger.Instance.IsEnd = true;
+        if (_dialogueSO.IsEnd)
+        {
+            _nickName.text = "";
+            _contents.text = "";
+        }
     }
 
 

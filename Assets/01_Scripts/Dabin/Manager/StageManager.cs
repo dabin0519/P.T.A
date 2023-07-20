@@ -7,8 +7,9 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager Instance;
 
-    [SerializeField] private StageDataSO[] _stages;
+    [SerializeField] private StageDataSO[] _stageDatas;
     [SerializeField] private Transform _playerVisualTrm;
+    [SerializeField] private Stage[] _stages;
 
     private int _stageNum = 0;
     private bool _oneCall;
@@ -35,7 +36,8 @@ public class StageManager : MonoBehaviour
     {
         if (!_oneCall)
         {
-            _playerVisualTrm.position = _stages[_stageNum].PlayerPos;
+            _playerVisualTrm.position = _stageDatas[_stageNum].PlayerPos;
+            _stages[_stageNum].CallStage();
             _oneCall = true;
         }
     }
