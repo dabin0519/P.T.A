@@ -34,18 +34,17 @@ public class Assassin : MonoBehaviour
         //ButtonSetActive();
         UseSkill();
 
-        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y -0.7f),Vector2.right, 4f, _layer);
+        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y -0.7f),Vector2.right, 2f, _layer);
 
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f),Vector2.right * 4, Color.red);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f),Vector2.right * 2, Color.red);
 
-        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.7f), Vector2.left, 4f, _layer);
+        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.7f), Vector2.left, 2f, _layer);
 
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.left * 4, Color.red);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.left * 2, Color.red);
 
 
         if (hitLeft)
         {
-            Debug.Log("Left");
             if (!_enemyAI._isCheckPlayer)
             {
                 _isSkill = true;
@@ -57,19 +56,18 @@ public class Assassin : MonoBehaviour
                 _isSkill = false;
                 ButtonB.SetActive(false);
             }
+
         }
         else
         {
-            _isSkill = false;
             ButtonB.SetActive(false);
+            _isSkill = false;
         }
 
-        if(hitRight)
+        if (hitRight)
         {
-            Debug.Log("Right");
             if (!_enemyAI._isCheckPlayer)
             {
-                Debug.Log("감지 못함");
                 _isSkill = true;
                 ButtonB.SetActive(true);
                 ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
