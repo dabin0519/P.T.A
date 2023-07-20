@@ -2348,7 +2348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ghostEffectPrf: {fileID: 867790092510269986, guid: 19a164d264b8cbb458c47c79a5c3b919, type: 3}
-  _spawnDelay: 0
+  _spawnDelay: 0.05
   isTimeStop: 0
 --- !u!1 &1898789573
 GameObject:
