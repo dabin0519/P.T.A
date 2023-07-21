@@ -274,13 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Roll_RIGHTperspective_3: 549626606
-      Player_Roll_RIGHTperspective_5: 1689054375
       Player_Roll_RIGHTperspective_0: -176934233
-      Player_Roll_RIGHTperspective_6: -325184435
       Player_Roll_RIGHTperspective_1: -884116882
-      Player_Roll_RIGHTperspective_4: 56777043
       Player_Roll_RIGHTperspective_2: 67309316
+      Player_Roll_RIGHTperspective_3: 549626606
+      Player_Roll_RIGHTperspective_4: 56777043
+      Player_Roll_RIGHTperspective_5: 1689054375
+      Player_Roll_RIGHTperspective_6: -325184435
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

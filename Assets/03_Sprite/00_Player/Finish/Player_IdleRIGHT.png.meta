@@ -442,21 +442,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_IdleRIGHT_2: -2134280485
-      Player_IdleRIGHT_11: -674445331
-      Player_IdleRIGHT_1: 440307387
-      Player_IdleRIGHT_5: -942096847
       Player_IdleRIGHT_0: 442090835
+      Player_IdleRIGHT_1: 440307387
+      Player_IdleRIGHT_10: 1922688070
+      Player_IdleRIGHT_11: -674445331
+      Player_IdleRIGHT_12: 64114382
       Player_IdleRIGHT_13: 1071096198
       Player_IdleRIGHT_14: 1423332346
-      Player_IdleRIGHT_6: -1015855877
-      Player_IdleRIGHT_8: -1082870524
-      Player_IdleRIGHT_4: 596384077
-      Player_IdleRIGHT_10: 1922688070
+      Player_IdleRIGHT_2: -2134280485
       Player_IdleRIGHT_3: 1615053796
-      Player_IdleRIGHT_9: 1396312637
-      Player_IdleRIGHT_12: 64114382
+      Player_IdleRIGHT_4: 596384077
+      Player_IdleRIGHT_5: -942096847
+      Player_IdleRIGHT_6: -1015855877
       Player_IdleRIGHT_7: 1093272551
+      Player_IdleRIGHT_8: -1082870524
+      Player_IdleRIGHT_9: 1396312637
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

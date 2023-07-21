@@ -274,13 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Attack1LEFTperspectivet_3: -964784645
-      Player_Attack1LEFTperspectivet_1: -2100648712
-      Player_Attack1LEFTperspectivet_4: 1213121742
       Player_Attack1LEFTperspectivet_0: -1135460279
-      Player_Attack1LEFTperspectivet_6: -1051923562
-      Player_Attack1LEFTperspectivet_5: -319243308
+      Player_Attack1LEFTperspectivet_1: -2100648712
       Player_Attack1LEFTperspectivet_2: 546565030
+      Player_Attack1LEFTperspectivet_3: -964784645
+      Player_Attack1LEFTperspectivet_4: 1213121742
+      Player_Attack1LEFTperspectivet_5: -319243308
+      Player_Attack1LEFTperspectivet_6: -1051923562
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -295,13 +295,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Player_runRIGHTperspective_0: 552936919
       Player_runRIGHTperspective_1: 250032273
       Player_runRIGHTperspective_2: 1049068200
       Player_runRIGHTperspective_3: 708753933
-      Player_runRIGHTperspective_5: 1028340015
       Player_runRIGHTperspective_4: -1450553217
+      Player_runRIGHTperspective_5: 1028340015
       Player_runRIGHTperspective_6: 150329699
-      Player_runRIGHTperspective_0: 552936919
       Player_runRIGHTperspective_7: -159804946
   spritePackingTag: 
   pSDRemoveMatte: 0

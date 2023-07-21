@@ -22,7 +22,7 @@ public class InteractableObject : MonoBehaviour
 
     private void Update()
     {
-        if(/*_playerVisualTrm.gameObject.activeSelf == true && */Vector2.Distance(_playerVisualTrm.position, transform.position) < _checkDistance)
+        if (Vector2.Distance(_playerVisualTrm.position, transform.position) < _checkDistance)
         {
             _interactableSprite.enabled = true;
             if (Input.GetKeyDown(KeyCode.F))

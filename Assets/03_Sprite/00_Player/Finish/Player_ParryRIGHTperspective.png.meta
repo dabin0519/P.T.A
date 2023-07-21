@@ -358,17 +358,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_ParryRIGHTperspective_9: 499118640
-      Player_ParryRIGHTperspective_4: 1249872437
-      Player_ParryRIGHTperspective_3: 1115839537
-      Player_ParryRIGHTperspective_7: -1269924993
-      Player_ParryRIGHTperspective_2: -2136142224
-      Player_ParryRIGHTperspective_10: 1947589479
-      Player_ParryRIGHTperspective_8: 321669211
       Player_ParryRIGHTperspective_0: -89798089
-      Player_ParryRIGHTperspective_6: 1935585956
       Player_ParryRIGHTperspective_1: 1707047025
+      Player_ParryRIGHTperspective_10: 1947589479
+      Player_ParryRIGHTperspective_2: -2136142224
+      Player_ParryRIGHTperspective_3: 1115839537
+      Player_ParryRIGHTperspective_4: 1249872437
       Player_ParryRIGHTperspective_5: -958538833
+      Player_ParryRIGHTperspective_6: 1935585956
+      Player_ParryRIGHTperspective_7: -1269924993
+      Player_ParryRIGHTperspective_8: 321669211
+      Player_ParryRIGHTperspective_9: 499118640
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -275,12 +275,12 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Player_Roll_LEFTperspective_0: -164002357
-      Player_Roll_LEFTperspective_2: 866489251
       Player_Roll_LEFTperspective_1: 1904219686
+      Player_Roll_LEFTperspective_2: 866489251
       Player_Roll_LEFTperspective_3: -209390684
+      Player_Roll_LEFTperspective_4: 1387903521
       Player_Roll_LEFTperspective_5: -666928734
       Player_Roll_LEFTperspective_6: -1616672531
-      Player_Roll_LEFTperspective_4: 1387903521
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

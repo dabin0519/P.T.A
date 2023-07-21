@@ -715,34 +715,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_dead_6: -26071938
-      Enemy_dead_20: -186223843
+      Enemy_dead_0: -329018299
+      Enemy_dead_1: 1674657975
+      Enemy_dead_10: 1550445813
+      Enemy_dead_11: -1604358734
       Enemy_dead_12: -1729050422
-      Enemy_dead_2: 1671291263
-      Enemy_dead_19: 1944034261
-      Enemy_dead_21: -102583267
+      Enemy_dead_13: 954092289
+      Enemy_dead_14: -469261529
+      Enemy_dead_15: 1203064494
+      Enemy_dead_16: -1604112351
       Enemy_dead_17: 1584141065
       Enemy_dead_18: 1355386802
-      Enemy_dead_9: 909089688
-      Enemy_dead_27: 1088061362
-      Enemy_dead_25: 592326592
-      Enemy_dead_8: 277072877
-      Enemy_dead_26: 1103071737
-      Enemy_dead_13: 954092289
-      Enemy_dead_16: -1604112351
+      Enemy_dead_19: 1944034261
+      Enemy_dead_2: 1671291263
+      Enemy_dead_20: -186223843
+      Enemy_dead_21: -102583267
       Enemy_dead_22: 1044441599
-      Enemy_dead_3: 252384328
-      Enemy_dead_15: 1203064494
-      Enemy_dead_4: -1893957090
-      Enemy_dead_5: 1822817571
       Enemy_dead_23: 855045097
       Enemy_dead_24: 461483097
-      Enemy_dead_10: 1550445813
+      Enemy_dead_25: 592326592
+      Enemy_dead_26: 1103071737
+      Enemy_dead_27: 1088061362
+      Enemy_dead_3: 252384328
+      Enemy_dead_4: -1893957090
+      Enemy_dead_5: 1822817571
+      Enemy_dead_6: -26071938
       Enemy_dead_7: 1668665536
-      Enemy_dead_11: -1604358734
-      Enemy_dead_1: 1674657975
-      Enemy_dead_14: -469261529
-      Enemy_dead_0: -329018299
+      Enemy_dead_8: 277072877
+      Enemy_dead_9: 909089688
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

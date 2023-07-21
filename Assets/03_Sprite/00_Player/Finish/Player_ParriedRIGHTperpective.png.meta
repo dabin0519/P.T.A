@@ -212,9 +212,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Player_ParriedRIGHTperpective_0: -664086598
-      Player_ParriedRIGHTperpective_3: -345758566
       Player_ParriedRIGHTperpective_1: 1965948665
       Player_ParriedRIGHTperpective_2: -1001558652
+      Player_ParriedRIGHTperpective_3: -345758566
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
