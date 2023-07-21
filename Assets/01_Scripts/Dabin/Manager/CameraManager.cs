@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera _startCam;
     [SerializeField] private CinemachineVirtualCamera[] _cams;
+    [SerializeField] private Animator _camAnim;
     
     private CinemachineVirtualCamera _currentCam;
 
@@ -32,20 +33,35 @@ public class CameraManager : MonoBehaviour
         {
             if(_cams[i] == _currentCam)
             {
-                _cams[i].Priority = 20;
+                _cams[i].Priority = 10;
             }
             else
             {
-                _cams[i].Priority = 10;
+                _cams[i].Priority = 5;
             }
         }
     }
 
-    public void SwitchCam(CinemachineVirtualCamera newCam)
+    public void SwitchCam(int value)
     {
-        _currentCam = newCam;
-
-        _currentCam.Priority = 20;
+        switch (value)
+        {
+            case 0:
+                _camAnim.Play("PlayerCam");
+                break;
+            case 1:
+                _camAnim.Play("Stage1Cam");
+                break;
+            case 2:
+                _camAnim.Play("Stage2Cam");
+                break;
+            case 3:
+                _camAnim.Play("Stage3Cam");
+                break;
+            default:
+                Debug.LogWarning("This dosent have camera this num");
+                break;
+        }
     }
 
     public void CameraShake()

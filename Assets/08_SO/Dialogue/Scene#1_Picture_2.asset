@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   TextWritingTime: 1
-  IsEnd: 0
+  IsEnd: 1
   Contents: "\uC7A5\uC5C4\uD558\uACE0 \uC704\uC5C4\uC788\uB294 \uBAA8\uC2B5, \uAD1C\uD788
     \uC911\uC555\uAC10 \uB9C8\uC800 \uB290\uAEF4\uC9C4\uB2E4."

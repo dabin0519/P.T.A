@@ -30,6 +30,7 @@ public class StageManager : MonoBehaviour
     {
         _stageNum = value;
         _oneCall = false;
+        CameraManager.Instance.SwitchCam(value + 1);
     }
 
     private void Update()
