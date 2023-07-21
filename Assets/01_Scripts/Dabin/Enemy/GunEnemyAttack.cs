@@ -19,9 +19,9 @@ public class GunEnemyAttack : MonoBehaviour
     private void Awake()
     {
         _lineRenderer = transform.parent.Find("LineRenderer").GetComponent<LineRenderer>();
-        _enemyAnim = transform.parent.Find("Visual").GetComponent<Animator>();
+        _enemyAnim = transform.parent.GetComponent<Animator>();
         _player = _playerTrm.GetComponent<Player>();
-        _enemyAI = transform.parent.GetComponent<EnemyAI>();
+        _enemyAI = transform.parent.parent.GetComponent<EnemyAI>();
         _playerVisualTrm = _playerTrm.Find("Visual").transform;
     }
 

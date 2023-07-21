@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Player
   TextWritingTime: 1
-  IsEnd: 0
+  IsEnd: 1
   Contents: "\uC5B4\uB77C \uB0B4 \uD314\uC774?!!"
