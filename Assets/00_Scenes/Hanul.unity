@@ -1632,7 +1632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &746856120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2204,12 +2204,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d22bdfece25e164dab7770bc29528c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPos: {fileID: 2203568093155262919}
   _playerPos: {fileID: 898855890}
   ButtonB: {fileID: 1861622831}
   _layer:
     serializedVersion: 2
     m_Bits: 64
+  _notCheck: {fileID: 2203568093155262924}
 --- !u!1 &916540719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,7 +3654,7 @@ GameObject:
   - component: {fileID: 1681734033}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4478,6 +4478,7 @@ MonoBehaviour:
   _isTimeStop: 0
   _isAtkWaitCool: 0
   IsAttacked: 0
+  _skillUse: 0
 --- !u!1 &2203568093175972092
 GameObject:
   m_ObjectHideFlags: 0

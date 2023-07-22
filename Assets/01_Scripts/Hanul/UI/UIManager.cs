@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     Button _xButton;
     Button _retryButton;
     Button _exitButton;
+    Button _returnButton;
+    Button _exitGameButton;
     bool _Input = false;
 
     public void Init(Transform canvasTrm)
@@ -26,6 +28,8 @@ public class UIManager : MonoBehaviour
         _panel = canvasTrm.Find("Panel").GetComponent<Image>();
         _backPanel = canvasTrm.Find("BackPanel").GetComponent<Image>();
         _exitPanel = canvasTrm.Find("ExitPanel").GetComponent<Image>();
+        _returnButton = canvasTrm.Find("ExitPanel/ReturnButton").GetComponent<Button>();
+        _exitGameButton = canvasTrm.Find("ExitPanel/ExitButton").GetComponent<Button>();
 
         _panel.gameObject.SetActive(false);
         _exitPanel.gameObject.SetActive(false);
@@ -34,9 +38,11 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        _exitButton.onClick.AddListener(ExitGameButton);
+        _exitButton.onClick.AddListener(ExitButton);
         _xButton.onClick.AddListener(ExitSettingButton);
         _retryButton.onClick.AddListener(RetryButton);
+        _returnButton.onClick.AddListener(ReturnButton);
+        _exitGameButton.onClick.AddListener(ExitGameButton);
     }
 
     private void Update()
@@ -68,9 +74,20 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    void ExitGameButton()
+    void ReturnButton()
+    {
+        _exitPanel.gameObject.SetActive(false);
+        _panel.gameObject.SetActive(true);
+    }
+
+    void ExitButton()
     {
         _panel.gameObject.SetActive(false);
         _exitPanel.gameObject.SetActive(true);
+    }
+
+    void ExitGameButton()
+    {
+        Application.Quit();
     }
 }

@@ -29,12 +29,14 @@ public class EnemyAI : MonoBehaviour
     [HideInInspector] public bool _isTimeStop;
     [HideInInspector] public  bool _isAtkWaitCool;
     public bool IsAttacked;
+    public bool _skillUse;
 
     private State _currentState;
     private Transform _playerVisualTrm;
     private Vector2 _target;
     private int _currentWaypoint = 0;
-    private Vector2 x = Vector2.left.normalized;
+    private Vector2 L = Vector2.left.normalized;
+    private Vector2 R = Vector2.right.normalized;
 
     private Animator _enemyAnim;
     private GunEnemyAttack _gunEnemyAttack;
@@ -151,7 +153,8 @@ public class EnemyAI : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x *= -1f;
             transform.localScale = scale;
-            x *= -1;
+            L *= -1;
+            R *= -1;
         }
     }
 
@@ -163,11 +166,14 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, x, _enemyData.ViewDistance, _playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, L, _enemyData.ViewDistance, _playerLayer);
 
-        Debug.DrawRay(transform.position, _enemyData.ViewDistance * x, Color.red);
+        Debug.DrawRay(transform.position, _enemyData.ViewDistance * L, Color.red);
 
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, x, _enemyData.ViewDistance, _playerLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, R, 2, _playerLayer);
+
+
+        Debug.DrawRay(transform.position, 2 * R, Color.red);
 
 
         if (hit && hit.collider.CompareTag("Player"))
@@ -175,6 +181,11 @@ public class EnemyAI : MonoBehaviour
             _enemyAnim.SetTrigger("isAlert");
             StartCoroutine(Alert());
         }
+
+        if(hit2 && hit2.collider.CompareTag("Player"))
+            _skillUse = true;
+        else
+            _skillUse = false;
     }
 
     private IEnumerator Alert()
@@ -208,7 +219,7 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckForAttack()
     {
-        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForward() && _isAtkWaitCool == false)
+        if (Vector2.Distance(transform.position, _playerVisualTrm.position) < _enemyData.AttackDistance && CaculateForwardL() && CaculateForwardR() && _isAtkWaitCool == false)
         {
             _isAtkWaitCool = true;
             print("D");
@@ -224,10 +235,17 @@ public class EnemyAI : MonoBehaviour
         _currentState = state;
     }
 
-    private bool CaculateForward()
+    private bool CaculateForwardR()
     {
         Vector2 a = (transform.position - _playerVisualTrm.position).normalized;
         Vector2 dir = Vector2.right.normalized;
+        return Vector2.Dot(a, dir) > 0;
+    }
+
+    private bool CaculateForwardL()
+    {
+        Vector2 a = (transform.position - _playerVisualTrm.position).normalized;
+        Vector2 dir = Vector2.left.normalized;
         return Vector2.Dot(a, dir) > 0;
     }
 }
