@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class CallDialogue : MonoBehaviour
 {
     [SerializeField] private DialogueSO[] _dialogueSOs;
+    [SerializeField] private bool IsActiveFalse = false;
     [HideInInspector] public bool IsEnd;
 
     public UnityEvent DialogueEnd;
@@ -17,10 +18,14 @@ public class CallDialogue : MonoBehaviour
 
     private void Update()
     {
-        if (IsEnd)
+        if (IsEnd && IsActiveFalse)
         {
             DialogueEnd?.Invoke();
             gameObject.SetActive(false);
+        }
+        else if (IsEnd)
+        {
+            DialogueEnd?.Invoke();
         }
     }
 }
