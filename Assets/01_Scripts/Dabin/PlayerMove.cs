@@ -16,10 +16,6 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake() {
         SpriteRend = GetComponent<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
         _player = GetComponentInParent<Player>();
         _anim = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
@@ -68,6 +64,9 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        float x = Mathf.Clamp(transform.position.x, StageManager.Instance.ClampMinPos.x, StageManager.Instance.ClampMaxPos.x);
+        transform.position = new Vector3(x, transform.position.y, 0);
+
         if (_player.GetState() == PlayerState.End)
             return;
 

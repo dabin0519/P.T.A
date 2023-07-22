@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461f94677b43bb347a17aea4fe0aca3c, type: 3}
-  m_Name: Stage3
+  m_Script: {fileID: 11500000, guid: 4418e3f9a707f3e4d905b19259c907b7, type: 3}
+  m_Name: Scene#2_8
   m_EditorClassIdentifier: 
-  PlayerPos: {x: -3.5, y: -35.5, z: 0}
-  ClampMinPos: {x: -5, y: 0, z: 0}
-  ClampMaxPos: {x: 5, y: 0, z: 0}
+  Name: Doctor
+  TextWritingTime: 1
+  IsEnd: 1
+  Contents: "\uCE7C\uC744.. \uCC3E\uC544"

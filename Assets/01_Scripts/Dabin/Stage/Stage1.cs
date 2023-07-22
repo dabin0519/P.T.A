@@ -16,6 +16,7 @@ public class Stage1 : Stage
     public override void CallStage()
     {
         _playerSleepAnim.enabled = true;
+        //CameraManager.Instance.SwitchCam(1);
         _player.SetActive(false);
     }
 

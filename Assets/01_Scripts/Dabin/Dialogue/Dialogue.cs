@@ -30,12 +30,12 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             StopCoroutine(WriteContents(_dialogueSO));
             _contents.maxVisibleCharacters = _dialogueSO.Contents.Length;
             StartCoroutine(ClickSpace());
-        }
+        }*/
     }
 
     private IEnumerator ClickSpace()

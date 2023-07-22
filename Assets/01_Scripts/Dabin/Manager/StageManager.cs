@@ -11,6 +11,9 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Transform _playerVisualTrm;
     [SerializeField] private Stage[] _stages;
 
+    public Vector3 ClampMaxPos;
+    public Vector3 ClampMinPos;
+
     private int _stageNum = 0;
     private bool _oneCall;
 
@@ -30,7 +33,11 @@ public class StageManager : MonoBehaviour
     {
         _stageNum = value;
         _oneCall = false;
-        CameraManager.Instance.SwitchCam(value + 1);
+        Debug.LogWarning("혹시라도 카메라 작업이 이상하다면 메인 stage가 배열 마지막에 있는지 확인해봐");
+        if(_stageNum == _stages.Length)
+            CameraManager.Instance.SwitchCam(0);
+        else
+            CameraManager.Instance.SwitchCam(value + 1);
     }
 
     private void Update()
@@ -38,6 +45,8 @@ public class StageManager : MonoBehaviour
         if (!_oneCall)
         {
             _playerVisualTrm.position = _stageDatas[_stageNum].PlayerPos;
+            ClampMaxPos = _stageDatas[_stageNum].ClampMaxPos;
+            ClampMinPos = _stageDatas[_stageNum].ClampMinPos;
             _stages[_stageNum].CallStage();
             _oneCall = true;
         }

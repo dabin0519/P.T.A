@@ -11,6 +11,7 @@ public class EnemyCutScene : MonoBehaviour
     [SerializeField] private EnemySO _enemyData;
     [SerializeField] private Animator _anim;
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private Player _player;
 
     public UnityEvent OnShoot;
     public UnityEvent OnDie;
@@ -56,8 +57,11 @@ public class EnemyCutScene : MonoBehaviour
     { 
         _panel.DOFade(1, 1);
         yield return new WaitForSeconds(2);
-        if(_caught)
+        if (_caught)
+        {
             OnDie?.Invoke();
+            _player.SetState(PlayerState.Die);
+        }
         else
             OnShoot?.Invoke();
         _panel.DOFade(0, 1);

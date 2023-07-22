@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Stage1
   m_EditorClassIdentifier: 
   PlayerPos: {x: 5.59, y: -12.3, z: 0}
+  ClampMinPos: {x: -4.5, y: 0, z: 0}
+  ClampMaxPos: {x: 7.5, y: 0, z: 0}
