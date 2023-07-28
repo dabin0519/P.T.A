@@ -34,7 +34,7 @@ public class StageManager : MonoBehaviour
         _stageNum = value;
         _oneCall = false;
         Debug.LogWarning("혹시라도 카메라 작업이 이상하다면 메인 stage가 배열 마지막에 있는지 확인해봐");
-        if(_stageNum == _stages.Length)
+        if(_stageNum == _stages.Length - 1)
             CameraManager.Instance.SwitchCam(0);
         else
             CameraManager.Instance.SwitchCam(value + 1);

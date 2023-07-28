@@ -12,7 +12,8 @@ public enum PlayerState
     Assassin,
     Counter,
     Die,
-    End
+    End,
+    Dialgoue
 }
 
 public class Player : MonoBehaviour

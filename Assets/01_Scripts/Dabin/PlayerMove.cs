@@ -67,7 +67,7 @@ public class PlayerMove : MonoBehaviour
         float x = Mathf.Clamp(transform.position.x, StageManager.Instance.ClampMinPos.x, StageManager.Instance.ClampMaxPos.x);
         transform.position = new Vector3(x, transform.position.y, 0);
 
-        if (_player.GetState() == PlayerState.End)
+        if (_player.GetState() == PlayerState.End && _player.GetState() == PlayerState.Dialgoue)
             return;
 
         if(_player.GetState() == PlayerState.Die)

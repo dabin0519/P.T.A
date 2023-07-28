@@ -218,9 +218,6 @@ MonoBehaviour:
   - {fileID: 3278490975827967742}
   _playerTrm: {fileID: 0}
   _enemyData: {fileID: 11400000, guid: e64211c3e68e50f468da0f5f93b7b590, type: 2}
-  _playerCheckSprites:
-  - {fileID: 21300000, guid: 691564868cc2a07418ad8e69fcf84db6, type: 3}
-  - {fileID: 21300000, guid: ad74cda689fa1f543b8a000ce38c29b1, type: 3}
   OnStop:
     m_PersistentCalls:
       m_Calls: []
@@ -468,7 +465,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1841717904, guid: fdee01dcd00c3d84983627495582cab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

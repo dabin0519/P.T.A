@@ -17,7 +17,7 @@ public class EnemyCutScene : MonoBehaviour
     public UnityEvent OnDie;
 
     private Vector2 _target;
-    private bool _caught;
+    public bool Caught;
 
     private void Start()
     {
@@ -31,8 +31,8 @@ public class EnemyCutScene : MonoBehaviour
         Debug.DrawRay(transform.position, _enemyData.ViewDistance * Vector2.right.normalized, Color.red);
         if (hit)
         {
+            Caught = true;
             _anim.SetTrigger("Shoot");
-            _caught = true;
         }
         else
         {
@@ -57,7 +57,7 @@ public class EnemyCutScene : MonoBehaviour
     { 
         _panel.DOFade(1, 1);
         yield return new WaitForSeconds(2);
-        if (_caught)
+        if (Caught)
         {
             OnDie?.Invoke();
             _player.SetState(PlayerState.Die);

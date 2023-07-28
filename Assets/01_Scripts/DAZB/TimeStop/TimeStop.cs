@@ -8,6 +8,7 @@ public class TimeStop : MonoBehaviour
     //EnemyAI _enemy;
     [SerializeField] private GameObject _ghostEffectPrf;
     [SerializeField] private float _spawnDelay;
+    [SerializeField] private KeyCode _stopKey = KeyCode.R;
     private Player _player;
     public bool isTimeStop;
 
@@ -18,11 +19,11 @@ public class TimeStop : MonoBehaviour
     }
     private void Update() {
         if(_player.GetState() != PlayerState.End && _player.GetState() != PlayerState.Die) {
-            if (Input.GetKeyDown(KeyCode.E) && isTimeStop == false) {
+            if (Input.GetKeyDown(_stopKey) && isTimeStop == false) {
                 StopTime();
             }
 
-            else if (Input.GetKeyDown(KeyCode.E) && isTimeStop == true) {
+            else if (Input.GetKeyDown(_stopKey) && isTimeStop == true) {
                 StartTime();
             }
         }

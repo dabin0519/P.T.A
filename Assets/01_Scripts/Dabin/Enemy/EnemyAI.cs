@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour
 
     public UnityEvent OnStop;
     public UnityEvent OnAttack;
+    public UnityEvent OnDie;
     
     [HideInInspector] public bool _isCheckPlayer;
     [HideInInspector] public bool _isTimeStop;
@@ -70,12 +71,14 @@ public class EnemyAI : MonoBehaviour
     {
 
         if (_currentState != State.TimeStop && IsAttacked == true) {
+            OnDie?.Invoke(); 
             Destroy(gameObject);
         }
 
         
         if(_currentState == State.Die)
         {
+            OnDie?.Invoke();
             _collider.enabled = false;
             _enemyAnim.SetTrigger("IsDie");
             _currentState = State.End;

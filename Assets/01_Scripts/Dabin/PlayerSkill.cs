@@ -20,7 +20,7 @@ public class PlayerSkill : MonoBehaviour
 
     private void Update()
     {
-        if (_player.GetState() == PlayerState.End)
+        if (_player.GetState() == PlayerState.End && _player.GetState() == PlayerState.Dialgoue)
             return;
 
         if (Input.GetMouseButtonDown(1) && _player.GetState() != PlayerState.Parry)

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461f94677b43bb347a17aea4fe0aca3c, type: 3}
   m_Name: StageMain
   m_EditorClassIdentifier: 
-  PlayerPos: {x: -10, y: -22.8, z: 0}
-  ClampMinPos: {x: 0, y: 0, z: 0}
-  ClampMaxPos: {x: 0, y: 0, z: 0}
+  PlayerPos: {x: -10, y: -23, z: 0}
+  ClampMinPos: {x: -12.9, y: -10, z: 0}
+  ClampMaxPos: {x: 80, y: 10, z: 0}
