@@ -19,6 +19,7 @@ public class Grab_su : MonoBehaviour
 
     private bool _isGrab = false;
     private bool _isEnemy = false;
+    private bool _isGrabFailed = false;
 
     private void Start() {
         _grabRange = gameObject.transform;
@@ -50,12 +51,36 @@ public class Grab_su : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Enemy") && _isGrabFailed == false) {
         EnemyAI enemyAI = other.gameObject.GetComponent<EnemyAI>();
         enemyAI.SetState(State.Grab);
         StartCoroutine("GetGrab", other);
         _isEnemy = true;
         _grabRange.position = _grabRangeEndPos.position;
         _grabCollider.enabled = false;
+        }
+
+        else if (other.CompareTag("EnemyShiled") && _isGrabFailed == false) {
+            StartCoroutine("GetGrab", other);
+            _isEnemy = true;
+            _grabRange.position = _grabRangeEndPos.position;
+            _grabCollider.enabled = false;
+        }
+
+        else if (other.CompareTag("Shiled")) {
+            _isGrabFailed = true;
+            StopCoroutine(ThrowGrab());
+            StartCoroutine(failedGrab());
+        }
+    }
+
+    private IEnumerator failedGrab() {
+        //_anim.SetTrigger("");
+        print("Grab failed");
+        yield return new WaitForSeconds(2);
+        print("failedGrab coroutine stop");
+        _isGrabFailed = true;
+        yield break;
     }
 
     private IEnumerator GetGrab(Collider2D other) {

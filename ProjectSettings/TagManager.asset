@@ -7,6 +7,8 @@ TagManager:
   - GrabRange
   - Enemy
   - AtkRange
+  - EnemyShiled
+  - Shiled
   layers:
   - Default
   - TransparentFX
