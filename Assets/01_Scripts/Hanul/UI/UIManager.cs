@@ -11,10 +11,13 @@ public class UIManager : MonoBehaviour
 
     TextMeshProUGUI _settings;
     Image _panel;
-    Image _backpanel;
+    Image _backPanel;
+    Image _exitPanel;
     Button _xButton;
     Button _retryButton;
     Button _exitButton;
+    Button _returnButton;
+    Button _exitGameButton;
     bool _Input = false;
 
     public void Init(Transform canvasTrm)
@@ -23,17 +26,23 @@ public class UIManager : MonoBehaviour
         _xButton = canvasTrm.Find("Panel/XButton").GetComponent<Button>();
         _retryButton = canvasTrm.Find("Panel/RetryButton").GetComponent<Button>();
         _panel = canvasTrm.Find("Panel").GetComponent<Image>();
-        _backpanel = canvasTrm.Find("BackPanel").GetComponent<Image>();
+        _backPanel = canvasTrm.Find("BackPanel").GetComponent<Image>();
+        _exitPanel = canvasTrm.Find("ExitPanel").GetComponent<Image>();
+        _returnButton = canvasTrm.Find("ExitPanel/ReturnButton").GetComponent<Button>();
+        _exitGameButton = canvasTrm.Find("ExitPanel/ExitButton").GetComponent<Button>();
 
         _panel.gameObject.SetActive(false);
-        _backpanel.gameObject.SetActive(false);
+        _exitPanel.gameObject.SetActive(false);
+        _backPanel.gameObject.SetActive(false);
     }
 
     void Start()
     {
-        _exitButton.onClick.AddListener(ExitGameButton);
+        _exitButton.onClick.AddListener(ExitButton);
         _xButton.onClick.AddListener(ExitSettingButton);
         _retryButton.onClick.AddListener(RetryButton);
+        _returnButton.onClick.AddListener(ReturnButton);
+        _exitGameButton.onClick.AddListener(ExitGameButton);
     }
 
     private void Update()
@@ -48,11 +57,13 @@ public class UIManager : MonoBehaviour
         {
             ExitSettingButton();
         }
+
     }
 
     void ExitSettingButton()
     {
         _panel.gameObject.SetActive(false);
+        _exitPanel.gameObject.SetActive(false);
         _Input = false;
         Time.timeScale = 1;
     }
@@ -61,6 +72,18 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Hanul");
         Time.timeScale = 1;
+    }
+
+    void ReturnButton()
+    {
+        _exitPanel.gameObject.SetActive(false);
+        _panel.gameObject.SetActive(true);
+    }
+
+    void ExitButton()
+    {
+        _panel.gameObject.SetActive(false);
+        _exitPanel.gameObject.SetActive(true);
     }
 
     void ExitGameButton()

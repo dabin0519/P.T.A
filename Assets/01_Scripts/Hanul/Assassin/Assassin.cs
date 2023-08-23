@@ -4,81 +4,36 @@ using UnityEngine;
 
 public class Assassin : MonoBehaviour
 {
-    [SerializeField] private Transform _enemyPos;
-    [SerializeField] private GameObject _skillTxt;
+    [SerializeField] Transform _playerPos;
+    [SerializeField] GameObject ButtonB;
+    [SerializeField] LayerMask _layer;
+    [SerializeField] EnemyAI _notCheck;
 
     private Animator _anim;
-    private EnemyAI _enemyAI;
     private Player _player;
-    private Transform _playerPos;
 
-    private Vector2 _player_x;
-    private Vector2 _enemy_x;
-    private bool _isSkill;
-    private int _delayTime = 15;
+    int _delayTime = 15;
 
     private void Awake()
     {
-        _isSkill = false;
-        _skillTxt.SetActive(false);
+        ButtonB.SetActive(false);
         _player = GetComponentInParent<Player>();
         _anim = GetComponentInChildren<Animator>();
-        _playerPos = _player.transform.Find("Visual").transform;
-        _enemyAI = _enemyPos.GetComponent<EnemyAI>();
     }
 
     void Update()
     {
-        GetPos();
-        UseSkill();
-        ButtonSetActive();
-    }
-
-    void GetPos()
-    {
-        if (_playerPos != null)
-            _player_x = new Vector2(_playerPos.position.x, 0);
-
-        if (_enemyPos != null)
+        if (_notCheck._skillUse)
         {
-            _enemy_x = new Vector2(_enemyPos.position.x, 0);
-            _skillTxt.SetActive(true);
-        }
-        else
-        {
-            _skillTxt.SetActive(false);
-            _isSkill = false;
-        }
-    }
+            ButtonB.SetActive(true);
+            ButtonB.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
 
-    void UseSkill()
-    {
-        if (!_enemyAI._isCheckPlayer)
-        {
-            if (_isSkill && Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
                 StartCoroutine("SkillAssas");
         }
         else
-            _skillTxt.SetActive(false);
+            ButtonB.SetActive(false);
     }
-
-    void ButtonSetActive()
-    {
-        if (Vector2.Distance(_player_x, _enemy_x) < 3f)
-        {
-            _isSkill = true;
-            if (!_enemyAI._isCheckPlayer)
-                _skillTxt.transform.position = new Vector2(_playerPos.position.x, _playerPos.position.y + 0.5f);
-            else
-                _skillTxt.SetActive(false);
-        }
-        else
-        {
-            _skillTxt.SetActive(false);
-            _isSkill = false;
-        }
-    }
-
     IEnumerator SkillAssas()
     {
         _player.SetState(PlayerState.Attack);

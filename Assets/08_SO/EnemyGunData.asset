@@ -17,8 +17,8 @@ MonoBehaviour:
   Controller: {fileID: 9100000, guid: 77827a3c1c6c3bd449d96ca277314627, type: 2}
   Speed: 3
   ViewDistance: 5
-  AlretTime: 0.3
-  AttackDistance: 3
+  AlretTime: 1
+  AttackDistance: 5
   AttackCoolTime: 1
   IsDie: 0
   IsPatrol: 1
